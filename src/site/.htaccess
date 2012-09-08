@@ -1,0 +1,16 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|resources)
+RewriteRule ^(.*)$ /index.php/$1 [L]
+Header unset ETag
+FileETag None
+SetOutputFilter DEFLATE
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+SetEnvIfNoCase Request_URI \
+\.(?:gif|jpe?g|png|bmp)$ no-gzip dont-vary
+Header append Vary User-Agent env=!dont-vary
+<filesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
+Header set Cache-Control "max-age=172800, public"
+</filesMatch>
+

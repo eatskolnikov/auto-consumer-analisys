@@ -1,0 +1,3 @@
+$().ready(function(){
+	$('#navbar').scrollspy();
+});
