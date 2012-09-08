@@ -1,0 +1,36 @@
+<mockup version="1.0" skin="sketch" measuredW="672" measuredH="499" mockupW="536" mockupH="483">
+  <controls>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::TitleWindow" x="136" y="16" w="536" h="483" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Reporte%20de%20Flujo%20de%20Personas%20en%20rango%20de%20Fechas</text>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::LineChart" x="169" y="79" w="-1" h="-1" measuredW="187" measuredH="175" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::ColumnChart" x="169" y="299" w="-1" h="-1" measuredW="187" measuredH="175" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Label" x="169" y="64" w="-1" h="-1" measuredW="154" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Relaci%F3n%20de%20Flujo%20por%20mes</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::Label" x="169" y="269" w="-1" h="-1" measuredW="146" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Relaci%F3n%20de%20Flujo%20por%20d%EDa</text>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Label" x="258" y="43" w="-1" h="-1" measuredW="307" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Desde%20dd/mm/yyyy%20hh%3Amm%20hasta%20dd/mm/yyyy%20hh%3Amm</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::PieChart" x="435" y="89" w="-1" h="-1" measuredW="180" measuredH="180" zOrder="6" locked="false" isInGroup="-1"/>
+    <control controlID="50" controlTypeID="__group__" x="448" y="64" w="154" h="20" measuredW="154" measuredH="20" zOrder="7" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="154" h="20" measuredW="153" measuredH="21" zOrder="0" locked="false" isInGroup="50">
+          <controlProperties>
+            <text>Relaci%F3n%20de%20Flujo%20por%20hora</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
