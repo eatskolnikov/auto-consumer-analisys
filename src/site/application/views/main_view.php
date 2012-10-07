@@ -3,8 +3,8 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
 		<title>PUCMM Proyecto Final - Auto Consumer Analysis</title>
-		<link href="public/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="public/css/style.css" rel="stylesheet" />
+		<link href="<?=base_url();?>public/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="<?=base_url();?>public/css/style.css" rel="stylesheet" />
 	</head>
 	<body data-spy="scroll" data-offset="50">
 		<div class="navbar navbar-fixed-top">
@@ -46,7 +46,7 @@
 				<h2>Diseño de la página <small>(03/09/2012)</small> </h2>
 				<p>Se escogió y se implementó el diseño de la página web del proyecto</p>
 				<h2>Nuevo Repositorio en Github <small>(06/09/2012)</small> </h2>
-				<p>Creamos un repositorio del proyecto en Github. <a href="#">Link al repositorio</a> </p>
+				<p>Creamos un repositorio del proyecto en Github. <a href="https://github.com/eatskolnikov/auto-consumer-analisys">Link al repositorio</a> </p>
 				</section>
 				<section id="Equipo" class="row-fluid well">
 					<div class="page-header"><h1>Equipo de trabajo</h1><small></small></div>
@@ -57,15 +57,15 @@
 				<section id="Recursos" class="row-fluid well">
 					<div class="page-header"><h1>Recursos Externos</h1><small></small></div>
 					<ul>
-						<li><a href="#">Trello</a></li>
-						<li><a href="#">Repositorio en GitHub</a></li>
+						<li><a href="https://trello.com/board/proyecto-pucmm/503be5e0b4509c837f602e10">Trello</a></li>
+						<li><a href="https://github.com/eatskolnikov/auto-consumer-analisys">Repositorio en GitHub</a></li>
 					</ul>
 				</section>
 			</div>
 		</div>
-		<script type="text/javascript" src="public/js/jquery.min.js"></script>
-		<script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="public/js/bootstrap-scrollspy.js"></script>
-		<script type="text/javascript" src="public/js/main.js"></script>
+		<script type="text/javascript" src="<?=base_url();?>public/js/jquery.min.js"></script>
+		<script type="text/javascript" src="<?=base_url();?>public/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="<?=base_url();?>public/js/bootstrap-scrollspy.js"></script>
+		<script type="text/javascript" src="<?=base_url();?>public/js/main.js"></script>
 	</body>
 </html>

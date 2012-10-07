@@ -14,8 +14,10 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://aca.net16.net/';
+$config['base_url']	= 'http://localhost/aca/';//'http://aca.net16.net/';
 
+$config['aca_admin_username'] = 'aca_admin';
+$config['aca_admin_pass'] = 'aca12345678aca';
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -224,8 +226,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
-
+$config['encryption_key'] = 'w23ro9iiwefoi2359iuhdfdpojas.nklnlono9;;p[0j0';
 /*
 |--------------------------------------------------------------------------
 | Session Variables
