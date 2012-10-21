@@ -1,0 +1,7 @@
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\bin\Debug\ACAPackagesListener.exe
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\bin\Debug\ACAPackagesListener.pdb
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\obj\x86\Debug\ACAPackagesListener.exe
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\obj\x86\Debug\ACAPackagesListener.pdb
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\bin\Debug\ACAPackagesListener.API.dll
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\bin\Debug\ACAPackagesListener.API.pdb

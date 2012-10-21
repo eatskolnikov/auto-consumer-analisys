@@ -1,0 +1,5 @@
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\FakeServer\FakeServer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\FakeServer\FakeServer\bin\Debug\FakeServer.exe
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\FakeServer\FakeServer\bin\Debug\FakeServer.pdb
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\FakeServer\FakeServer\obj\x86\Debug\FakeServer.exe
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\FakeServer\FakeServer\obj\x86\Debug\FakeServer.pdb
