@@ -3,7 +3,8 @@
 #include <EthernetUdp.h>
 // Enter a MAC address and IP address for your controller below.
 // The IP address will be dependent on your local network:
-byte mac[] = { 0x90, 0xA2, 0xDA, 0x00, 0x1A, 0x40 };
+//byte mac[] = { 0x90, 0xA2, 0xDA, 0x00, 0x1A, 0x40 };
+byte mac[] = { 0x90, 0xA2, 0xDA, 0x0D, 0x53, 0x40 };
 IPAddress ip(10, 0, 0, 21);
 IPAddress server_ip(10, 0, 0, 107);
 
