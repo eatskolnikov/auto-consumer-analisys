@@ -36,30 +36,32 @@ void serialEvent() {
       inChar = (char)Serial.read();
       if(inChar >= 32 && inChar <127)
         inputString += inChar;
-    }while(inChar !='\n');
-    Serial.println(inputString);  
+    }
+    while(inChar !='\n');
+    if(inputString != "OK")
+    {
+      Serial.println(inputString);  
+    }
     if(cmd == -1)
       cmd = BTINQ;
-  
   }
   switch (cmd)
   {
-    case BTINIT:
-      bluetoothInterface.write("AT+ROLE=1\r\n");
-      cmd = BTSETCLASS;
+  case BTINIT:
+    bluetoothInterface.write("AT+ROLE=1\r\n");
+    cmd = BTSETCLASS;
     break;
-    case BTSETCLASS:
-      bluetoothInterface.write("AT+CLASS=1\r\n");
-      bluetoothInterface.write("AT+INQM=1,9,10\r\n");
-     //+IPSCAN:1024,512,1024,512 <- Defaults
-      bluetoothInterface.write("AT+IPSCAN=128,64,1024,512\r\n");
-      cmd = BTINQ;
+  case BTSETCLASS:
+    bluetoothInterface.write("AT+CLASS=0\r\n");
+    bluetoothInterface.write("AT+INQM=1,9,10\r\n");
+    //+IPSCAN:1024,512,1024,512 <- Defaults
+    bluetoothInterface.write("AT+IPSCAN=128,64,1024,512\r\n");
+    cmd = BTINQ;
     break;
-    case BTINQ:
-      //1234,500,1200,250
-      //bluetoothInterface.write("AT+IPSCAN=100,50,1024,512\r\n");
-      bluetoothInterface.write("AT+INQ\r\n");
-      cmd = -1;
-      break;
+  case BTINQ:
+    bluetoothInterface.write("AT+INQ\r\n");
+    cmd = -1;
+    break;
   }
 }
+
