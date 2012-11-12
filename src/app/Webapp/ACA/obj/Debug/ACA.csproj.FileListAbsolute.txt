@@ -1,0 +1,5 @@
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\Webapp\ACA\bin\ACA.dll
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\Webapp\ACA\bin\ACA.pdb
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\Webapp\ACA\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\Webapp\ACA\obj\Debug\ACA.dll
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\Webapp\ACA\obj\Debug\ACA.pdb

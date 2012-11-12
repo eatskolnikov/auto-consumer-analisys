@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lrrc.Sys.Data.Interface</name>
+    </assembly>
+    <members>
+        <member name="T:Lrrc.Sys.Data.Interface.ICommand">
+            <summary>
+            Interfaz Padre para Interfaces de capa de datos.
+            </summary>
+        </member>
+        <member name="P:Lrrc.Sys.Data.Interface.ICommand.DataBase">
+            <summary>
+            Obtiene o Establece el nombre de la base de datos.
+            </summary>
+        </member>
+        <member name="P:Lrrc.Sys.Data.Interface.ICommand.Tabla">
+            <summary>
+            Obtiene o Establece el nombre de la tabla de datos.
+            </summary>
+        </member>
+        <member name="P:Lrrc.Sys.Data.Interface.ICommand.PkColumn">
+            <summary>
+            Obtiene o Establece el nombre de la columna primary key.
+            </summary>
+        </member>
+        <member name="T:Lrrc.Sys.Data.Interface.IPutCommand">
+            <summary>
+            Interfaz para objetos de capa de datos con posibilidad de escritura.
+            </summary>
+        </member>
+        <member name="M:Lrrc.Sys.Data.Interface.IPutCommand.InitPutCommand">
+            <summary>
+            Método para definición de escritura.
+            </summary>
+        </member>
+        <member name="M:Lrrc.Sys.Data.Interface.IPutCommand.ValidarFila">
+            <summary>
+            Método para validación de filas en memoria.
+            </summary>
+        </member>
+        <member name="P:Lrrc.Sys.Data.Interface.IPutCommand.PutCommand">
+            <summary>
+            Obtiene o establece el SqlCommand de escritura.
+            </summary>
+        </member>
+        <member name="P:Lrrc.Sys.Data.Interface.IPutCommand.Fila">
+            <summary>
+            Obtiene o establece la fila en memoria de la tabla del objeto de datos.
+            </summary>
+        </member>
+        <member name="T:Lrrc.Sys.Data.Interface.IGetCommand">
+            <summary>
+            Interfaz para objetos de capa de datos con posibilidad de lectura.
+            </summary>
+        </member>
+        <member name="M:Lrrc.Sys.Data.Interface.IGetCommand.InitGetCommand">
+            <summary>
+            Método para definición de la lectura de datos.
+            </summary>
+        </member>
+        <member name="P:Lrrc.Sys.Data.Interface.IGetCommand.GetCommand">
+            <summary>
+            Obtiene o Establece el SqlCommand de lectura del objeto de datos.
+            </summary>
+        </member>
+        <member name="T:Lrrc.Sys.Data.Interface.IDelCommand">
+            <summary>
+            Interfaz para objetos de capa de datos con posibilidad de eliminación.
+            </summary>
+        </member>
+        <member name="M:Lrrc.Sys.Data.Interface.IDelCommand.InitDelCommand">
+            <summary>
+            Método para definición de la eliminación de datos.
+            </summary>
+        </member>
+        <member name="P:Lrrc.Sys.Data.Interface.IDelCommand.DelCommand">
+            <summary>
+            Obtiene o establece el SqlCommand de eliminación de datos.
+            </summary>
+        </member>
+        <member name="P:Lrrc.Sys.Data.Interface.IDelCommand.DeltaKey">
+            <summary>
+            Obtiene o establece el Primary Key con el que si dispara la eliminación.
+            </summary>
+        </member>
+    </members>
+</doc>

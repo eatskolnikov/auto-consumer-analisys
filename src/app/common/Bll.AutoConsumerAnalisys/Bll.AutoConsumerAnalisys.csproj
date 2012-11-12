@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bll.AutoConsumerAnalisys</RootNamespace>
+    <AssemblyName>Bll.AutoConsumerAnalisys</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bll\AdmPackages.cs" />
+    <Compile Include="Bll\AdmDevices.cs" />
+    <Compile Include="Dal\Devices.cs" />
+    <Compile Include="Dal\Packages.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\ACAPackagesListener\ACAPackagesListener.API\ACAPackagesListener.API.csproj">
+      <Project>{89FDECD0-E170-4C93-A405-4A95DB4190A2}</Project>
+      <Name>ACAPackagesListener.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lrrc.System.Data.Exeception\Lrrc.Sys.Data.Exeception.csproj">
+      <Project>{04200ACA-7ED3-4369-B22A-7903BFB9B43D}</Project>
+      <Name>Lrrc.Sys.Data.Exeception</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lrrc.System.Data.Interface\Lrrc.Sys.Data.Interface.csproj">
+      <Project>{6C9B2593-E7AF-4172-9987-5D528DE91CC4}</Project>
+      <Name>Lrrc.Sys.Data.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lrrc.System.Data\Lrrc.Sys.Data.csproj">
+      <Project>{412DA84B-8C42-4D65-84F7-CBD5B88390E9}</Project>
+      <Name>Lrrc.Sys.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
