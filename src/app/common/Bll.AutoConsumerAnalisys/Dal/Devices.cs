@@ -49,7 +49,7 @@ namespace Dal.AutoConsumerAnalisys
             PutCommand.Parameters.Add(new SqlParameter("@ErrorMessage", SqlDbType.VarChar, 200, "ErrorMessage"));
             PutCommand.Parameters.Add(new SqlParameter("@Ip", SqlDbType.VarChar, 35, "Ip"));
             PutCommand.Parameters.Add(new SqlParameter("@Description", SqlDbType.VarChar, 300, "Description"));
-            PutCommand.Parameters.Add(new SqlParameter("@LonLat", SqlDbType.VarChar, 250, "LonLat"));
+            PutCommand.Parameters.Add(new SqlParameter("@LatLng", SqlDbType.VarChar, 250, "LatLng"));
             PutCommand.Parameters.Add(new SqlParameter("@Activo", SqlDbType.Bit, 1, "Activo"));
 
             PutCommand.Parameters["@" + cfColumn].Direction = ParameterDirection.InputOutput;

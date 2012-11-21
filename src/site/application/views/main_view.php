@@ -3,8 +3,8 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
 		<title>PUCMM Proyecto Final - Auto Consumer Analysis</title>
-		<link href="<?=base_url();?>public/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="<?=base_url();?>public/css/style.css" rel="stylesheet" />
+		<link href="<?=base_url() ?>public/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="<?=base_url() ?>public/css/style.css" rel="stylesheet" />
 	</head>
 	<body data-spy="scroll" data-offset="50">
 		<div class="navbar navbar-fixed-top">
@@ -47,6 +47,13 @@
 				<p>Se escogió y se implementó el diseño de la página web del proyecto</p>
 				<h2>Nuevo Repositorio en Github <small>(06/09/2012)</small> </h2>
 				<p>Creamos un repositorio del proyecto en Github. <a href="https://github.com/eatskolnikov/auto-consumer-analisys">Link al repositorio</a> </p>
+				<h2>Comienzo de pruebas con dispositivos de red<small>(14/10/2012)</small> </h2>
+				<p><ul>
+					<li>Compra de switch de 5 puertos para pruebas</li>
+					<li>Integramos el modulo de ethernet con el arduino UNO</li>
+					<li>Realizando el programa que se comunique con los arduinos</li>
+				</ul></p>
+				<h2>Programa que se comunica con los arduinos terminado<small>(11/11/2012)</small> </h2>
 				</section>
 				<section id="Equipo" class="row-fluid well">
 					<div class="page-header"><h1>Equipo de trabajo</h1><small></small></div>
@@ -62,10 +69,13 @@
 					</ul>
 				</section>
 			</div>
+			<div id="footer" class="row-fluid well" style="text-align:center" >
+				Design powered by <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>
+			</div>
 		</div>
-		<script type="text/javascript" src="<?=base_url();?>public/js/jquery.min.js"></script>
-		<script type="text/javascript" src="<?=base_url();?>public/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="<?=base_url();?>public/js/bootstrap-scrollspy.js"></script>
-		<script type="text/javascript" src="<?=base_url();?>public/js/main.js"></script>
+		<script type="text/javascript" src="<?=base_url() ?>public/js/jquery.min.js"></script>
+		<script type="text/javascript" src="<?=base_url() ?>public/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="<?=base_url() ?>public/js/bootstrap-scrollspy.js"></script>
+		<script type="text/javascript" src="<?=base_url() ?>public/js/main.js"></script>
 	</body>
 </html>

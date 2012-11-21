@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteCond $1 !^(index\.php|resources)
+RewriteCond $1 !^(index\.php|public)
 RewriteRule ^(.*)$ /index.php/$1 [L]
 Header unset ETag
 FileETag None
@@ -13,4 +13,3 @@ Header append Vary User-Agent env=!dont-vary
 <filesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
 Header set Cache-Control "max-age=172800, public"
 </filesMatch>
-

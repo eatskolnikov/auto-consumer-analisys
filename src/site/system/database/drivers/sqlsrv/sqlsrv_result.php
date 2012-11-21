@@ -1,14 +1,14 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * CodeIgniter
  *
- * An open source application development framework for PHP 5.1.6 or newer
+ * An open source application development framework for PHP 4.3.2 or newer
  *
  * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
+ * @author		Rick Ellis
+ * @copyright	Copyright (c) 2006, EllisLab, Inc.
+ * @license		http://www.codeignitor.com/user_guide/license.html
+ * @link		http://www.codeigniter.com
  * @since		Version 1.0
  * @filesource
  */
@@ -21,22 +21,23 @@
  * This class extends the parent result class: CI_DB_result
  *
  * @category	Database
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/database/
+ * @author		Jon Ellis-Jones	<jon@kaweb.co.uk>
+ * @link		http://www.kaweb.co.uk/blog/mssql-server-2005-and-codeigniter
  */
 class CI_DB_sqlsrv_result extends CI_DB_result {
-
+	
 	/**
 	 * Number of rows in the result set
 	 *
 	 * @access	public
 	 * @return	integer
+	 * @link	http://blogs.msdn.com/sqlphp/archive/2008/03/05/functions-to-return-row-count-and-field-count.aspx
 	 */
 	function num_rows()
 	{
-		return @sqlsrv_num_rows($this->result_id);
+		return count(@sqlsrv_field_metadata($this->result_id));
 	}
-
+	
 	// --------------------------------------------------------------------
 
 	/**
@@ -69,6 +70,12 @@ class CI_DB_sqlsrv_result extends CI_DB_result {
 		}
 		
 		return $field_names;
+	}
+	
+	// Deprecated
+	function field_names()
+	{
+		return $this->list_fields();
 	}
 
 	// --------------------------------------------------------------------
@@ -105,7 +112,7 @@ class CI_DB_sqlsrv_result extends CI_DB_result {
 	 * Free the result
 	 *
 	 * @return	null
-	 */
+	 */		
 	function free_result()
 	{
 		if (is_resource($this->result_id))
@@ -129,9 +136,9 @@ class CI_DB_sqlsrv_result extends CI_DB_result {
 	 */
 	function _data_seek($n = 0)
 	{
-		// Not implemented
+		return;
 	}
-
+	
 	// --------------------------------------------------------------------
 
 	/**
@@ -146,7 +153,7 @@ class CI_DB_sqlsrv_result extends CI_DB_result {
 	{
 		return sqlsrv_fetch_array($this->result_id, SQLSRV_FETCH_ASSOC);
 	}
-
+	
 	// --------------------------------------------------------------------
 
 	/**
@@ -161,9 +168,6 @@ class CI_DB_sqlsrv_result extends CI_DB_result {
 	{
 		return sqlsrv_fetch_object($this->result_id);
 	}
-
 }
 
-
-/* End of file mssql_result.php */
-/* Location: ./system/database/drivers/mssql/mssql_result.php */
+?>

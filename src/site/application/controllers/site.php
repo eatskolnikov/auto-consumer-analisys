@@ -9,7 +9,8 @@ class site extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('main_view', array( 'posts' => $this->posts_model->get()));
+		$this->load->model('posts');
+		$this->load->view('main_view', array( 'posts' => $this->posts->get()));
 	}
 }
 ?>

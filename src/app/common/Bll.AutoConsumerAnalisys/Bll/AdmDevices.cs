@@ -34,7 +34,7 @@ namespace Bll.AutoConsumerAnalisys
                 fDevices.Fila["Accion"] = (DeviceId == 0) ? 1 : 2;
                 fDevices.Fila["Ip"] = Ip;
                 fDevices.Fila["Description"] = Description;
-                fDevices.Fila["LonLat"] = LonLat;
+                fDevices.Fila["LatLng"] = LonLat;
                 fDevices.Fila["Activo"] = activo;
 
                 if (DeviceId == 0)

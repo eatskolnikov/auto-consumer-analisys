@@ -1,14 +1,14 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * CodeIgniter
  *
- * An open source application development framework for PHP 5.1.6 or newer
+ * An open source application development framework for PHP 4.3.2 or newer
  *
  * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
+ * @author		Rick Ellis
+ * @copyright	Copyright (c) 2006, EllisLab, Inc.
+ * @license		http://www.codeignitor.com/user_guide/license.html
+ * @link		http://www.codeigniter.com
  * @since		Version 1.0
  * @filesource
  */
@@ -16,13 +16,55 @@
 // ------------------------------------------------------------------------
 
 /**
- * SQLSRV Utility Class
+ * MS SQL Utility Class
  *
  * @category	Database
- * @author		ExpressionEngine Dev Team
- * @link		http://codeigniter.com/user_guide/database/
+ * @author		Jon Ellis-Jones <jon@kaweb.co.uk>
+ * @link		http://www.kaweb.co.uk/blog/mssql-server-2005-and-codeigniter
  */
 class CI_DB_sqlsrv_utility extends CI_DB_utility {
+
+
+	/**
+	 * Create database
+	 *
+	 * @access	private
+	 * @param	string	the database name
+	 * @return	bool
+	 */
+	function _create_database($name)
+	{
+		return "CREATE DATABASE ".$name;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Drop database
+	 *
+	 * @access	private
+	 * @param	string	the database name
+	 * @return	bool
+	 */
+	function _drop_database($name)
+	{
+		return "DROP DATABASE ".$name;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Drop Table
+	 *
+	 * @access	private
+	 * @return	bool
+	 */
+	function _drop_table($table)
+	{
+		return "DROP TABLE ".$this->db->_escape_table($table);
+	}
+
+	// --------------------------------------------------------------------
 
 	/**
 	 * List databases
@@ -81,8 +123,6 @@ class CI_DB_sqlsrv_utility extends CI_DB_utility {
 		// Currently unsupported
 		return $this->db->display_error('db_unsuported_feature');
 	}
-
 }
 
-/* End of file mssql_utility.php */
-/* Location: ./system/database/drivers/mssql/mssql_utility.php */
+?>
