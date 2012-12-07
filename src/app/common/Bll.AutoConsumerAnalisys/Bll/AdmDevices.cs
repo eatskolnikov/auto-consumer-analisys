@@ -16,13 +16,13 @@ namespace Bll.AutoConsumerAnalisys
             GetConnection = Connection;
             fDevices = devices;
         }
-        public static AdmPackages Crear(ref Connection connection)
+        public static AdmDevices Crear(ref Connection connection)
         {
-            var objPackage = new Packages(ref connection);
-            objPackage.CargarEsquema();
-            return new AdmPackages(connection, objPackage);
+            var objDevice = new Devices(ref connection);
+            objDevice.CargarEsquema();
+            return new AdmDevices(connection, objDevice);
         }
-        public void Insertar(Int32 DeviceId, String Ip, String Description, String LonLat, Boolean activo)
+        public void Insertar(Int32 DeviceId, String Ip, String Description, String LatLng, Boolean activo)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace Bll.AutoConsumerAnalisys
                 fDevices.Fila["Accion"] = (DeviceId == 0) ? 1 : 2;
                 fDevices.Fila["Ip"] = Ip;
                 fDevices.Fila["Description"] = Description;
-                fDevices.Fila["LatLng"] = LonLat;
+                fDevices.Fila["LatLng"] = LatLng;
                 fDevices.Fila["Activo"] = activo;
 
                 if (DeviceId == 0)
@@ -47,6 +47,19 @@ namespace Bll.AutoConsumerAnalisys
                 throw new Excepcion(e.Message);
             }
         }
+
+        public void Buscar(Int32 DeviceId, bool UsarDataset)
+        {
+            try
+            {
+                GetTblLogic = fDevices.Buscar(DeviceId, UsarDataset);
+            }
+            catch(Excepcion e)
+            {
+                throw new Excepcion(e.Message);
+            }
+        }
+
         public void Borrar(Int32 DeviceId)
         {
             try

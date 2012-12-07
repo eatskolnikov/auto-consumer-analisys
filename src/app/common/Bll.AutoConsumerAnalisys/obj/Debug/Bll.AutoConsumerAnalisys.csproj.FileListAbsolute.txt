@@ -14,3 +14,5 @@ C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Bll.Aut
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Bll.AutoConsumerAnalisys\bin\Debug\Lrrc.Sys.Data.xml
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Bll.AutoConsumerAnalisys\obj\Debug\Bll.AutoConsumerAnalisys.dll
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Bll.AutoConsumerAnalisys\obj\Debug\Bll.AutoConsumerAnalisys.pdb
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Bll.AutoConsumerAnalisys\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Bll.AutoConsumerAnalisys\bin\Debug\Newtonsoft.Json.xml

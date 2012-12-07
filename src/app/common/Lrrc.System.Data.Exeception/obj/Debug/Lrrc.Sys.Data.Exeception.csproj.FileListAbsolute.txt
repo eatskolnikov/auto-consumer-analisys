@@ -3,3 +3,4 @@ C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Lrrc.Sy
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Lrrc.System.Data.Exeception\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Lrrc.System.Data.Exeception\obj\Debug\Lrrc.Sys.Data.Exeception.dll
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Lrrc.System.Data.Exeception\obj\Debug\Lrrc.Sys.Data.Exeception.pdb
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Lrrc.System.Data.Exeception\bin\Debug\Lrrc.Sys.Data.Exeception.XML

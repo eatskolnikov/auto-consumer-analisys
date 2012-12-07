@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
-using System.Configuration;
 using ACAPackagesListener.API;
-using Bll.AutoConsumerAnalisys;
 using Lrrc.Sys.Data;
-using Lrrc.Sys.Data.Interface;
-using Lrrc.Sys.Data.Exeception;
 using System.Data.SqlClient;
 
 namespace Dal.AutoConsumerAnalisys
 {
     internal sealed class Devices : Command
     {
-        private String cfDataBase = Globals.cfDataBase;
+        private readonly String cfDataBase = Globals.cfDataBase;
         private const String cfTabla = "Devices";
         private const String cfColumn = "DeviceId";
 
@@ -31,8 +24,8 @@ namespace Dal.AutoConsumerAnalisys
         public DataTable Buscar(Int32 DeviceId, Boolean UsarDataSet)
         {
             InitGetCommand();
-            if (PackageId > 0)
-                this.PackageId = PackageId;
+            if (DeviceId > 0)
+                this.DeviceId = DeviceId;
             return Llenar(this, UsarDataSet);
         }
 
@@ -64,7 +57,7 @@ namespace Dal.AutoConsumerAnalisys
             GetCommand.Parameters.Add(new SqlParameter("@DeviceId", SqlDbType.Int, 4));
         }
 
-        private Int32 PackageId
+        private Int32 DeviceId
         {
             get { return (Int32)GetCommand.Parameters["@DeviceId"].Value; }
             set { GetCommand.Parameters["@DeviceId"].Value = value; }

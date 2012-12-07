@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acawebclient", "acawebclient.csproj", "{D30C4A37-60FD-4821-AA69-7B93E2012C80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bll.AutoConsumerAnalisys", "..\..\..\app\common\Bll.AutoConsumerAnalisys\Bll.AutoConsumerAnalisys.csproj", "{7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lrrc.Sys.Data", "..\..\..\app\common\Lrrc.System.Data\Lrrc.Sys.Data.csproj", "{412DA84B-8C42-4D65-84F7-CBD5B88390E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lrrc.Sys.Data.Exeception", "..\..\..\app\common\Lrrc.System.Data.Exeception\Lrrc.Sys.Data.Exeception.csproj", "{04200ACA-7ED3-4369-B22A-7903BFB9B43D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lrrc.Sys.Data.Interface", "..\..\..\app\common\Lrrc.System.Data.Interface\Lrrc.Sys.Data.Interface.csproj", "{6C9B2593-E7AF-4172-9987-5D528DE91CC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACAPackagesListener.API", "..\..\..\app\ACAPackagesListener\ACAPackagesListener.API\ACAPackagesListener.API.csproj", "{89FDECD0-E170-4C93-A405-4A95DB4190A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D30C4A37-60FD-4821-AA69-7B93E2012C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D30C4A37-60FD-4821-AA69-7B93E2012C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D30C4A37-60FD-4821-AA69-7B93E2012C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D30C4A37-60FD-4821-AA69-7B93E2012C80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{412DA84B-8C42-4D65-84F7-CBD5B88390E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412DA84B-8C42-4D65-84F7-CBD5B88390E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412DA84B-8C42-4D65-84F7-CBD5B88390E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412DA84B-8C42-4D65-84F7-CBD5B88390E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04200ACA-7ED3-4369-B22A-7903BFB9B43D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04200ACA-7ED3-4369-B22A-7903BFB9B43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04200ACA-7ED3-4369-B22A-7903BFB9B43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04200ACA-7ED3-4369-B22A-7903BFB9B43D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C9B2593-E7AF-4172-9987-5D528DE91CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C9B2593-E7AF-4172-9987-5D528DE91CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C9B2593-E7AF-4172-9987-5D528DE91CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C9B2593-E7AF-4172-9987-5D528DE91CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89FDECD0-E170-4C93-A405-4A95DB4190A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89FDECD0-E170-4C93-A405-4A95DB4190A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89FDECD0-E170-4C93-A405-4A95DB4190A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89FDECD0-E170-4C93-A405-4A95DB4190A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

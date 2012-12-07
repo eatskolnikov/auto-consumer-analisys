@@ -3,3 +3,5 @@ C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesLis
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener.API\bin\Debug\ACAPackagesListener.API.pdb
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener.API\obj\Debug\ACAPackagesListener.API.dll
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener.API\obj\Debug\ACAPackagesListener.API.pdb
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener.API\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener.API\bin\Debug\Newtonsoft.Json.xml
