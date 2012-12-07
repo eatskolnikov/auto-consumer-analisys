@@ -34,6 +34,6 @@
     <script type="text/javascript" src="/public/js/jquery.min.js" ></script>
     <script type="text/javascript" src="/public/js/bootstrap.min.js" ></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8XhsuuGBy8fBxJM1H8fO-p13zWdMoaWg&sensor=false"></script>
-<script type="text/javascript" src="/public/js/mapsettings.js" ></script>
+    <script type="text/javascript" src="/public/js/mapsettings.js" ></script>
 </body>
 </html>

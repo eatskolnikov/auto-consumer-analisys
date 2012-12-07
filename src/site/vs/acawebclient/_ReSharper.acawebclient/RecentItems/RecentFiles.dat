@@ -1,17 +1,17 @@
 ﻿<RecentFiles>
   <RecentFiles>
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:master/f:Layout.Master.cs" caret="319" fromTop="12" />
-    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/f:Devices.aspx.cs" caret="1205" fromTop="11" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx.cs" caret="592" fromTop="16" />
-    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:public/d:js/f:mapsettings.js" caret="0" fromTop="0" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:master/f:Layout.Master" caret="1709" fromTop="6" />
-    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx" caret="1268" fromTop="17" />
-    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/f:Default.aspx" caret="247" fromTop="3" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/f:Help.aspx" caret="421" fromTop="6" />
+    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:public/d:js/f:mapsettings.js" caret="0" fromTop="0" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/f:Reports.aspx" caret="0" fromTop="0" />
+    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/f:Devices.aspx.cs" caret="2002" fromTop="19" />
+    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/f:Default.aspx" caret="0" fromTop="0" />
+    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx" caret="1392" fromTop="20" />
   </RecentFiles>
   <RecentEdits>
-    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx" caret="1469" fromTop="22" />
+    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx" caret="1477" fromTop="22" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx" caret="420" fromTop="6" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/f:Default.aspx" caret="243" fromTop="4" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:master/f:Layout.Master" caret="392" fromTop="6" />
@@ -36,10 +36,10 @@
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/f:Default.aspx" caret="247" fromTop="3" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:master/f:Layout.Master" caret="1709" fromTop="6" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx.cs" caret="1612" fromTop="32" />
-    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx" caret="1656" fromTop="17" />
-    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx" caret="1240" fromTop="17" />
+    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx" caret="1664" fromTop="17" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx.cs" caret="592" fromTop="7" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:public/d:js/f:mapsettings.js" caret="0" fromTop="0" />
     <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/f:Reports.aspx" caret="0" fromTop="0" />
+    <File id="D30C4A37-60FD-4821-AA69-7B93E2012C80/d:ajax_service/d:forms/f:DeviceForm.aspx" caret="1392" fromTop="20" />
   </RecentEdits>
 </RecentFiles>

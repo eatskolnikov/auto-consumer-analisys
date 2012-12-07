@@ -28,12 +28,20 @@ namespace acawebclient.ajax_service
                     if(Request.QueryString.HasKeys())
                     {
                         var fields = Request.QueryString;
-                        devices.Buscar(Int32.Parse(fields["DeviceId"]),true);
-                        devices.Insertar(Int32.Parse(fields["DeviceId"]),
-                                         devices.GetTblLogic.Rows[0]["Ip"].ToString(), fields["Description"],
-                                         fields.Get("LatLng") == ""
-                                             ? devices.GetTblLogic.Rows[0]["LatLng"].ToString()
-                                             : fields.Get("LatLng"), true);
+
+                        if (Int32.Parse(fields["DeviceId"]) > 0)
+                        {
+                            devices.Buscar(Int32.Parse(fields["DeviceId"]), true);
+                            devices.Insertar(Int32.Parse(fields["DeviceId"]),
+                                             devices.GetTblLogic.Rows[0]["Ip"].ToString(), fields.Get("Description"),
+                                             fields.Get("LatLng") == ""
+                                                 ? devices.GetTblLogic.Rows[0]["LatLng"].ToString()
+                                                 : fields.Get("LatLng"), true);
+                        }
+                        else
+                        {
+                            devices.Insertar(0, "0.0.0.0", fields.Get("Description"), fields.Get("LatLng"), true);
+                        }
                         devices.Sincronizar();
                         serverResponse.success = true;
                         serverResponse.addMessage("Device updated successfully");

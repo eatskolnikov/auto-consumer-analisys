@@ -7,21 +7,28 @@
     <link href="../../public/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="frmProps" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <asp:UpdatePanel runat="server"></asp:UpdatePanel>
         <div class="row-fluid">
         <table>
         <tr><td>Ip </td><td><input ClientIDMode="Static" Id="tbxIp" name="Ip" runat="server" type="text" class="input-mini" /></td></tr>
         <tr><td>LatLng</td><td><input ClientIDMode="Static" Id="tbxLatLng" name="LatLng" runat="server" type="text" readonly="readonly" class="input-mini"/></td></tr>
-        <tr><td>Description</td><td>
-                                    <textarea class="input-mini" ClientIDMode="Static" Id="tbxDescription" name="Description" rows="3" runat="server"></textarea>
-                                </td></tr>
-        <tr><td><asp:Button runat="server" ID="btnUpdate" OnClick="btnUpdate_OnClick" Text="Update" class="btn"/></td><td><asp:Button runat="server" ID="btnDelete" OnClick="btnDelete_OnClick" Text="Delete" class="btn"/></td></tr>
+        <tr>
+            <td>Description</td>
+            <td><textarea class="input-mini" ClientIDMode="Static" Id="tbxDescription" name="Description" rows="3" runat="server"></textarea></td>
+        </tr>
+        <tr>
+            <td><asp:Button runat="server" ID="btnUpdate" OnClick="btnUpdate_OnClick" class="btn" Text="Update" /></td>
+            <td><asp:Button runat="server" ID="btnDelete" OnClick="btnDelete_OnClick" class="btn" Text="Delete" /></td>
+        </tr>
         </table>
         <input ClientIDMode="Static" Id="hdnDeviceId" name="DeviceId" runat="server" type="hidden" />
         </div>
     </form>
-    </div>
     <script type="text/javascript" src="../../public/js/jquery.min.js"></script>
     <script type="text/javascript" src="../../public/js/bootstrap.min.js"></script>
+
 </body>
 </html>
