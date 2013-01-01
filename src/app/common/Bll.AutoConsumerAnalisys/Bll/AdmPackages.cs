@@ -59,7 +59,6 @@ namespace Bll.AutoConsumerAnalisys
                 throw new Excepcion(Error.Mensaje);
             }
         }
-
         public override void Sincronizar()
         {
             try{

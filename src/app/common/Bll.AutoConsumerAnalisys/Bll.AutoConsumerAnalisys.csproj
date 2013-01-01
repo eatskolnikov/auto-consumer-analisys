@@ -42,8 +42,10 @@
   <ItemGroup>
     <Compile Include="Bll\AdmPackages.cs" />
     <Compile Include="Bll\AdmDevices.cs" />
+    <Compile Include="Bll\AdmParsedPackages.cs" />
     <Compile Include="Dal\Devices.cs" />
     <Compile Include="Dal\Packages.cs" />
+    <Compile Include="Dal\ParsedPackages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -62,5 +62,10 @@ namespace Dal.AutoConsumerAnalisys
             get { return (Int32)GetCommand.Parameters["@DeviceId"].Value; }
             set { GetCommand.Parameters["@DeviceId"].Value = value; }
         }
+        public Int32 InsertedDeviceId
+        {
+            get { return (Int32)PutCommand.Parameters["@DeviceId"].Value; }
+            set { PutCommand.Parameters["@DeviceId"].Value = value; }
+        }
     }
 }

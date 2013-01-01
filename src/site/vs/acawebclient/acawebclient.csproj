@@ -53,6 +53,8 @@
   <ItemGroup>
     <Content Include="ajax_service\Devices.aspx" />
     <Content Include="ajax_service\forms\DeviceForm.aspx" />
+    <Content Include="ajax_service\forms\rpt_filters.aspx" />
+    <Content Include="ajax_service\reports\GetParsedPackages.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Help.aspx" />
     <Content Include="public\css\bootstrap-responsive.min.css" />
@@ -90,6 +92,7 @@
     <Content Include="public\js\bootstrap.min.js" />
     <Content Include="public\js\jquery.min.js" />
     <Content Include="public\js\mapsettings.js" />
+    <Content Include="public\js\reports.js" />
     <Content Include="Reports.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -113,6 +116,20 @@
     </Compile>
     <Compile Include="ajax_service\forms\DeviceForm.aspx.designer.cs">
       <DependentUpon>DeviceForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax_service\forms\rpt_filters.aspx.cs">
+      <DependentUpon>rpt_filters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax_service\forms\rpt_filters.aspx.designer.cs">
+      <DependentUpon>rpt_filters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax_service\reports\GetParsedPackages.aspx.cs">
+      <DependentUpon>GetParsedPackages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax_service\reports\GetParsedPackages.aspx.designer.cs">
+      <DependentUpon>GetParsedPackages.aspx</DependentUpon>
     </Compile>
     <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>

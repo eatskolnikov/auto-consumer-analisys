@@ -50,6 +50,8 @@
     <Compile Include="JSONSerializer.cs" />
     <Compile Include="JSON\DeviceCollection.cs" />
     <Compile Include="JSON\Device.cs" />
+    <Compile Include="JSON\ParsedPackage.cs" />
+    <Compile Include="JSON\ParsedPackageCollection.cs" />
     <Compile Include="PackageReceivedEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UDPPackagesListener.cs" />

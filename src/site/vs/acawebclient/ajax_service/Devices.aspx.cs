@@ -45,6 +45,7 @@ namespace acawebclient.ajax_service
                         devices.Sincronizar();
                         serverResponse.success = true;
                         serverResponse.addMessage("Device updated successfully");
+                        serverResponse.addMessage(devices.GetLastInsertedId().ToString());
                         response = serializer.Serialize(serverResponse);
                     }
                     else

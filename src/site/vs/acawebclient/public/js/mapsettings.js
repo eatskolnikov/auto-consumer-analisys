@@ -61,25 +61,13 @@ $(function () {
         var infoUrl = base_url + 'ajax_service/forms/DeviceForm.aspx?DeviceId=' + device.DeviceId;
 
         var infowindow = new google.maps.InfoWindow({
-            content: "<style> iframe{ border: none; } </style><iframe src='"+infoUrl+"'></iframe>",
+            content: "<style> iframe{ border: none; } </style><iframe src='" + infoUrl + "'></iframe>",
             size: new google.maps.Size(400, 600)
         });
         google.maps.event.addListener(marker, 'dblclick', function (e) {
             infowindow.open(map, marker);
         });
-//
-//        $.ajax({
-//            method: 'GET',
-//            url: base_url + 'ajax_service/forms/DeviceForm.aspx?DeviceId=' + device.DeviceId,
-//            success: function (device_form) {
-//                var infowindow = new google.maps.InfoWindow({
-//                    content: device_form //size: new google.maps.Size(100, 150)
-//                });
-//                google.maps.event.addListener(marker, 'dblclick', function (e) {
-//                    infowindow.open(map, marker);
-//                });
-//            }
-//        });
+
         google.maps.event.addListener(marker, 'drag', function (e) {
             markerStartPosition = e.latLng.toString();
             markerStartPosition = markerStartPosition.substr(1, markerStartPosition.length - 2);
@@ -110,9 +98,10 @@ $(function () {
             method: 'POST',
             data: 'DeviceId=0&LatLng=' + coord + '&Description=New marker',
             success: function (response) {
+                var r = JSON.parse(response);
                 if (response == null || response.success == false)
                     alert('error inserting the device');
-                createDeviceMarker({ LatLng: coord, Description: 'New marker', Ip: "", DeviceId: 0 });
+                createDeviceMarker({ LatLng: coord, Description: 'New marker', Ip: "0.0.0.0", DeviceId: r.messages[1] });
                 //console.log('Requested an update');
             }
         });

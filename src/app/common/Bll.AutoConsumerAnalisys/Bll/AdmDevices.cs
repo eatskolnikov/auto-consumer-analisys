@@ -48,6 +48,11 @@ namespace Bll.AutoConsumerAnalisys
             }
         }
 
+        public int GetLastInsertedId()
+        {
+            return fDevices.InsertedDeviceId;
+        }
+
         public void Buscar(Int32 DeviceId, bool UsarDataset)
         {
             try

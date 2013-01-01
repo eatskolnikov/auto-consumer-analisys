@@ -1,16 +1,49 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reports.aspx.cs" Inherits="acawebclient.Reports" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="acawebclient.Default"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+<head id="Head1" runat="server">
+    <title>Auto consumer analisys - Web Application</title>
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/public/css/smoothness/jquery-ui-1.9.2.custom.min.css" rel="stylesheet"/>
+	<style type="text/css">
+		html { height: 100% }
+		body { height: 100%; margin: 0; padding: 0 }
+		#map_canvas { min-height: 728px; height: 100% }
+	</style>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
+    <div class="navbar">
+        <div class="navbar-inner">
+        <a class="brand" href="#">Auto Consumer Analisys</a>
+        <ul class="nav">
+            <li><asp:HyperLink href="/" runat="server" ID="lnkMap">Map</asp:HyperLink></li>
+            <li class="active menu-option"><asp:HyperLink href="/Reports.aspx" runat="server" ID="HyperLink1">Reports</asp:HyperLink></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Filters <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div>
+                        Start date <input name='startdate' id='startdate'/>
+                        End date <input name='enddate' id='enddate'/>
+                        Device <select id='devices' > <option value='0'>-All</option></select>
+                    </div>
+                  </li>
+                </ul>
+            </li>
+        </ul>
+        </div>
     </div>
-    </form>
+    <div class="row-fluid">
+        <div id="map_canvas"></div>    
+    </div>
+    <script type="text/javascript">
+        var base_url = '/';
+        var map = '';
+    </script>
+    <script type="text/javascript" src="/public/js/jquery.min.js" ></script>
+    <script type="text/javascript" src="/public/js/jquery-ui-1.9.2.custom.min.js" ></script>
+    <script type="text/javascript" src="/public/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyA8XhsuuGBy8fBxJM1H8fO-p13zWdMoaWg&sensor=false"></script>
+    <script type="text/javascript" src="/public/js/reports.js" ></script>
 </body>
 </html>
