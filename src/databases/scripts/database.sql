@@ -38,6 +38,7 @@ create table ParsedPackages
 	PackageTimeOfDay int not null,
 	LatLng varchar(250) not null,
 	MAC varchar(250) not null,
+	Activo bit not null default 1,
 	Created datetime not null default getdate()
 )
 go
