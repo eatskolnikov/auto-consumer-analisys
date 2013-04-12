@@ -1,5 +1,0 @@
-C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Lrrc.System.Data\bin\Debug\Lrrc.Sys.Data.dll
-C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Lrrc.System.Data\bin\Debug\Lrrc.Sys.Data.pdb
-C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Lrrc.System.Data\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Lrrc.System.Data\obj\Debug\Lrrc.Sys.Data.dll
-C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\common\Lrrc.System.Data\obj\Debug\Lrrc.Sys.Data.pdb
