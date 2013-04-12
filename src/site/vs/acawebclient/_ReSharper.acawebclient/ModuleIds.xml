@@ -1,8 +1,0 @@
-<Modules>
-  <Module PersistentId="D30C4A37-60FD-4821-AA69-7B93E2012C80" ModuleId="acawebclient" />
-  <Module PersistentId="7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D" ModuleId="Bll.AutoConsumerAnalisys" />
-  <Module PersistentId="412DA84B-8C42-4D65-84F7-CBD5B88390E9" ModuleId="Lrrc.Sys.Data" />
-  <Module PersistentId="89FDECD0-E170-4C93-A405-4A95DB4190A2" ModuleId="ACAPackagesListener.API" />
-  <Module PersistentId="04200ACA-7ED3-4369-B22A-7903BFB9B43D" ModuleId="Lrrc.Sys.Data.Exeception" />
-  <Module PersistentId="6C9B2593-E7AF-4172-9987-5D528DE91CC4" ModuleId="Lrrc.Sys.Data.Interface" />
-</Modules>
