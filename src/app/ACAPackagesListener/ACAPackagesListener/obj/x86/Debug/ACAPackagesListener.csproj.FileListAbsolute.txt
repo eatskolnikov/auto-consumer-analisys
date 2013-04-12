@@ -18,3 +18,5 @@ C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesLis
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\bin\Debug\Lrrc.Sys.Data.Exeception.xml
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Enmanuel\Documents\GitHub\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\bin\Debug\Newtonsoft.Json.xml
+C:\git\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\obj\x86\Debug\ACAPackagesListener.exe
+C:\git\auto-consumer-analisys\src\app\ACAPackagesListener\ACAPackagesListener\obj\x86\Debug\ACAPackagesListener.pdb
