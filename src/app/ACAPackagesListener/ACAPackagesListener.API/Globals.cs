@@ -14,7 +14,7 @@ namespace ACAPackagesListener.API
 
         public static string ConnectionString
         {
-            get { return @"Data Source=localhost\MSSQLSERVER2008;Initial Catalog=autoconsumeranalisys;Integrated Security=True"; }
+            get { return @"Data Source=AMAZONA-BJ2E5Q9;Initial Catalog=autoconsumeranalisys;Integrated Security=True"; }
         }
     }
 }
