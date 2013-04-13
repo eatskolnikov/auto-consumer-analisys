@@ -51,6 +51,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\Default.aspx" />
     <Content Include="ajax_service\Devices.aspx" />
     <Content Include="ajax_service\forms\DeviceForm.aspx" />
     <Content Include="ajax_service\forms\rpt_filters.aspx" />
@@ -107,6 +108,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ajax_service\Devices.aspx.cs">
       <DependentUpon>Devices.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
