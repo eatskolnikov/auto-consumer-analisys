@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="acawebclient.Default" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="acawebclient.Home"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,17 +16,23 @@
         <div class="navbar-inner">
         <a class="brand" href="#">Auto Consumer Analisys</a>
         <ul class="nav">
+            <li class="active menu-option"><asp:HyperLink href="/" runat="server" ID="lnkMap">Map</asp:HyperLink></li>
+            <li><asp:HyperLink href="/Reports.aspx" runat="server" ID="HyperLink1">Reports</asp:HyperLink></li>
+            <li><a href="#/help">Help</a></li>
         </ul>
         </div>
     </div>
     <div class="row-fluid">
-    <form id="form1" runat="server" class="form-horizontal">
-        <input name="username" id="username" placeholder="Username" class="input-medium"/><br/>
-        <input name="password" id="password" placeholder="Password" class="input-medium"/><br/>
-        <input type="submit" value="Log in" class="btn-primary"/>
-    </form>
+<div id="map_canvas"></div>    
     </div>
+    <script type="text/javascript">
+        var base_url = '/';
+        var map = '';
+    </script>
     <script type="text/javascript" src="/public/js/jquery.min.js" ></script>
     <script type="text/javascript" src="/public/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8XhsuuGBy8fBxJM1H8fO-p13zWdMoaWg&sensor=false"></script>
+    <script type="text/javascript" src="/public/js/mapsettings.js" ></script>
 </body>
 </html>
+
