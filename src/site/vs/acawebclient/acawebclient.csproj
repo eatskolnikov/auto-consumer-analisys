@@ -56,8 +56,9 @@
     <Content Include="ajax_service\forms\DeviceForm.aspx" />
     <Content Include="ajax_service\forms\rpt_filters.aspx" />
     <Content Include="ajax_service\reports\GetParsedPackages.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="Help.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="public\css\bootstrap-responsive.min.css" />
     <Content Include="public\css\bootstrap.min.css" />
     <Content Include="public\css\style.css" />
@@ -146,12 +147,12 @@
     <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Help.aspx.cs">
       <DependentUpon>Help.aspx</DependentUpon>
@@ -160,12 +161,26 @@
     <Compile Include="Help.aspx.designer.cs">
       <DependentUpon>Help.aspx</DependentUpon>
     </Compile>
-    <Compile Include="master\Layout.Master.cs">
-      <DependentUpon>Layout.Master</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="master\Layout.Master.designer.cs">
-      <DependentUpon>Layout.Master</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\Logged.Master.cs">
+      <DependentUpon>Logged.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\Logged.Master.designer.cs">
+      <DependentUpon>Logged.Master</DependentUpon>
+    </Compile>
+    <Compile Include="master\Reports.master.cs">
+      <DependentUpon>Reports.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\Reports.master.designer.cs">
+      <DependentUpon>Reports.master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports.aspx.cs">
@@ -196,7 +211,13 @@
     <Folder Include="public\img\map\tiles\6\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="master\Layout.Master" />
+    <Content Include="connections.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="master\Logged.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="master\Reports.master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

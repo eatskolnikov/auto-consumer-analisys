@@ -1,5 +1,0 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="acawebclient.master.Layout" %>
-
-
-        <asp:ContentPlaceHolder ID="pageContent" runat="server">
-        </asp:ContentPlaceHolder>
