@@ -1,6 +1,6 @@
 ﻿$(function () {
     var map_cols = 8;
-    var map_rows = 5;
+    var map_rows = 4;
     var tile_dimension = 168;
     var maptiler = new google.maps.ImageMapType({
         getTileUrl:
@@ -32,7 +32,6 @@
     map.overlayMapTypes.insertAt(0, maptiler);
 
     google.maps.event.addListener(map, 'drag', function (e) {
-        console.log(map.getCenter());
         if (strictBounds.contains(map.getCenter())) return;
         var c = map.getCenter(),
             x = c.lng(),
@@ -57,12 +56,14 @@
                 var macs = {};
                 if (data != null && typeof (data.success) != 'undefined' && data.success == true) {
                     var packages = JSON.parse(data.objectData).ParsedPackages;
+                    var coordinates = [];
                     var l = packages.length;
                     for (var i = 0; i < l; i++) {
                         macs[packages[i].MAC] = true;
                         var LatLng = packages[i].LatLng.split(',');
                         markers.push(new google.maps.LatLng(LatLng[0], LatLng[1]));
                     }
+
                     for (var mac in macs) {
                         $("#devices").append("<option>" + mac + "</option>");
                     }
@@ -96,6 +97,10 @@
                         data: markers
                     });
                     heatmap.setMap(map);
+                    var polyline = new google.maps.Polyline({
+                        path: markers,
+                        map:map
+                    });
                 } else {
                     console.log('No devices retrieved ):');
                     console.log(data);

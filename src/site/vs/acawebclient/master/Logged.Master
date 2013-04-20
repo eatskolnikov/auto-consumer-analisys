@@ -21,7 +21,7 @@
         <ul class="nav" id="navOptions" runat="server">
             <li class="active"><a href="/Home.aspx" >Map</a></li>
             <li><a href="/Reports.aspx" >Reports</a></li>
-            <li><a href="/help">Help</a></li>
+            <li><a id="btnHelp" href="#" onclick="showHelp(); return false;">Help</a></li>
         </ul>
         </div>
     </div>
