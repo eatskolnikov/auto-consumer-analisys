@@ -13,19 +13,24 @@
 	</style>
 </head>
 <body>
-    <div class="navbar">
-        <div class="navbar-inner">
-        <a class="brand" href="#">Auto Consumer Analisys</a>
-        <ul class="nav">
-        </ul>
+    <div class="container-fluid">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+            <a class="brand" href="#">Auto Consumer Analisys</a>
+            <ul class="nav">
+            </ul>
+            </div>
         </div>
-    </div>
-    <div class="row-fluid">
-    <form id="form1" runat="server" class="form-horizontal">
-        <input name="username" id="username" placeholder="Username" class="input-medium"/><br/>
-        <input name="password" id="password" placeholder="Password" class="input-medium"/><br/>
-        <input type="submit" value="Log in" class="btn-primary"/>
-    </form>
+        <div class="row-fluid" style="margin-top: 50px">
+            <div class="offset4 span4 hero-unit">
+            <form id="form1" runat="server" class="form-horizontal">
+                <h4>Autenticaci&oacute;n de usuario</h4>
+                <p><asp:TextBox Id="tbxUsername" placeholder="Username" class="input-large" runat="server"/></p>
+                <p><asp:TextBox TextMode="Password" Id="tbxPassword" placeholder="Password" class="input-large" runat="server"/></p>
+                <p><asp:Button Text="Entrar" class="btn btn-primary" runat="server" OnClick="LogIn"/><asp:Label runat="server" ID="lblMessage" ForeColor="#ff0000" Font-Size="10px" /></p>
+            </form>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="/public/js/jquery.min.js" ></script>
     <script type="text/javascript" src="/public/js/bootstrap.min.js" ></script>
