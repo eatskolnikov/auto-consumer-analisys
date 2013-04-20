@@ -1,42 +1,28 @@
 $(function () {
     var map_cols = 8;
-    var map_rows = 5;
+    var map_rows = 4;
     var tile_dimension = 168;
     var maptiler = new google.maps.ImageMapType({
         getTileUrl:
 			function (coord, zoom) {
 			    var x = coord.x % map_cols;
 			    var y = coord.y % map_rows;
-			    if (x < 0 || y < 0) {
-			        return "";
-			    }
+			    if (x < 0 || y < 0) { return ""; }
 			    if (y < 0) y = y * -1;
 			    return base_url + "public/img/map/tiles/" + y + "/" + x + ".png";
 			},
         tileSize: new google.maps.Size(tile_dimension, tile_dimension),
         isPng: true
     });
-    var mapOptions = {
-        center: new google.maps.LatLng(45, 45),
-        zoom: 2,
-        maxZoom: 2,
-        minZoom: 2,
-        disableDefaultUI: true
-    };
-    var strictBounds = new google.maps.LatLngBounds(
-        new google.maps.LatLng(0, 0),
-        new google.maps.LatLng(0, 0)
-    );
+    var mapOptions = { center: new google.maps.LatLng(45, 45), zoom: 2, maxZoom: 2, minZoom: 2, disableDefaultUI: true };
+    var strictBounds = new google.maps.LatLngBounds( new google.maps.LatLng(0, 0), new google.maps.LatLng(0, 0));
 
     map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     map.overlayMapTypes.insertAt(0, maptiler);
 
     google.maps.event.addListener(map, 'drag', function (e) {
-        console.log(map.getCenter());
         if (strictBounds.contains(map.getCenter())) return;
-        var c = map.getCenter(),
-            x = c.lng(),
-            y = c.lat(),
+        var c = map.getCenter(), x = c.lng(), y = c.lat(), 
             maxX = strictBounds.getNorthEast().lng(),
             maxY = strictBounds.getNorthEast().lat(),
             minX = strictBounds.getSouthWest().lng(),
@@ -80,8 +66,7 @@ $(function () {
                 data: 'DeviceId=' + device.DeviceId + '&LatLng=' + markerStartPosition,
                 success: function (response) {
                     if (response == null || response.success == false)
-                        alert('error updating the device position');
-                    //console.log('Requested an update');
+                        showMessage('Error actualizando la posicion del dispositivo');
                 }
             });
         });
@@ -100,9 +85,8 @@ $(function () {
             success: function (response) {
                 var r = JSON.parse(response);
                 if (response == null || response.success == false)
-                    alert('error inserting the device');
-                createDeviceMarker({ LatLng: coord, Description: 'New marker', Ip: "0.0.0.0", DeviceId: r.messages[1] });
-                //console.log('Requested an update');
+                    showMessage('Error insertando dispositivo');
+                createDeviceMarker({ LatLng: coord, Description: 'Nuevo dispositivo', Ip: "0.0.0.0", DeviceId: r.messages[1] });
             }
         });
     });
@@ -115,16 +99,13 @@ $(function () {
                 if (data != null && typeof (data.success) != 'undefined' && data.success == true) {
                     var devices = JSON.parse(data.objectData).Devices;
                     var l = devices.length;
-                    for (var i = 0; i < l; i++) {
-                        createDeviceMarker(devices[i]);
-                    }
+                    for (var i = 0; i < l; i++) { createDeviceMarker(devices[i]); }
                 } else {
-                    console.log('No devices retrieved ):');
-                    console.log(data);
+                    showMessage("No se encontraron dispositivos ):");
                 }
             }
         }).fail(function (jqXHR, textStatus) {
-            alert("Request failed: " + textStatus);
+            showMessage("Request failed: " + textStatus);
         });
     };
     get_markers();

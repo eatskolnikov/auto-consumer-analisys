@@ -97,6 +97,7 @@
     <Content Include="public\img\map\tiles\3\7.png" />
     <Content Include="public\js\bootstrap.min.js" />
     <Content Include="public\js\jquery.min.js" />
+    <Content Include="public\js\maphelpers.js" />
     <Content Include="public\js\mapsettings.js" />
     <Content Include="public\js\reports.js" />
     <Content Include="Reports.aspx" />

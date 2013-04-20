@@ -19,15 +19,28 @@
         <div class="navbar-inner">
         <a class="brand" href="#">Auto Consumer Analisys</a>
         <ul class="nav" id="navOptions" runat="server">
-            <li class="active menu-option"><asp:HyperLink href="/" runat="server" ID="lnkMap">Map</asp:HyperLink></li>
-            <li><asp:HyperLink href="/Reports.aspx" runat="server" ID="HyperLink1">Reports</asp:HyperLink></li>
-            <li><a href="#/help">Help</a></li>
+            <li class="active"><a href="/Home.aspx" >Map</a></li>
+            <li><a href="/Reports.aspx" >Reports</a></li>
+            <li><a href="/help">Help</a></li>
         </ul>
         </div>
     </div>
     <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <div id="modalDialog" class="modal hide fade">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Modal header</h3>
+          </div>
+          <div class="modal-body">
+            <p></p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          </div>
+        </div>
+        
+        <asp:ContentPlaceHolder ID="PageContent" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
@@ -39,6 +52,7 @@
     <script type="text/javascript" src="/public/js/jquery.min.js" ></script>
     <script type="text/javascript" src="/public/js/bootstrap.min.js" ></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8XhsuuGBy8fBxJM1H8fO-p13zWdMoaWg&sensor=false"></script>
+    <script type="text/javascript" src="/public/js/maphelpers.js" ></script>
     <script type="text/javascript" src="/public/js/mapsettings.js" ></script>
 </body>
 </html>

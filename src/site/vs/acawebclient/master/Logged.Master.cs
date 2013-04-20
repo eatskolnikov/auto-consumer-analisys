@@ -11,7 +11,7 @@ namespace acawebclient.master
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(Request.Cookies["UserData"].Value))
+            if(String.IsNullOrEmpty((string) Session["LoggedUser"]))
                 Response.Redirect("~/Default.aspx");
         }
     }

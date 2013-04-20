@@ -13,7 +13,7 @@ namespace acawebclient
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
-            if(Request.Cookies.AllKeys.Contains("LoggedUser"))
+            if(Session["LoggedUser"] != null)
             {
                 Response.Redirect("~/Home.aspx");
             }
@@ -24,7 +24,8 @@ namespace acawebclient
             if (tbxUsername.Text == ConfigurationManager.AppSettings["TestUser"] && 
                 tbxPassword.Text == ConfigurationManager.AppSettings["TestPass"])
             {
-                Request.Cookies.Add(new HttpCookie("LoggedUser", "TestUser"));
+                Session.Add("LoggedUser", "TestUser");
+                Response.Redirect("~/Home.aspx");
             }else
             {
                 lblMessage.Text = "Wrong username or password";
