@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
-#define rxPin 5
-#define txPin 4
+#define rxPin 6
+#define txPin 5
 #define ledPin 13
 #define baud_rate 38400
 
@@ -17,14 +17,19 @@ String inputString = "";
 int cmd = BTINIT;
 
 void setup() {
+  pinMode(13, OUTPUT);
   Serial.begin(baud_rate);
   bluetoothInterface.begin(baud_rate);
+  delay(2000);
   bluetoothInterface.write("AT+INIT\r\n");
   inputString.reserve(512);
-  delay(1000);
 }
 
 void loop() {
+  //delay(1000);
+  //digitalWrite(13, HIGH);
+  //delay(1000);
+  //digitalWrite(13, LOW);
 }
 
 void serialEvent() {

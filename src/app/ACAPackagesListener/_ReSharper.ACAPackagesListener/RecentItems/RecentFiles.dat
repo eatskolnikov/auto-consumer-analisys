@@ -1,6 +1,5 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="89FDECD0-E170-4C93-A405-4A95DB4190A2/f:Globals.cs" caret="439" fromTop="16" />
     <File id="7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D/d:Bll/f:AdmPackages.cs" caret="290" fromTop="12" />
     <File id="412DA84B-8C42-4D65-84F7-CBD5B88390E9/f:clAdapter.cs" caret="13079" fromTop="17" />
     <File id="89FDECD0-E170-4C93-A405-4A95DB4190A2/f:UDPPackagesListener.cs" caret="1546" fromTop="12" />
@@ -9,6 +8,8 @@
     <File id="7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D/d:Dal/f:Devices.cs" caret="395" fromTop="15" />
     <File id="7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D/d:Bll/f:AdmDevices.cs" caret="833" fromTop="7" />
     <File id="5C685E71-1073-4622-9374-6BC7590FE6F3/f:Program.cs" caret="1402" fromTop="45" />
+    <File id="89FDECD0-E170-4C93-A405-4A95DB4190A2/f:Globals.cs" caret="621" fromTop="21" />
+    <File id="5C685E71-1073-4622-9374-6BC7590FE6F3/f:App.config" caret="345" fromTop="8" />
   </RecentFiles>
   <RecentEdits>
     <File id="89FDECD0-E170-4C93-A405-4A95DB4190A2/f:Globals.cs" caret="439" fromTop="16" />
@@ -17,5 +18,6 @@
     <File id="89FDECD0-E170-4C93-A405-4A95DB4190A2/f:IListenToPackages.cs" caret="304" fromTop="11" />
     <File id="7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D/d:Dal/f:Devices.cs" caret="2766" fromTop="22" />
     <File id="7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D/d:Bll/f:AdmDevices.cs" caret="2063" fromTop="24" />
+    <File id="5C685E71-1073-4622-9374-6BC7590FE6F3/f:App.config" caret="285" fromTop="6" />
   </RecentEdits>
 </RecentFiles>

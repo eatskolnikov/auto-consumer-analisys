@@ -3,8 +3,8 @@
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
-#define rxPin 5
-#define txPin 4
+#define rxPin 6
+#define txPin 5
 #define ledPin 13
 #define baud_rate 38400
 
@@ -16,8 +16,8 @@
 
 //byte mac[] = { 0x90, 0xA2, 0xDA, 0x00, 0x1A, 0x40 };
 byte mac[] = { 0x90, 0xA2, 0xDA, 0x0D, 0x53, 0x40 };
-//IPAddress ip(10, 0, 0, 21);
-IPAddress ip(10, 0, 0, 22);
+IPAddress ip(10, 0, 0, 21);
+//IPAddress ip(10, 0, 0, 22);
 IPAddress server_ip(10, 0, 0, 107);
 
 unsigned int localPort = 8888;
