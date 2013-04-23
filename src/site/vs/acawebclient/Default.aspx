@@ -25,7 +25,7 @@
             <div class="offset4 span4 hero-unit">
             <form id="form1" runat="server" class="form-horizontal">
                 <h4>Autenticaci&oacute;n de usuario</h4>
-                <p><asp:TextBox Id="tbxUsername" placeholder="Username" class="input-large" runat="server"/></p>
+                <p><asp:TextBox Id="tbxUsername" placeholder="Username" class="input-large" runat="server"></asp:TextBox></p>
                 <p><asp:TextBox TextMode="Password" Id="tbxPassword" placeholder="Password" class="input-large" runat="server"/></p>
                 <p><asp:Button Text="Entrar" class="btn btn-primary" runat="server" OnClick="LogIn"/><asp:Label runat="server" ID="lblMessage" ForeColor="#ff0000" Font-Size="10px" /></p>
             </form>

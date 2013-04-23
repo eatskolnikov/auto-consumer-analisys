@@ -212,9 +212,6 @@
     <Folder Include="public\img\map\tiles\6\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="connections.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="master\Logged.Master" />
   </ItemGroup>
   <ItemGroup>
