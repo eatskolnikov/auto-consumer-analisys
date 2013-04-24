@@ -19,9 +19,9 @@
         <div class="navbar-inner">
         <a class="brand" href="#">Auto Consumer Analisys</a>
         <ul class="nav" id="navOptions" runat="server">
-            <li class="active"><a href="/Home.aspx" >Map</a></li>
-            <li><a href="/Reports.aspx" >Reports</a></li>
-            <li><a id="btnHelp" href="#" onclick="showHelp(); return false;">Help</a></li>
+            <li class="active"><a href="/Home.aspx" >Mapa</a></li>
+            <li><a href="/Reports.aspx" >Reporte</a></li>
+<%--            <li><a id="btnHelp" href="#" onclick="showHelp(); return false;">Help</a></li>--%>
         </ul>
         </div>
     </div>
@@ -30,7 +30,7 @@
         <div id="modalDialog" class="modal hide fade">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>Modal header</h3>
+            <h3>Alerta</h3>
           </div>
           <div class="modal-body">
             <p></p>

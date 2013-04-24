@@ -217,6 +217,9 @@
   <ItemGroup>
     <Content Include="master\Reports.master" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="PackagesParser.ip" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
