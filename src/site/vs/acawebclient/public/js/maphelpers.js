@@ -7,5 +7,5 @@
 };
 
 var showHelp = function () {
-    $('#modalDialog').modal({show:true,remote:'/Help.aspx'});
+    $('#modalDialog').modal({ show: true, remote: 'http://ec2-23-20-227-175.compute-1.amazonaws.com/Help.aspx' });
 };

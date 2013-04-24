@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Logged.master.cs" Inherits="acawebclient.master.Logged" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Reports.master.cs" Inherits="acawebclient.master.Reports" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -51,7 +51,7 @@
     </script>
     <script type="text/javascript" src="/public/js/jquery.min.js" ></script>
     <script type="text/javascript" src="/public/js/bootstrap.min.js" ></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8XhsuuGBy8fBxJM1H8fO-p13zWdMoaWg&sensor=false"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyA8XhsuuGBy8fBxJM1H8fO-p13zWdMoaWg&sensor=false"></script>
     <script type="text/javascript" src="/public/js/maphelpers.js" ></script>
     <script type="text/javascript" src="/public/js/reports.js" ></script>
 </body>
