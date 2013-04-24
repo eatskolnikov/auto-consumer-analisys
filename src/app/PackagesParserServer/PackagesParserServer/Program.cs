@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Data;
@@ -26,12 +27,13 @@ namespace PackagesParserServer
                 connection.Open();
                 var command = new SqlCommand("Spc_Parse_Packages", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.ExecuteNonQuery();
+                var rowsAffected = command.ExecuteNonQuery();
                 connection.Close();
+                Console.WriteLine("Rows affected: " + rowsAffected.ToString(CultureInfo.InvariantCulture));
             }
-            catch
+            catch(Exception ex)
             {
-                
+                Console.WriteLine(ex.Message);
             }
         }
     }
