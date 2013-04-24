@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,24 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\common\Bll.AutoConsumerAnalisys\Bll.AutoConsumerAnalisys.csproj">
-      <Project>{7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D}</Project>
-      <Name>Bll.AutoConsumerAnalisys</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\common\Lrrc.System.Data.Exeception\Lrrc.Sys.Data.Exeception.csproj">
-      <Project>{04200ACA-7ED3-4369-B22A-7903BFB9B43D}</Project>
-      <Name>Lrrc.Sys.Data.Exeception</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\common\Lrrc.System.Data.Interface\Lrrc.Sys.Data.Interface.csproj">
-      <Project>{6C9B2593-E7AF-4172-9987-5D528DE91CC4}</Project>
-      <Name>Lrrc.Sys.Data.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\common\Lrrc.System.Data\Lrrc.Sys.Data.csproj">
-      <Project>{412DA84B-8C42-4D65-84F7-CBD5B88390E9}</Project>
-      <Name>Lrrc.Sys.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
