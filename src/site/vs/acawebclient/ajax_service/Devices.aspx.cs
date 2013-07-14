@@ -4,22 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ACAPackagesListener.API.JSON;
+using ACAPackagesListener.API.Models.Enities;
+using ACAPackagesListener.API.Models.Repositories;
 using ACAPackagesListener.API.http;
-using Bll.AutoConsumerAnalisys;
-using Lrrc.Sys.Data;
 using TeamNotification_Library.Service.Http;
 
 namespace acawebclient.ajax_service
 {
     public partial class Devices : BasePage
     {
-        private AdmDevices devices;
+        private IDeviceRepository deviceRepository;
         protected void Page_Load(object sender, EventArgs e)
         {
+            deviceRepository = new NHDeviceRepository();
             if(!IsPostBack)
             {
-                devices = AdmDevices.Crear(ref Connection);
+
                 var serializer = new JSONSerializer();
                 var serverResponse = new ServerResponse();
                 var response = "";
@@ -31,30 +31,31 @@ namespace acawebclient.ajax_service
 
                         if (Int32.Parse(fields["DeviceId"]) > 0)
                         {
-                            devices.Buscar(Int32.Parse(fields["DeviceId"]), true);
-                            devices.Insertar(Int32.Parse(fields["DeviceId"]),
-                                             devices.GetTblLogic.Rows[0]["Ip"].ToString(), fields.Get("Description"),
-                                             fields.Get("LatLng") == ""
-                                                 ? devices.GetTblLogic.Rows[0]["LatLng"].ToString()
-                                                 : fields.Get("LatLng"), true);
+                            var device = deviceRepository.GetById(Int32.Parse(fields["DeviceId"]));
+                            device.Description = fields.Get("Description");
+                            if (!String.IsNullOrEmpty(fields.Get("LatLng")))
+                                device.LatLng = fields.Get("LatLng");
                         }
                         else
                         {
-                            devices.Insertar(0, "0.0.0.0", fields.Get("Description"), fields.Get("LatLng"), true);
+                            deviceRepository.Add(new Device
+                                {
+                                    Ip = "0.0.0.0",
+                                    Description = fields.Get("Description"),
+                                    LatLng = fields.Get("LatLng"),
+                                    Activo =  true
+                                });
                         }
-                        devices.Sincronizar();
                         serverResponse.success = true;
                         serverResponse.addMessage("Device updated successfully");
-                        serverResponse.addMessage(devices.GetLastInsertedId().ToString());
                         response = serializer.Serialize(serverResponse);
                     }
                     else
                     {
-                        devices.Buscar(0, true);
+                        var devices = deviceRepository.GetAll();
                         serverResponse.success = true;
                         serverResponse.addMessage("Devices retrieved successfully");
-                        var deviceCollection = new DeviceCollection(devices.GetTblLogic.Select());
-                        serverResponse.objectData = serializer.Serialize(deviceCollection);
+                        serverResponse.objectData = serializer.Serialize(devices);
                         response = serializer.Serialize(serverResponse);
                     }
                 }

@@ -4,16 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using ACAPackagesListener.API;
-using Lrrc.Sys.Data;
+using ACAPackagesListener.API.Models.Enities;
 
 namespace acawebclient
 {
     public class BasePage : Page
     {
-        protected Connection Connection;
+        protected User Identity;
         public BasePage()
         {
-            Connection = new Connection(Globals.ConnectionString);
         }
     }
 }
