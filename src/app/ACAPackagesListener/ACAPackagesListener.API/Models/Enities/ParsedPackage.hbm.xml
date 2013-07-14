@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ACAPackagesListener.API.Models.Entities" assembly="ACAPackagesListener.API">
+  <class name="ParsedPackage" table="ParsedPackages" lazy="false">
+    <id name="ParsedPackageId">
+      <column name="ParsedPackageId" />
+      <generator class="native" />
+    </id>
+    <many-to-one name="Package" class="Package" column="PackageId" cascade="all" />
+    <property name="PackageDate"></property>
+    <property name="PackageTimeOfDay"></property>
+    <property name="LatLng"></property>
+    <property name="MAC"></property>
+  </class>
+</hibernate-mapping>
