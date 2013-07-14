@@ -18,6 +18,9 @@ namespace ACAPackagesListener.API.JSON
                 parsedPackages.Add(parsedPackage);
             }
         }
+
+        public string MAC { get; set; }
+
         public JSON.ParsedPackage[] ParsedPackages
         {
             get { return parsedPackages.ToArray(); }

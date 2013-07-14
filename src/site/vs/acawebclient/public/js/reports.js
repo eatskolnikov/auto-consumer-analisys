@@ -47,6 +47,7 @@
         map.setCenter(new google.maps.LatLng(45, 45));
     });
     var markers = [];
+    var points = [];
     var get_markers = function () {
         $.ajax({
             url: base_url + 'ajax_service/reports/GetParsedPackages.aspx?StartDate=20121200',
@@ -72,22 +73,29 @@
                         if ($("#devices").val() != '0') {
                             url = url + '&MAC=' + encodeURIComponent($("#devices").val());
                         }
-                        alert(url);
+                        var groupedDevices;
                         $.ajax({
                             url: url,
                             method: 'GET',
                             dataType: 'json',
                             success: function (data) {
                                 heatmap.setMap(null);
+                                points = [];
                                 markers = [];
+                                groupedDevices = {};
                                 if (data != null && typeof (data.success) != 'undefined' && data.success == true) {
                                     var packages = JSON.parse(data.objectData).ParsedPackages;
                                     var l = packages.length;
                                     for (var i = 0; i < l; i++) {
+                                        if (typeof (groupedDevices[packages[i].MAC]) == 'undefined')
+                                            groupedDevices[packages[i].MAC] = [];
+                                        groupedDevices[packages[i].MAC].push(new google.maps.LatLng(LatLng[0], LatLng[1]));
                                         var LatLng = packages[i].LatLng.split(',');
-                                        markers.push(new google.maps.LatLng(LatLng[0], LatLng[1]));
+                                        points.push(new google.maps.LatLng(LatLng[0], LatLng[1]));
+                                        markers.push(new google.maps.Marker(LatLng[0], LatLng[1]));
                                     }
-                                    heatmap = new google.maps.visualization.HeatmapLayer({ data: markers });
+                                    console.log(groupedDevices);
+                                    heatmap = new google.maps.visualization.HeatmapLayer({ data: points });
                                     heatmap.setMap(map);
                                 }
                             }
@@ -99,7 +107,7 @@
                     heatmap.setMap(map);
                     var polyline = new google.maps.Polyline({
                         path: markers,
-                        map:map
+                        map: map
                     });
                 } else {
                     console.log('No devices retrieved ):');
