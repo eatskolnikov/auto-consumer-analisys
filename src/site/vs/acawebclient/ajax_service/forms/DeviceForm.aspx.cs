@@ -1,50 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace acawebclient.ajax_service.forms
 {
     public partial class DeviceForm : BasePage
     {
-        private AdmDevices devices;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack){
-                this.Page.ClientScript.GetPostBackEventReference(btnUpdate, string.Empty); 
-                if(Request.QueryString.HasKeys() && Request.QueryString["DeviceId"] != "")
-                { 
-                    var deviceId = Convert.ToInt32(Request.QueryString["DeviceId"]);
-                    if(deviceId  > 0)
-                    {
-                        devices = AdmDevices.Crear(ref Connection);
-                        devices.Buscar(deviceId, true);
-                        var row = devices.GetTblLogic.Rows[0];
-                        tbxDescription.InnerText = row["Description"].ToString();
-                        tbxIp.Value = row["Ip"].ToString();
-                        tbxLatLng.Value = row["LatLng"].ToString();
-                        hdnDeviceId.Value = row["DeviceId"].ToString();
-                    }
-                }
-            }   
+            if (IsPostBack) return;
+            Page.ClientScript.GetPostBackEventReference(btnUpdate, string.Empty);
+            if (!Request.QueryString.HasKeys() || Request.QueryString["DeviceId"] == "") return;
+            var deviceId = Convert.ToInt32(Request.QueryString["DeviceId"]);
+            if (deviceId <= 0) return;
+            var device = DeviceRepository.GetById(deviceId);
+            tbxDescription.InnerText = device.Description;
+            tbxIp.Value = device.Ip;
+            tbxLatLng.Value = device.LatLng;
+            hdnDeviceId.Value = device.DeviceId.ToString();
         }
 
         protected void btnUpdate_OnClick(object sender, EventArgs e)
         {
-            devices = AdmDevices.Crear(ref Connection);
-            devices.Buscar(Convert.ToInt32(hdnDeviceId.Value), true);
-            devices.Insertar(Convert.ToInt32(hdnDeviceId.Value), tbxIp.Value,tbxDescription.Value,tbxLatLng.Value,true);
-            devices.Sincronizar();
+            var device = DeviceRepository.GetById(Convert.ToInt32(hdnDeviceId.Value));
+            device.Ip = tbxIp.Value;
+            device.Description = tbxDescription.Value;
+            device.LatLng = tbxLatLng.Value;
+            DeviceRepository.Update(device);
         }
 
         protected void btnDelete_OnClick(object sender, EventArgs e)
         {
-            devices = AdmDevices.Crear(ref Connection);
-            devices.Buscar(Convert.ToInt32(hdnDeviceId.Value), true);
-            devices.Insertar(Convert.ToInt32(hdnDeviceId.Value), tbxIp.Value, tbxDescription.Value, tbxLatLng.Value, false);
-            devices.Sincronizar();
+            var device = DeviceRepository.GetById(Convert.ToInt32(hdnDeviceId.Value));
+            DeviceRepository.Remove(device);
         }
     }
 }
