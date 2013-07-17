@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\HardCodeAuthenticator.cs" />
+    <Compile Include="Authentication\IAuthenticate.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="http\ServerResponse.cs" />
     <Compile Include="IListenToPackages.cs" />

@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using ACAPackagesListener.API.Models.Enities;
 
 namespace ACAPackagesListener.API
 {
@@ -13,6 +14,8 @@ namespace ACAPackagesListener.API
         {
             get { return "autoconsumeranalisys"; }
         }
+
+        public static User loggedUser { get; set; }
 
         public static string ConnectionString
         {

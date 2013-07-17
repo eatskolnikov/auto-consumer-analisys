@@ -1,0 +1,21 @@
+﻿@model acaweb.Models.LoginModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row-fluid">
+    <div class="span4"></div>
+    <div class="span4 well">
+    <h4>login</h4>
+    @using(Html.BeginForm())
+    {
+        @Html.TextBoxFor(m => m.Username, new { placeholder = "Username"})
+        <br/>
+        @Html.PasswordFor(m => m.Password,new { placeholder = "Password" })<br/>
+        <input type="submit" value="Login" class="btn btn-primary"/>
+        @Html.ValidationSummary()
+    }
+    </div>
+    <div class="span4"></div>
+</div>

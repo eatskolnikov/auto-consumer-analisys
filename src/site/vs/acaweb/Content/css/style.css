@@ -3,10 +3,14 @@ body {
 	padding-top: 60px;
 	padding-bottom: 40px;
 }
+#content {
+    max-width: 1024px;
+    max-height: 1024px;
+    margin: auto;  
+}
+.container{
+    width: 1024px !important;
+}
 .sidebar-nav {
 	padding: 9px 0;
-}
-.control-label
-{
-	text-align:left !important;
 }
