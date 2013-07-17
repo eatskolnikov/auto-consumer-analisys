@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using ACAPackagesListener.API;
 using ACAPackagesListener.API.Authentication;
-using ACAPackagesListener.API.Models.Enities;
+using ACAPackagesListener.API.Models.Entities;
 using acaweb.Models;
 
 namespace acaweb.Controllers

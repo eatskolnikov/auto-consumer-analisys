@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using ACAPackagesListener.API;
-using ACAPackagesListener.API.Models.Enities;
+using ACAPackagesListener.API.Models.Entities;
 using ACAPackagesListener.API.Models.Repositories;
 
 namespace acawebclient

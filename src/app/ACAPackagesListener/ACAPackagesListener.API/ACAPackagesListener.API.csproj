@@ -57,10 +57,10 @@
     <Compile Include="IListenToPackages.cs" />
     <Compile Include="ISerializeJSON.cs" />
     <Compile Include="JSONSerializer.cs" />
-    <Compile Include="Models\Enities\Device.cs" />
-    <Compile Include="Models\Enities\Package.cs" />
-    <Compile Include="Models\Enities\ParsedPackage.cs" />
-    <Compile Include="Models\Enities\User.cs" />
+    <Compile Include="Models\Entities\Device.cs" />
+    <Compile Include="Models\Entities\Package.cs" />
+    <Compile Include="Models\Entities\ParsedPackage.cs" />
+    <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\Repositories\IDeviceRepository.cs" />
     <Compile Include="Models\Repositories\IParsedPackageRepository.cs" />
     <Compile Include="Models\Repositories\IReadonlyCommonRepository.cs" />
@@ -76,10 +76,10 @@
     <Compile Include="UDPPackagesListener.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Enities\User.hbm.xml" />
-    <Content Include="Models\Enities\Device.hbm.xml" />
-    <Content Include="Models\Enities\Package.hbm.xml" />
-    <Content Include="Models\Enities\ParsedPackage.hbm.xml" />
+    <Content Include="Models\Entities\User.hbm.xml" />
+    <Content Include="Models\Entities\Device.hbm.xml" />
+    <Content Include="Models\Entities\Package.hbm.xml" />
+    <Content Include="Models\Entities\ParsedPackage.hbm.xml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
