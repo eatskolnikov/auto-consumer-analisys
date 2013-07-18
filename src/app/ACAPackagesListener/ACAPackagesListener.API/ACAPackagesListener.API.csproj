@@ -34,6 +34,9 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\..\common\nhibernate\Required_Bins\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\common\nhibernate\Tests\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\common\Newtonsoft.Json\Newtonsoft.Json.dll</HintPath>
     </Reference>

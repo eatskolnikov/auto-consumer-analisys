@@ -6,11 +6,11 @@ using System.Web.Mvc;
 
 namespace acaweb.Controllers
 {
-    public class BaseController : Controller
+    public class ReportController : Controller
     {
-        public virtual ActionResult Index()
+        public ActionResult Index()
         {
-            throw new NotImplementedException("This is an invalid route");
+            return View();
         }
     }
 }

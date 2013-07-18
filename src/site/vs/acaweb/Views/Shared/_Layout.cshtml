@@ -10,15 +10,15 @@
     <body>
         <div id="content" class="container-fluid">
             <div class="navbar navbar-fixed-top">
-              <div class="navbar-inner">
-                  <div class="container">
-                      <a class="brand" href="#">Auto Comsumer Analisys</a>
-                      <ul class="nav pull-right">
-                          <li><a href="#">Home</a></li>
-                          <li><a href="#">Link</a></li>
-                          <li class=""><a href="Account/Logout">Logout</a></li>
-                      </ul>
-                  </div>
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="brand" href='@Url.Action("Index","Home")'>Auto Comsumer Analisys</a>
+                        <ul class="nav pull-right">
+                            <li><a href='@Url.Action("Index","Device")'>Dispositivos</a></li>
+                            <li><a href='@Url.Action("Index","Report")'>Reportes</a></li>
+                            <li class=""><a href='@Url.Action("Logout","Account")'><b>Logout</b></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             @RenderBody()
