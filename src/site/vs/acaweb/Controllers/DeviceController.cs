@@ -34,7 +34,13 @@ namespace acaweb.Controllers
             var devices = _deviceRepository.GetAll();
             return Json(devices, JsonRequestBehavior.AllowGet);
         }
-
+        public ActionResult Update(String DeviceId, String LatLng)
+        {
+            var device = _deviceRepository.GetById(Convert.ToInt32(DeviceId));
+            device.LatLng = LatLng;
+            _deviceRepository.Update(device);
+            return Json(device, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult Add(String LatLng)
         {
             ViewBag.HideNav = true;

@@ -36,12 +36,15 @@ $(document).ready(function () {
         if (y > maxY) y = maxY;
         map.setCenter(mapCenter);
     });
-
-    addMarker = function (position) {
+    addMarker = function (position, dragEndCallback) {
         var marker = new google.maps.Marker({
             position: position,
-            map: map
+            map: map,
+            draggable: true
         });
+        if (dragEndCallback != null) {
+            google.maps.event.addListener(marker, 'dragend', dragEndCallback);
+        }
         return marker;
     };
 });
