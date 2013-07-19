@@ -5,7 +5,6 @@
       <column name="ParsedPackageId" />
       <generator class="native" />
     </id>
-    <many-to-one name="Package" class="Package" column="PackageId" cascade="all" />
     <property name="PackageDate"></property>
     <property name="PackageTimeOfDay"></property>
     <property name="LatLng"></property>

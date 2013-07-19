@@ -18,7 +18,6 @@
 </style>
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    <fieldset>
         <div class="editor-label">
             @Html.LabelFor(model => model.Ip)
         </div>
@@ -53,5 +52,4 @@
         <div class="editor-field">
             <input type="submit" value="Crear" class="btn btn-primary" />
         </div>
-    </fieldset>
 }

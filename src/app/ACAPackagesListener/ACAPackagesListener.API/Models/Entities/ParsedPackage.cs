@@ -9,7 +9,7 @@ namespace ACAPackagesListener.API.Models.Entities
     public class ParsedPackage
     {
         public virtual Int32 ParsedPackageId { get; set; }
-        public virtual Package Package { get; set; }
+        //public virtual Package Package { get; set; }
         public virtual Int32 PackageDate { get; set; }
         public virtual Int32 PackageTimeOfDay { get; set; }
         public virtual String LatLng { get; set; }
