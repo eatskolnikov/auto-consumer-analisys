@@ -10,6 +10,5 @@ namespace ACAPackagesListener.API.Models.Entities
         public virtual string LatLng { get; set; }
         public virtual string Description { get; set; }
         public virtual bool Activo { get; set; }
-        public virtual DateTime Created { get; set; }
     }
 }

@@ -79,10 +79,12 @@
     <Compile Include="UDPPackagesListener.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Entities\User.hbm.xml" />
-    <Content Include="Models\Entities\Device.hbm.xml" />
-    <Content Include="Models\Entities\Package.hbm.xml" />
-    <Content Include="Models\Entities\ParsedPackage.hbm.xml" />
+    <EmbeddedResource Include="Models\Entities\User.hbm.xml" />
+    <EmbeddedResource Include="Models\Entities\Device.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Entities\Package.hbm.xml" />
+    <EmbeddedResource Include="Models\Entities\ParsedPackage.hbm.xml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

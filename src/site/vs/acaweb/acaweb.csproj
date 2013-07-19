@@ -74,7 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DeviceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
@@ -157,10 +156,12 @@
     <Content Include="Content\js\bootstrap-typeahead.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\edit.js" />
     <Content Include="Content\js\jquery-ui-1.9.2.custom.min.js" />
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\jquery.wysiwyg.js" />
     <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\mapbasic.js" />
     <Content Include="Content\js\maphelpers.js" />
     <Content Include="Content\js\mapsettings.js" />
     <Content Include="Content\js\reports.js" />
@@ -206,7 +207,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -249,6 +252,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_AnonLayout.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Device\Add.cshtml" />
+    <Content Include="Views\Device\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\app\ACAPackagesListener\ACAPackagesListener.API\ACAPackagesListener.API.csproj">
