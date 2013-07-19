@@ -51,8 +51,27 @@ namespace acaweb.Controllers
         {
             try{
                 _deviceRepository.Add(device);
+            }catch (Exception ex){
+                ModelState.AddModelError("", ex.Message);
+            }
+            return View();
+        }
+
+        public ActionResult Edit(string DeviceId)
+        {
+            ViewBag.HideNav = true;
+            var device = _deviceRepository.GetById(Convert.ToInt32(DeviceId));
+            return View("Edit", device);
+        }
+        [HttpPost]
+        public ActionResult Edit(Device device)
+        {
+            try
+            {
+                _deviceRepository.Update(device);
                 return Redirect("~/Device/Success");
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
             }

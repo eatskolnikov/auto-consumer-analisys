@@ -45,6 +45,7 @@ $(document).ready(function () {
         if (dragEndCallback != null) {
             google.maps.event.addListener(marker, 'dragend', dragEndCallback);
         }
+
         return marker;
     };
 });
