@@ -1,4 +1,5 @@
 ﻿var addMarker;
+var routeColors = ['#C0C0C0', '#808080', '#000000', '#FF0000', '#800000', '#FFFF00', '#808000', '#00FF00', '#008000', '#00FFFF', '#008080', '#0000FF', '#000080', '#FF00FF', '#800080'];
 $(document).ready(function () {
     var map_cols = 8;
     var map_rows = 4;
