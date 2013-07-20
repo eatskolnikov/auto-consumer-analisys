@@ -23,25 +23,29 @@ namespace acaweb.Controllers
             return Json(packages, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Get(string report, string MAC = "")
+        public ActionResult Get(string report="", string MAC = "")
         {
             IEnumerable<ParsedPackage> packages;
             
-            switch (report)
+            /*switch (report)
             {
                 case "today":
                     packages = _parsedPackagesRepository.FromToday();
                     break;
+                case "yesterday":
+                    packages = _parsedPackagesRepository.FromYesterday();
+                    break;
                 case "weekly":
-                    packages = _parsedPackagesRepository.FromToday();
+                    packages = _parsedPackagesRepository.FromLastWeek();
                     break;
                 case "monthly":
-                    packages = _parsedPackagesRepository.FromToday();
+                    packages = _parsedPackagesRepository.FromLastMonth();
                     break;
                 default:
                     packages = _parsedPackagesRepository.FromToday();
                     break;
-            }
+            }*/
+            packages = _parsedPackagesRepository.GetAll();
             if(!String.IsNullOrEmpty(MAC))
             {
                 packages = packages.Where(x => x.MAC == MAC);

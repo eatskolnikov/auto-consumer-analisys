@@ -9,7 +9,10 @@ namespace ACAPackagesListener.API.Models.Repositories
     public interface IParsedPackageRepository : IWriteableCommonRepository<ParsedPackage>
     {
         IEnumerable<ParsedPackage> FromToday();
+        IEnumerable<ParsedPackage> FromYesterday();
+        IEnumerable<ParsedPackage> FromLastWeek();
+        IEnumerable<ParsedPackage> FromLastMonth();
+        IEnumerable<ParsedPackage> FromDateRange(Int32 start, Int32 finish);
         IEnumerable<ParsedPackage> FromDevices(IEnumerable<Int32> devices);
-        IEnumerable<ParsedPackage> GetByMacAndDates(string mac, int startDate, int endDate);
     }
 }

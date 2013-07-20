@@ -9,5 +9,6 @@
     <property name="PackageTimeOfDay"></property>
     <property name="LatLng"></property>
     <property name="MAC"></property>
+    <property name="Activo"></property>
   </class>
 </hibernate-mapping>

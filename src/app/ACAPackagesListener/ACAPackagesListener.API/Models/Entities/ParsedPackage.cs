@@ -14,5 +14,6 @@ namespace ACAPackagesListener.API.Models.Entities
         public virtual Int32 PackageTimeOfDay { get; set; }
         public virtual String LatLng { get; set; }
         public virtual String MAC { get; set; }
+        public virtual Boolean Activo { get; set; }
     }
 }
