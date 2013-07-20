@@ -9,6 +9,7 @@
                 var l = packages.length;
                 console.log(l);
                 var routes = {};
+                var markers = {};
                 for (var i = 0; i < l; i++) {
                     var parsedPackage = packages[i];
                     if (typeof (routes[parsedPackage.MAC]) == 'undefined') {
@@ -19,12 +20,19 @@
                     routes[parsedPackage.MAC].push(packageLatLng);
                 }
                 for (var route in routes) {
+
                     var path = new google.maps.Polyline({
                         path: routes[route],
                         strokeColor: '#FF0000',
                         strokeOpacity: 1.0,
                         strokeWeight: 2
                     });
+                    for (var index in routes[route]) {
+                        var marker = new google.maps.Marker({
+                            position: routes[route][index],
+                            map: map
+                        });
+                    }
                     path.setMap(map);
                 }
             }
