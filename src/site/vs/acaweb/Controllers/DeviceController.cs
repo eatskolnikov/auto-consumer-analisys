@@ -54,6 +54,22 @@ namespace acaweb.Controllers
             return View();
         }
 
+        public ActionResult Delete(string DeviceId)
+        {
+            var m = "Dispositivo removido satisfactoriamente";
+            try
+            {
+                var device = _deviceRepository.GetById(Convert.ToInt32(DeviceId));
+                _deviceRepository.Remove(device);
+            }
+            catch (Exception ex)
+            {
+                m = "Error atendiendo la solicitud";
+            }
+            return Json(new { message = m }, JsonRequestBehavior.AllowGet);
+
+        }
+
         public ActionResult Edit(string DeviceId)
         {
             ViewBag.HideNav = true;

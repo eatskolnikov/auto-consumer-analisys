@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ACAPackagesListener.API.Models.Entities;
 using ACAPackagesListener.API.Models.Repositories;
 
 namespace acaweb.Controllers
@@ -22,9 +23,25 @@ namespace acaweb.Controllers
             return Json(packages, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Get(string MAC = "")
+        public ActionResult Get(string report, string MAC = "")
         {
-            var packages = _parsedPackagesRepository.GetAll();
+            IEnumerable<ParsedPackage> packages;
+            
+            switch (report)
+            {
+                case "today":
+                    packages = _parsedPackagesRepository.FromToday();
+                    break;
+                case "weekly":
+                    packages = _parsedPackagesRepository.FromToday();
+                    break;
+                case "monthly":
+                    packages = _parsedPackagesRepository.FromToday();
+                    break;
+                default:
+                    packages = _parsedPackagesRepository.FromToday();
+                    break;
+            }
             if(!String.IsNullOrEmpty(MAC))
             {
                 packages = packages.Where(x => x.MAC == MAC);
