@@ -23,6 +23,11 @@ namespace acaweb.Controllers
             return Json(packages, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Filter()
+        {
+            return View();
+        }
+
         public ActionResult GetHeat(string report = "", string MAC = "")
         {
             IEnumerable<ParsedPackage> packages;
