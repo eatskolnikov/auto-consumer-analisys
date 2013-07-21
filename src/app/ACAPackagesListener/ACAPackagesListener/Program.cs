@@ -5,23 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using ACAPackagesListener.API;
-using Bll.AutoConsumerAnalisys;
-using Lrrc.Sys.Data;
-
+using ACAPackagesListener.API.Models.Entities;
+using ACAPackagesListener.API.Models.Repositories;
 
 namespace ACAPackagesListener
 {
     class Program
     {
-        static Connection connection;
-        static AdmPackages admPackages;
+        private static IPackageRepository packagesRepository;
         static void Main(string[] args)
         {
             IListenToPackages packagesListener = new UDPPackagesListener(8888);
             packagesListener.onPackageReceived += packagesListener_onPackageReceived;
             packagesListener.StartListening();
-            connection = new Connection(Globals.ConnectionString);
-            admPackages = AdmPackages.Crear(ref connection);
             while (true)
             {
             }
@@ -32,10 +28,15 @@ namespace ACAPackagesListener
             Console.WriteLine("Received message");
             Console.WriteLine(e.sourceIp);
             Console.WriteLine(e.message);
-            admPackages.Insertar(0,e.sourceIp,e.message,false,true);
-            try{
-                admPackages.Sincronizar();
-                admPackages.GetTblLogic.Rows.Clear();
+
+            try
+            {
+                packagesRepository.Add(new Package
+                {
+                    Ip = e.sourceIp,
+                    Message = e.message,
+                    Parsed = false
+                });
             }catch(Exception ex)
             {
                 Debug.WriteLine(ex.Message);

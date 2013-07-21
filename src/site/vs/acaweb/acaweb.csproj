@@ -263,7 +263,6 @@
     <Content Include="Views\Device\Edit.cshtml" />
     <Content Include="Views\Report\Routes.cshtml" />
     <Content Include="Views\Report\Heat.cshtml" />
-    <Content Include="Views\Packages\Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\app\ACAPackagesListener\ACAPackagesListener.API\ACAPackagesListener.API.csproj">

@@ -47,14 +47,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\common\Bll.AutoConsumerAnalisys\Bll.AutoConsumerAnalisys.csproj">
-      <Project>{7E9119E1-ED14-4FDF-AD77-E06AB4A74B7D}</Project>
-      <Name>Bll.AutoConsumerAnalisys</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\common\Lrrc.System.Data\Lrrc.Sys.Data.csproj">
-      <Project>{412DA84B-8C42-4D65-84F7-CBD5B88390E9}</Project>
-      <Name>Lrrc.Sys.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ACAPackagesListener.API\ACAPackagesListener.API.csproj">
       <Project>{89FDECD0-E170-4C93-A405-4A95DB4190A2}</Project>
       <Name>ACAPackagesListener.API</Name>

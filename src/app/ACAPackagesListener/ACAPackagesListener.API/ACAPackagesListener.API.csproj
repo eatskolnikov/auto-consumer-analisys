@@ -65,11 +65,13 @@
     <Compile Include="Models\Entities\ParsedPackage.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\Repositories\IDeviceRepository.cs" />
+    <Compile Include="Models\Repositories\IPackageRepository.cs" />
     <Compile Include="Models\Repositories\IParsedPackageRepository.cs" />
     <Compile Include="Models\Repositories\IReadonlyCommonRepository.cs" />
     <Compile Include="Models\Repositories\IUserRepository.cs" />
     <Compile Include="Models\Repositories\IWriteableCommonRepository.cs" />
     <Compile Include="Models\Repositories\NHDeviceRepository.cs" />
+    <Compile Include="Models\Repositories\NHPackageRepository.cs" />
     <Compile Include="Models\Repositories\NHParsedPackageRepository.cs" />
     <Compile Include="Models\Repositories\NHReadOnlyRepository.cs" />
     <Compile Include="Models\Repositories\NHWritableRepository.cs" />
