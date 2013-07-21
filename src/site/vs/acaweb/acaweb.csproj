@@ -86,6 +86,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\css\bootstrap-responsive.css" />
     <Content Include="Content\css\bootstrap-responsive.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
@@ -147,6 +148,7 @@
     <Content Include="Content\js\bootstrap-button.js" />
     <Content Include="Content\js\bootstrap-carousel.js" />
     <Content Include="Content\js\bootstrap-collapse.js" />
+    <Content Include="Content\js\bootstrap-datetimepicker.min.js" />
     <Content Include="Content\js\bootstrap-dropdown.js" />
     <Content Include="Content\js\bootstrap-modal.js" />
     <Content Include="Content\js\bootstrap-popover.js" />
@@ -157,6 +159,7 @@
     <Content Include="Content\js\bootstrap-typeahead.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\filter-report.js" />
     <Content Include="Content\js\heat-report.js" />
     <Content Include="Content\js\edit.js" />
     <Content Include="Content\js\jquery-ui-1.9.2.custom.min.js" />
@@ -260,6 +263,7 @@
     <Content Include="Views\Device\Edit.cshtml" />
     <Content Include="Views\Report\Routes.cshtml" />
     <Content Include="Views\Report\Heat.cshtml" />
+    <Content Include="Views\Packages\Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\app\ACAPackagesListener\ACAPackagesListener.API\ACAPackagesListener.API.csproj">

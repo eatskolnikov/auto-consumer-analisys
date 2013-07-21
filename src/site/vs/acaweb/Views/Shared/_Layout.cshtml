@@ -5,6 +5,7 @@
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/bootstrap-datetimepicker.min.css")" rel="stylesheet" type="text/css" />
 </head>
 
     <body>
@@ -38,10 +39,13 @@
             var map = 0;
             <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyA8XhsuuGBy8fBxJM1H8fO-p13zWdMoaWg&sensor=false"></script>
             <script src="@Url.Content("~/Content/js/mapbasic.js")" type="text/javascript"></script>
-            
-            if(!String.IsNullOrEmpty(ViewBag.Script))
+            <script src="@Url.Content("~/Content/js/bootstrap-datetimepicker.min.js")" type="text/javascript"></script>
+            if(ViewBag.Scripts != null)
             {
-                <script src="@Url.Content("~/Content/js/" + ViewBag.Script)" type="text/javascript"></script>
+                foreach (var script in ViewBag.Scripts)
+                {
+                    <script src="@Url.Content("~/Content/js/" + script)" type="text/javascript"></script>
+                }
             }
         }
     </body>

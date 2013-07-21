@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace acaweb.Controllers
 {
@@ -12,14 +13,14 @@ namespace acaweb.Controllers
         public ActionResult Heat()
         {
             ViewBag.HasMap = true;
-            ViewBag.Script = "heat-report.js";
+            ViewBag.Scripts = new List<string>{"heat-report.js", "filter-report.js"} ;
             return View();
         }
 
         public ActionResult Routes()
         {
             ViewBag.HasMap = true;
-            ViewBag.Script = "routes-report.js";
+            ViewBag.Scripts = new List<string> { "routes-report.js", "filter-report.js" };
             return View();
         }
     }

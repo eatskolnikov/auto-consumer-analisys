@@ -27,5 +27,6 @@ html { height: 100% }
 {
     border: 1px solid;
     height: 100%;
+    max-width: 1280px;
 	min-height: 728px;
 }
