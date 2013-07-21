@@ -1,9 +1,10 @@
 use autoconsumeranalisys
 go
 
-alter Procedure Spc_DummyData_SingleMAC as
+alter Procedure Spc_DummyData_SingleMAC
+(@mac varchar(440)= '+INQ:F4:B9:B0CA8,7A020C,7FF')
+as
 Begin
-	Declare @mac varchar(440)= '+INQ:F4:B9:B0CA8,7A020C,7FF'
 	Declare @name varchar(50) 
 	Declare @ip varchar(30)
 	Declare device_cursor Cursor For Select Ip From Devices Order by DeviceId asc

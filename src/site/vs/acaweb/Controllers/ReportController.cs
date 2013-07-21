@@ -9,6 +9,13 @@ namespace acaweb.Controllers
             return View();
         }
 
+        public ActionResult Heat()
+        {
+            ViewBag.HasMap = true;
+            ViewBag.Script = "heat-report.js";
+            return View();
+        }
+
         public ActionResult Routes()
         {
             ViewBag.HasMap = true;

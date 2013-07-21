@@ -9,7 +9,9 @@
                 var routes = {};
                 for (var i = 0; i < l; i++) {
                     var parsedPackage = packages[i];
-                    if (typeof (routes[parsedPackage.MAC]) == 'undefined') { routes[parsedPackage.MAC] = Array(); }
+                    if (typeof (routes[parsedPackage.MAC]) == 'undefined') {
+                        routes[parsedPackage.MAC] = Array();
+                    }
                     var latLng = parsedPackage.LatLng.replace('(', '').replace(')', '').replace(' ', '').split(',');
                     var packageLatLng = new google.maps.LatLng(latLng[0], latLng[1]);
                     routes[parsedPackage.MAC].push(packageLatLng);
@@ -21,10 +23,12 @@
                         path: routes[route], strokeColor: routeColors[currentColor],
                         strokeOpacity: 1.0, strokeWeight: 2
                     });
-                    if (Object.keys(routes) == 1) {
+                    console.log(Object.keys(routes));
+                    if (Object.keys(routes).length == 1) {
                         for (var index in routes[route]) {
                             var marker = new google.maps.Marker({
                                 position: routes[route][index],
+                                title: (parseInt(index)+1).toString(),
                                 map: map
                             });
                         }

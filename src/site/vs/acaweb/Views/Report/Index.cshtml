@@ -1,9 +1,36 @@
 ﻿@{
     ViewBag.Title = "Reportes";
 }
+
 <div class="row-fluid">
-    <div class="span4 well">
-        <a href="@Url.Action("Routes")">Reporte de rutas por dispositivo</a>
-        <p>Muestra el desplazamiento de cada dispositivo dentro del local</p>
+    <div class="span6">
+        <div class="row-fluid">
+            <div class="span12 well">
+                <h4>Reportes de la aplicacion</h4>
+                <p>Aqui se muestran los reportes de la aplicaci&oacute;n.<br/></p>
+                <p>A tomar en cuenta:</p>
+                <p>
+                    <ul>
+                        <li>Al eliminar un dispositivo los datos recibidos no se pierden.</li>
+                        <li>Cambiar de posici&oacute;n un dispositivo en el mapa no cambia los datos ya recibidos.</li>
+                        <li>La informaci&oacute;n se actualiza entre cada cinco o diez minutos dependiendo del volumen de datos recibidos.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="span6">
+        <div class="row-fluid">
+            <div class="span12 well">
+                <a href="@Url.Action("Routes")">Reporte de rutas por dispositivo</a>
+                <p>Muestra el desplazamiento de cada dispositivo dentro del local</p>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12 well">
+                <a href="@Url.Action("Heat")">Reporte de intensidad de tráfico</a>
+                <p>Muestra un mapa de calor del local dentro de un rango de fecha específico</p>
+            </div>
+        </div>
     </div>
 </div>
