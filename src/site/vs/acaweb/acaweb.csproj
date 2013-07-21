@@ -157,6 +157,7 @@
     <Content Include="Content\js\bootstrap-typeahead.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\heat-report.js" />
     <Content Include="Content\js\edit.js" />
     <Content Include="Content\js\jquery-ui-1.9.2.custom.min.js" />
     <Content Include="Content\js\jquery.min.js" />

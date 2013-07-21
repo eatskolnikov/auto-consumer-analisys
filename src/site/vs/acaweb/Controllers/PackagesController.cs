@@ -23,6 +23,37 @@ namespace acaweb.Controllers
             return Json(packages, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult GetHeat(string report = "", string MAC = "")
+        {
+            IEnumerable<ParsedPackage> packages;
+
+            /*switch (report)
+            {
+                case "today":
+                    packages = _parsedPackagesRepository.FromToday().GroupBy(x=>x.LatLng);
+                    break;
+                case "yesterday":
+                    packages = _parsedPackagesRepository.FromYesterday().GroupBy(x=>x.LatLng);
+                    break;
+                case "weekly":
+                    packages = _parsedPackagesRepository.FromLastWeek().GroupBy(x=>x.LatLng);
+                    break;
+                case "monthly":
+                    packages = _parsedPackagesRepository.FromLastMonth().GroupBy(x=>x.LatLng);
+                    break;
+                default:
+                    packages = _parsedPackagesRepository.FromToday().GroupBy(x=>x.LatLng);
+                    break;
+            }*/
+            packages = _parsedPackagesRepository.GetAll();
+            if (!String.IsNullOrEmpty(MAC))
+            {
+                packages = packages.Where(x => x.MAC == MAC);
+            }
+            var result = packages.GroupBy(x => x.LatLng);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Get(string report="", string MAC = "")
         {
             IEnumerable<ParsedPackage> packages;
