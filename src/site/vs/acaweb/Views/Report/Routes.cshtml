@@ -1,36 +1,37 @@
 ﻿@{
     ViewBag.Title = "Reporte de Rutas";
 }
+
+<div id="sidebar" class="span3">
     <div class="row-fluid">
-        <div id="sidebar" class="span3 hidden">
-            <div class="row-fluid">
-                <div class="span12">
-                    <form>
-                        <fieldset>
-                            <legend>Filtros</legend>
-                            <label>MAC</label>
-                            <select id="MAC">
-                                <option value="">--Seleccionar--</option>
-                            </select>
-                            <div id="startDate" class="input-append date">
-                                <input data-format="dd/MM/yyyy hh:mm:ss" type="text" ></input>
-                                <span class="add-on">
-                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-                                    </i>
-                                </span>
-                            </div>
-                            <div id="endDate" class="input-append date">
-                                <input data-format="dd/MM/yyyy hh:mm:ss" type="text" ></input>
-                                <span class="add-on">
-                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-                                    </i>
-                                </span>
-                            </div>
-                            <button type="button" onclick="reloadReport"></button>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
+        <div class="span12">
+            <form>
+                <fieldset>
+                    <legend>Filtros</legend>
+                    <select id="MAC">
+                        <option value="">--Seleccionar Dispositivo--</option>
+                    </select>
+                    <div id="startDate" class="input-append date">
+                        <input data-format="dd/MM/yyyy hh:mm:ss" type="text" ></input>
+                        <span class="add-on">
+                            <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                            </i>
+                        </span>
+                    </div>
+                    <div id="endDate" class="input-append date">
+                        <input data-format="dd/MM/yyyy hh:mm:ss" type="text" ></input>
+                        <span class="add-on">
+                            <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                            </i>
+                        </span>
+                    </div>
+                    <button type="button" onclick="reloadReport"></button>
+                </fieldset>
+            </form>
         </div>
-        <div id="map_canvas" class="span9"></div>
+    </div>
+</div>
+<div class="row-fluid">
+        <div class="floatbox" style="float:left;">Mostrar filtros</div>
+        <div id="map_canvas" class="span12"></div>
 </div>
