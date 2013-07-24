@@ -1,3 +1,5 @@
 ﻿$(function () {
-    $('#startDate').datetimepicker({ language: 'en-US' });
+    $('#startDate').datetimepicker({
+        format: 'dd/MM/yyyy hh:mm:ss'
+    });
 });
