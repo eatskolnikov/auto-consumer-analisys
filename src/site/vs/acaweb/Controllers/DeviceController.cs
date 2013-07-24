@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using ACAPackagesListener.API.Models.Entities;
 using ACAPackagesListener.API.Models.Repositories;
@@ -16,7 +17,7 @@ namespace acaweb.Controllers
         public ActionResult Index()
         {
             ViewBag.HasMap = true;
-            ViewBag.Script = "edit.js";
+            ViewBag.Scripts = new List<String>{"edit.js"};
             return View();
         }
 
