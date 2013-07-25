@@ -29,7 +29,7 @@
             Contraseña
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Password)
+            @Html.PasswordFor(model => model.Password)
             @Html.ValidationMessageFor(model => model.Password)
         </div>
 
@@ -42,7 +42,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" class="btn btn-primary" />
+            <input type="submit" value="Guardar cambios" class="btn btn-primary" />
         </p>
     </fieldset>
 }
