@@ -144,6 +144,7 @@
     <Content Include="Content\img\map\tiles\3\5.png" />
     <Content Include="Content\img\map\tiles\3\6.png" />
     <Content Include="Content\img\map\tiles\3\7.png" />
+    <Content Include="Content\img\whitedot.png" />
     <Content Include="Content\js\bootstrap-alert.js" />
     <Content Include="Content\js\bootstrap-button.js" />
     <Content Include="Content\js\bootstrap-carousel.js" />

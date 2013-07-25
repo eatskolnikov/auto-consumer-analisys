@@ -20,14 +20,22 @@
     </div>
 </div>-->
 <div class="row-fluid">
-    <form class="well form-inline" onclick="formIssue">
+    <form class="well form-inline">
         <fieldset>
-            <select id="MAC">
-                <option value="">--Seleccionar Dispositivo--</option>
-            </select>
-            <input type="text" id="startDate" placeholder="Fecha Inicial(dd/mm/yyyy)"/>
-            <input type="text" id="endDate" placeholder="Fecha Final(dd/mm/yyyy)"/>
-            <button type="button" value="Filtrar" id="btnFilter" class="btn btn-primary">Filtrar</button>
+            <table>
+                <tr>
+                    <td><select id="MAC"><option value="">--Seleccionar Dispositivo--</option></select></td>
+                    <td><input type="text" id="startDate" placeholder="Fecha Inicial(dd/mm/yyyy)"/></td>
+                    <td><input type="text" id="endDate" placeholder="Fecha Final(dd/mm/yyyy)"/></td>
+                    <td><button type="button" value="Filtrar" id="btnFilter" class="btn btn-primary">Filtrar</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><span id="startDateError" class="error"></span></td>
+                    <td><span id="endDateError" class="error"></span></td>
+                    <td></td>
+                </tr>
+            </table>
         </fieldset>
     </form>
 </div>

@@ -7,17 +7,23 @@ var fillMacComboBox = function (macs) {
 var reloadReport = function (loadFunction, url) {
     var startDate = parseDateField("#startDate");
     var endDate = parseDateField("#endDate");
-    loadFunction(url + '?MAC=' + encodeURIComponent($("#MAC").val())+'&startDate=' + encodeURIComponent(startDate) + '&endDate=' + endDate );
+    loadFunction(url + '?MAC=' + encodeURIComponent($("#MAC").val()) + '&startDate=' + encodeURIComponent(startDate) + '&endDate=' + endDate);
 };
 
 var parseDateField = function (fieldId) {
-    if (!isDate($(fieldId).val())) return "";
+    if (!isDate($(fieldId).val())) {
+        if ($(fieldId).val() != "") $(fieldId+'Error').text("La fecha introducida no es valida");
+        return "";
+    }
     var dateParts = $(fieldId).val().split('/');
     var parsedDate = dateParts[2] + dateParts[1] + dateParts[0];
     return parsedDate;
 };
 
-var formIssue = function (event) { event.stopPropagation(); };
+$(function () {
+    $("#startDate").datepicker({ dateFormat: 'dd/mm/yy' });
+    $("#endDate").datepicker({ dateFormat: 'dd/mm/yy' });
+});
 
 //credit to: http://jquerybyexample.blogspot.com/2011/12/validate-date-using-jquery.html
 function isDate(txtDate) {

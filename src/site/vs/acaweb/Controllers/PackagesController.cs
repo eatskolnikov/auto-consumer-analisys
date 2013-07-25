@@ -58,7 +58,7 @@ namespace acaweb.Controllers
         {
             IEnumerable<ParsedPackage> packages;
             if (!String.IsNullOrEmpty(startDate)) {
-                if(!String.IsNullOrEmpty(endDate))
+                if(String.IsNullOrEmpty(endDate))
                     endDate = DateTime.Today.ToString("yyyyMMdd");
                 packages = _parsedPackagesRepository.FromDateRange(Convert.ToInt32(startDate), Convert.ToInt32(endDate));
             }
