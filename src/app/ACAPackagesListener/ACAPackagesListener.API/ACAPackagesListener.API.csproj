@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\DatabaseAuthentication.cs" />
     <Compile Include="Authentication\HardCodeAuthenticator.cs" />
     <Compile Include="Authentication\IAuthenticate.cs" />
     <Compile Include="Globals.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Models\Repositories\NHPackageRepository.cs" />
     <Compile Include="Models\Repositories\NHParsedPackageRepository.cs" />
     <Compile Include="Models\Repositories\NHReadOnlyRepository.cs" />
+    <Compile Include="Models\Repositories\NHUserRepository.cs" />
     <Compile Include="Models\Repositories\NHWritableRepository.cs" />
     <Compile Include="PackageReceivedEventArgs.cs" />
     <Compile Include="Persistance\NHibernateHelper.cs" />

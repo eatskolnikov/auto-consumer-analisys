@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ACAPackagesListener.API.Models.Entities
+<!DOCTYPE html>
 <html>
 <head>
     <title>@ViewBag.Title</title>
@@ -19,7 +20,10 @@
                         <div class="container">
                             <a class="brand" href='@Url.Action("Index", "Home")'>Auto Comsumer Analisys</a>
                             <ul class="nav pull-right">
-                                <li><a href='@Url.Action("Index", "Device")'>Configuraci&oacute;n de Dispositivos</a></li>
+                                @if (((User)Session["UserData"]).IsAdmin)
+                                {
+                                    <li><a href='@Url.Action("Index", "Device")'>Configuraci&oacute;n de Dispositivos</a></li>
+                                }
                                 <li><a href='@Url.Action("Index", "Report")'>Reportes</a></li>
                                 <li class=""><a href='@Url.Action("Logout", "Account")'><b>Logout</b></a></li>
                             </ul>
@@ -37,13 +41,13 @@
         <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
         <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-        @if(ViewBag.HasMap != null && ViewBag.HasMap)
+        @if (ViewBag.HasMap != null && ViewBag.HasMap)
         {
             var map = 0;
             <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyA8XhsuuGBy8fBxJM1H8fO-p13zWdMoaWg&sensor=false"></script>
             <script src="@Url.Content("~/Content/js/mapbasic.js")" type="text/javascript"></script>
             <script src="@Url.Content("~/Content/js/bootstrap-datetimepicker.min.js")" type="text/javascript"></script>
-            if(ViewBag.Scripts != null)
+            if (ViewBag.Scripts != null)
             {
                 foreach (var script in ViewBag.Scripts)
                 {

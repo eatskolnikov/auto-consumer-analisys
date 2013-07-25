@@ -2,9 +2,9 @@
     var radius = 3;
     var currentHeatmaps = Array();
     var heatUrl = base_url + 'Packages/GetHeat/';
-    var printHeat = function () {
+    var printHeat = function (newUrl) {
         $.ajax({
-            url: heatUrl,
+            url: newUrl == null ? heatUrl : newUrl,
             method: 'GET',
             dataType: 'json',
             success: function (packages) {

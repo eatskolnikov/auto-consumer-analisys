@@ -68,7 +68,6 @@ namespace acaweb.Controllers
                 m = "Error atendiendo la solicitud";
             }
             return Json(new { message = m }, JsonRequestBehavior.AllowGet);
-
         }
 
         public ActionResult Edit(string DeviceId)
