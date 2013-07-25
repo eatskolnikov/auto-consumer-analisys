@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using ACAPackagesListener.API;
 using ACAPackagesListener.API.Models.Entities;
 using ACAPackagesListener.API.Models.Repositories;
-
+using ACAPackagesListener.API;
 namespace ACAPackagesListener
 {
-    class Program
+    public class Program
     {
-        private static IPackageRepository packagesRepository;
-        static void Main(string[] args)
+        private static ACAPackagesListener.API.Models.Repositories.IPackageRepository packagesRepository;
+        public static void Main(string[] args)
         {
             IListenToPackages packagesListener = new UDPPackagesListener(8888);
             packagesListener.onPackageReceived += packagesListener_onPackageReceived;
@@ -23,7 +18,7 @@ namespace ACAPackagesListener
             }
         }
 
-        static void packagesListener_onPackageReceived(object o, PackageReceivedEventArgs e)
+        public static void packagesListener_onPackageReceived(object o, PackageReceivedEventArgs e)
         {
             Console.WriteLine("Received message");
             Console.WriteLine(e.sourceIp);

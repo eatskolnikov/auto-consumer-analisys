@@ -29,7 +29,7 @@ go
 --exec Spc_DummyData_SingleMAC
 --go
 
-alter Procedure Spc_DummyData_AlotaMACs(@people int = 30)
+alter Procedure Spc_DummyData_AlotaMACs(@people int = 30, @time int=-30)
 as
 Begin
 	Declare @mac varchar(440)= '+INQ:F4:B9:B0CA8,7A020C,7FF'
@@ -49,7 +49,8 @@ Begin
 		While @@FETCH_STATUS = 0   
 		Begin
 			declare @realIp varchar(50) =(@ip+ ':8888')
-			exec Spc_Put_Package 1,null,null,null,@realIp,@other_mac,0,1
+			declare @date datetime = getdate()+@time
+			exec Spc_Put_Package 1,null,null,null,@realIp,@other_mac,0,1,@date
 			Fetch next from device_cursor into @ip
 		End
 		close device_cursor
@@ -61,3 +62,4 @@ End
 go
 
 exec Spc_DummyData_AlotaMACs
+
