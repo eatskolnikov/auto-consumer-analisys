@@ -15,7 +15,7 @@ namespace ACAPackagesListener.API.Models.Repositories
             using (var session = NHibernateHelper.GetCurrentSession())
             {
                 return
-                    session.CreateCriteria<ParsedPackage>()
+                    session.CreateCriteria<User>()
                         .Add(Restrictions.Eq("Username", username))
                         .Add(Restrictions.Eq("Password", password))
                         .UniqueResult<User>();

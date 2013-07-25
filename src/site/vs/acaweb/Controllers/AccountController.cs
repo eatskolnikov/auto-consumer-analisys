@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Security;
 using ACAPackagesListener.API.Authentication;
@@ -22,6 +23,12 @@ namespace acaweb.Controllers
             _authenticator = new DatabaseAuthentication();
             _userRepository = new NHUserRepository();
         }
+        public ActionResult List()
+        {
+            var users = _userRepository.GetAll();
+            return View("List", users);
+        }
+
         public ActionResult Add() { return View(); }
         [HttpPost]
         public ActionResult Add(User user)
@@ -30,7 +37,11 @@ namespace acaweb.Controllers
             catch (Exception ex) { ModelState.AddModelError("", ex.Message); }
             return View();
         }
-        public ActionResult Edit(){ return View(); }
+        public ActionResult Edit(Int32 id)
+        {
+            var user = _userRepository.GetById(id);
+            return View("Edit",user);
+        }
         [HttpPost]
         public ActionResult Edit(User user)
         {
@@ -42,17 +53,13 @@ namespace acaweb.Controllers
             return View();
         }
 
-        public ActionResult Index()
-        {
-            return RedirectToAction("Login");
-        }
+        public ActionResult Index() { return RedirectToAction("Login"); }
         public ActionResult Login()
         {
             if (Request.IsAuthenticated)
                 return RedirectToAction("Index", "Home");
             return View();
         }
-
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
@@ -73,12 +80,26 @@ namespace acaweb.Controllers
             }
             return View();
         }
-        //
-        // GET: /Account/Logout
         public ActionResult Logout()
         {
+            Session.Remove("UserData");
             FormsAuthentication.SignOut();
             return RedirectToAction("Login");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var mensaje = "Usuario borrado";
+            var valid = true;
+            try{
+                var user = _userRepository.GetById(id);
+                _userRepository.Remove(user);
+            }catch(Exception ex)
+            {
+                mensaje = ex.Message;
+                valid = false;
+            }
+            return Json(new { message = mensaje, success = valid }, JsonRequestBehavior.AllowGet);
         }
     }
 }

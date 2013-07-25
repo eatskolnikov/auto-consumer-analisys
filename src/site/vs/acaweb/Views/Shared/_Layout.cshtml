@@ -22,6 +22,7 @@
                             <ul class="nav pull-right">
                                 @if (((User)Session["UserData"]).IsAdmin)
                                 {
+                                    <li><a href='@Url.Action("List", "Account")'>Manejar Usuarios</a></li>
                                     <li><a href='@Url.Action("Index", "Device")'>Configuraci&oacute;n de Dispositivos</a></li>
                                 }
                                 <li><a href='@Url.Action("Index", "Report")'>Reportes</a></li>
