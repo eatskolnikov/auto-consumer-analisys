@@ -66,9 +66,7 @@ namespace ACAPackagesListener.API.Models.Repositories
 
         public IEnumerable<ParsedPackage> FromDateRange(Int32 start, Int32 finish)
         {
-            var aMonthAgo = Convert.ToInt32(DateTime.Today.AddMonths(-1).ToString("yyyyMMdd"));
-            var today = Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd"));
-            return GetByRange(aMonthAgo, today);
+            return GetByRange(start, finish);
         }
 
         public IEnumerable<ParsedPackage> FromDevices(IEnumerable<Int32> devices)

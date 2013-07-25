@@ -22,12 +22,7 @@ namespace acaweb.Controllers
             var packages = _parsedPackagesRepository.GetAll();
             return Json(packages, JsonRequestBehavior.AllowGet);
         }
-
-        public ActionResult Filter()
-        {
-            return View();
-        }
-
+        
         public ActionResult GetHeat(string report = "", string MAC = "")
         {
             IEnumerable<ParsedPackage> packages;
@@ -59,29 +54,15 @@ namespace acaweb.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Get(string report="", string MAC = "")
+        public ActionResult Get(string MAC = "", string startDate="", string endDate="")
         {
             IEnumerable<ParsedPackage> packages;
-            
-            /*switch (report)
-            {
-                case "today":
-                    packages = _parsedPackagesRepository.FromToday();
-                    break;
-                case "yesterday":
-                    packages = _parsedPackagesRepository.FromYesterday();
-                    break;
-                case "weekly":
-                    packages = _parsedPackagesRepository.FromLastWeek();
-                    break;
-                case "monthly":
-                    packages = _parsedPackagesRepository.FromLastMonth();
-                    break;
-                default:
-                    packages = _parsedPackagesRepository.FromToday();
-                    break;
-            }*/
-            packages = _parsedPackagesRepository.GetAll();
+            if (!String.IsNullOrEmpty(startDate)) {
+                if(!String.IsNullOrEmpty(endDate))
+                    endDate = DateTime.Today.ToString("yyyyMMdd");
+                packages = _parsedPackagesRepository.FromDateRange(Convert.ToInt32(startDate), Convert.ToInt32(endDate));
+            }
+            else { packages = _parsedPackagesRepository.GetAll(); }
             if(!String.IsNullOrEmpty(MAC))
             {
                 packages = packages.Where(x => x.MAC == MAC);
