@@ -22,34 +22,19 @@ namespace acaweb.Controllers
             var packages = _parsedPackagesRepository.GetAll();
             return Json(packages, JsonRequestBehavior.AllowGet);
         }
-        
-        public ActionResult GetHeat(string report = "", string MAC = "")
+
+        public ActionResult GetHeat(string MAC = "", string startDate = "", string endDate = "")
         {
             IEnumerable<ParsedPackage> packages;
 
-            /*switch (report)
+            if (!String.IsNullOrEmpty(startDate))
             {
-                case "today":
-                    packages = _parsedPackagesRepository.FromToday().GroupBy(x=>x.LatLng);
-                    break;
-                case "yesterday":
-                    packages = _parsedPackagesRepository.FromYesterday().GroupBy(x=>x.LatLng);
-                    break;
-                case "weekly":
-                    packages = _parsedPackagesRepository.FromLastWeek().GroupBy(x=>x.LatLng);
-                    break;
-                case "monthly":
-                    packages = _parsedPackagesRepository.FromLastMonth().GroupBy(x=>x.LatLng);
-                    break;
-                default:
-                    packages = _parsedPackagesRepository.FromToday().GroupBy(x=>x.LatLng);
-                    break;
-            }*/
-            packages = _parsedPackagesRepository.GetAll();
-            if (!String.IsNullOrEmpty(MAC))
-            {
-                packages = packages.Where(x => x.MAC == MAC);
+                if (String.IsNullOrEmpty(endDate))
+                    endDate = DateTime.Today.ToString("yyyyMMdd");
+                packages = _parsedPackagesRepository.FromDateRange(Convert.ToInt32(startDate), Convert.ToInt32(endDate));
             }
+            else { packages = _parsedPackagesRepository.GetAll(); }
+            if (!String.IsNullOrEmpty(MAC)){packages = packages.Where(x => x.MAC == MAC);}
             var result = packages.GroupBy(x => x.LatLng);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
