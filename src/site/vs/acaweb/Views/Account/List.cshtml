@@ -24,12 +24,12 @@
             @Html.DisplayFor(modelItem => item.IsAdmin)
         </td>
         <td>
-            <a href="@Url.Action("Delete/"+item.UserId,"Account")" onclick ="borrarUsuario(this); return false;">Borrar</a>
+            <a href="@Url.Action("Delete/"+item.UserId,"Account")" onclick ="borrarUsuario(this); return false;"><i class='icon-trash'></i>Borrar</a>
         </td>
     </tr>
 }
 </table>
-<p> @Html.ActionLink("Crear nuevo", "Add") </p>
+<p> <i class='icon-plus'></i>@Html.ActionLink("Crear nuevo", "Add") </p>
 <script>
     var borrarUsuario = function (link) {
         $.ajax({
