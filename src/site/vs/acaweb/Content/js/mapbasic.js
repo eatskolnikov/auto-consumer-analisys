@@ -3,7 +3,6 @@ var ShowAlert = function (message, type) {
     if (type == null){ type = 'info'; }
     $("#showAlert").attr('class', 'alert alert-'+type);
     $("#showAlert").html('<button type="button" class="close" data-dismiss="alert">×</button>El dispositivo fue modificado satisfactoriamente');
- 
 };
 var routeColors = ['#C0C0C0', '#808080', '#000000', '#FF0000', '#800000', '#FFFF00', '#808000', '#00FF00', '#008000', '#00FFFF', '#008080', '#0000FF', '#000080', '#FF00FF', '#800080'];
 $(document).ready(function () {

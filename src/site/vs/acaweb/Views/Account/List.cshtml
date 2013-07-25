@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ACAPackagesListener.API.Models.Entities.User>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Usuario
+        </th>
+        <th>
+            Administrador
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr id="">
+        <td>
+            @Html.ActionLink(item.Username, "Edit", new { id=item.UserId })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAdmin)
+        </td>
+        <td>
+            <a href="@Url.Action("Delete/"+item.UserId,"Account")" onclick ="borrarUsuario(this); return false;">Borrar</a>
+        </td>
+    </tr>
+}
+</table>
+<p> @Html.ActionLink("Crear nuevo", "Add") </p>
+<script>
+    var borrarUsuario = function (link) {
+        $.ajax({
+            url: link.href, //base_url + "Account/Delete/" + usuarioId,
+            method: 'GET',
+            dataType: 'json',
+            success: function (json) {
+                $("#showAlert").attr('class', 'alert alert-info');
+                $("#showAlert").html('<button type="button" class="close" data-dismiss="alert">×</button>El usuario ha sido eliminado');
+                $(link).parent().parent().remove();
+            }
+        });
+    };
+</script>

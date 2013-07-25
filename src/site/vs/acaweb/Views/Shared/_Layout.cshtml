@@ -20,7 +20,7 @@
                         <div class="container">
                             <a class="brand" href='@Url.Action("Index", "Home")'>Auto Comsumer Analisys</a>
                             <ul class="nav pull-right">
-                                @if (((User)Session["UserData"]).IsAdmin)
+                                @if (Session["UserData"] != null && ((User)Session["UserData"]).IsAdmin)
                                 {
                                     <li><a href='@Url.Action("List", "Account")'>Manejar Usuarios</a></li>
                                     <li><a href='@Url.Action("Index", "Device")'>Configuraci&oacute;n de Dispositivos</a></li>

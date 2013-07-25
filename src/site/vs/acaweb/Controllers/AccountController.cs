@@ -35,7 +35,7 @@ namespace acaweb.Controllers
         {
             try { _userRepository.Add(user); }
             catch (Exception ex) { ModelState.AddModelError("", ex.Message); }
-            return View();
+            return RedirectToAction("List");
         }
         public ActionResult Edit(Int32 id)
         {
