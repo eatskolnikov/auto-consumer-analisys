@@ -20,6 +20,10 @@
     </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
     <UpgradeBackupLocation />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -195,21 +199,11 @@
     <Content Include="Content\img\map\tiles\3\5.png" />
     <Content Include="Content\img\map\tiles\3\6.png" />
     <Content Include="Content\img\map\tiles\3\7.png" />
-    <Content Include="Content\js\bootstrap-alert.js" />
-    <Content Include="Content\js\bootstrap-button.js" />
-    <Content Include="Content\js\bootstrap-carousel.js" />
-    <Content Include="Content\js\bootstrap-collapse.js" />
     <Content Include="Content\js\bootstrap-datetimepicker.min.js" />
-    <Content Include="Content\js\bootstrap-dropdown.js" />
-    <Content Include="Content\js\bootstrap-modal.js" />
-    <Content Include="Content\js\bootstrap-popover.js" />
-    <Content Include="Content\js\bootstrap-scrollspy.js" />
-    <Content Include="Content\js\bootstrap-tab.js" />
-    <Content Include="Content\js\bootstrap-tooltip.js" />
-    <Content Include="Content\js\bootstrap-transition.js" />
-    <Content Include="Content\js\bootstrap-typeahead.js" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\chart-report.js" />
+    <Content Include="Content\js\Chart.min.js" />
     <Content Include="Content\js\filter-report.js" />
     <Content Include="Content\js\heat-report.js" />
     <Content Include="Content\js\edit.js" />
@@ -287,6 +281,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Report\Charts.cshtml" />
     <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.xml" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.dll" />
