@@ -23,5 +23,12 @@ namespace acaweb.Controllers
             ViewBag.Scripts = new List<string> { "routes-report.js", "filter-report.js" };
             return View();
         }
+
+        public ActionResult Charts()
+        {
+            ViewBag.HasMap = true;
+            ViewBag.Scripts = new List<string> { "Chart.min.js", "chart-report.js", "filter-report.js" };
+            return View();
+        }
     }
 }
