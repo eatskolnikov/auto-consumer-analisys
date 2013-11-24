@@ -13,6 +13,21 @@
 		}
     ]
 };
-
+var piedata = [
+	{
+	    value: 30,
+	    color: "#F38630"
+	},
+	{
+	    value: 50,
+	    color: "#E0E4CC"
+	},
+	{
+	    value: 100,
+	    color: "#69D2E7"
+	}
+];
 var barCtx = document.getElementById("bars").getContext("2d");
+var pieCtx = document.getElementById("pie").getContext("2d");
 new Chart(barCtx).Bar(data);
+new Chart(pieCtx).Pie(piedata);
