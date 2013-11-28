@@ -32,9 +32,12 @@ var pieCtx = document.getElementById("pie").getContext("2d");
 //new Chart(barCtx).Bar(bardata);
 //new Chart(pieCtx).Pie(piedata);
 
-$(document).ready(function() {
-    $.getJSON(base_url + "?from=" + parseDateField("#startDate") + "&to=" + parseDateField("#endDate"), function(data) {
-        new Chart(barCtx).Bar(data.bar);
-        new Chart(pieCtx).Pie(data.pie);
-    });
-});
+$.get(base_url + "Report/ChartData", function (json) {
+    // + "?startdate=" + parseDateField("#startDate") + "&to=" + parseDateField("#endDate"), function (data) {
+    var c1 = new Chart(barCtx).Bar(json.bar);
+    var c2 = new Chart(pieCtx).Pie(json.pie.data);
+    for (var idx in json.pie.labels) {
+        $("#piePiecesNames").append("<li style='color:"+json.pie.colors[idx]+"'>" + json.pie.labels[idx] + "</li>");
+    }
+    //new Chart(pieCtx).Pie(data.pie);
+}, "json");
