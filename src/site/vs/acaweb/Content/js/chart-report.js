@@ -1,4 +1,4 @@
-﻿var data = {
+﻿var bardata = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
 		{
@@ -29,5 +29,12 @@ var piedata = [
 ];
 var barCtx = document.getElementById("bars").getContext("2d");
 var pieCtx = document.getElementById("pie").getContext("2d");
-new Chart(barCtx).Bar(data);
-new Chart(pieCtx).Pie(piedata);
+//new Chart(barCtx).Bar(bardata);
+//new Chart(pieCtx).Pie(piedata);
+
+$(document).ready(function() {
+    $.getJSON(base_url + "?from=" + parseDateField("#startDate") + "&to=" + parseDateField("#endDate"), function(data) {
+        new Chart(barCtx).Bar(data.bar);
+        new Chart(pieCtx).Pie(data.pie);
+    });
+});
