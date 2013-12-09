@@ -40,7 +40,6 @@ void spiSelect(int CS){
   pinMode(ETHNET_CS,OUTPUT);
   digitalWrite(PN532_CS,HIGH);
   digitalWrite(ETHNET_CS,HIGH);
-  // enable the chip we want
   digitalWrite(CS,LOW);  
 }
 
@@ -54,7 +53,9 @@ void setup() {
   SPI.setBitOrder(LSBFIRST);
   nfc.begin();
   nfc.SAMConfig();
+
   Serial.begin(baud_rate);
+  inputString.reserve(15);
 }
 void loop() {
   spiSelect(PN532_CS);
@@ -65,7 +66,15 @@ void loop() {
   if (id != 0)
   {
       Serial.println(id);
-      char charBuff[] ={'1','2','3'};//uint32_to_char_array(id);
+      inputString = "";
+      uint32_t num = id;
+      while(num > 0){
+        inputString += ('0'+(num%10));
+        num = num/10;
+      }
+      char charBuff[inputString.length()];
+      inputString.toCharArray(charBuff, inputString.length());
+//      char* charBuff =uint32_to_char_array(id);
       spiSelect(ETHNET_CS);
       SPI.setBitOrder(MSBFIRST);
       Udp.beginPacket(server_ip, localPort);
