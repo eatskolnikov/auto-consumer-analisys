@@ -26,12 +26,12 @@ namespace ACAPackagesListener
 
             try
             {
-                packagesRepository.Add(new Package
-                {
-                    Ip = e.sourceIp,
-                    Message = e.message,
-                    Parsed = false
-                });
+//                packagesRepository.Add(new Package
+//                {
+//                    Ip = e.sourceIp,
+//                    Message = e.message,
+//                    Parsed = false
+//                });
             }catch(Exception ex)
             {
                 Debug.WriteLine(ex.Message);
