@@ -10,6 +10,7 @@ namespace ACAPackagesListener
         private static ACAPackagesListener.API.Models.Repositories.IPackageRepository packagesRepository;
         public static void Main(string[] args)
         {
+            packagesRepository = new NHPackageRepository();
             IListenToPackages packagesListener = new UDPPackagesListener(8888);
             packagesListener.onPackageReceived += packagesListener_onPackageReceived;
             packagesListener.StartListening();
@@ -26,12 +27,12 @@ namespace ACAPackagesListener
 
             try
             {
-//                packagesRepository.Add(new Package
-//                {
-//                    Ip = e.sourceIp,
-//                    Message = e.message,
-//                    Parsed = false
-//                });
+                packagesRepository.Add(new Package
+                {
+                    Ip = e.sourceIp,
+                    Message = e.message,
+                    Parsed = false
+                });
             }catch(Exception ex)
             {
                 Debug.WriteLine(ex.Message);

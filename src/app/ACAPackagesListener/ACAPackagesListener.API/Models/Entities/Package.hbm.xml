@@ -5,7 +5,6 @@
       <column name="PackageId" />
       <generator class="native" />
     </id>
-    <many-to-one name="Device" class="Device" column="DeviceId" cascade="all" />
     <property name="Ip"></property>
     <property name="Message"></property>
     <property name="Parsed"></property>
