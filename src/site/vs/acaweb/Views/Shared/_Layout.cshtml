@@ -1,4 +1,13 @@
 ﻿@using ACAPackagesListener.API.Models.Entities
+
+@{
+    if (Session["UserData"] == null)
+    {
+        FormsAuthentication.SignOut();
+        Response.Redirect("~/Account/Login");
+        return;
+    }
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,28 +20,33 @@
 </head>
 
     <body>
-        <div id="content" class="container-fluid">
-            <div id="showAlert" class="row-fluid"></div>
-            @if (ViewBag.HideNav == null || !ViewBag.HideNav)
-            {
-                <div class="navbar navbar-fixed-top">
-                    <div class="navbar-inner">
-                        <div class="container">
-                            <a class="brand" href='@Url.Action("Index", "Home")'>&nbsp;Auto Comsumer Analisys</a>
-                            <ul class="nav pull-right">
-                                @if (Session["UserData"] != null && ((User)Session["UserData"]).IsAdmin)
-                                {
-                                    <li><a href='@Url.Action("List", "Account")'>Manejar Usuarios</a></li>
-                                    <li><a href='@Url.Action("Index", "Device")'>Configuraci&oacute;n de Dispositivos</a></li>
-                                }
-                                <li><a href='@Url.Action("Index", "Report")'>Reportes</a></li>
-                                <li class=""><a href='@Url.Action("Logout", "Account")'><b>Logout</b></a></li>
-                            </ul>
+        <div id="topsection">
+            <div id="content" class="container-fluid">
+                <div id="showAlert" class="row-fluid"></div>
+                @if (ViewBag.HideNav == null || !ViewBag.HideNav)
+                {
+                    <div class="navbar navbar-fixed-top">
+                        <div class="navbar-inner">
+                            <div class="container" style="padding-left:3px; ">
+                                <a class="brand" href='@Url.Action("Index", "Home")'>&nbsp;Auto Comsumer Analisys</a>
+                                <ul class="nav pull-right" style='padding-right:30px;'>
+                                    @if (Session["UserData"] != null && ((User)Session["UserData"]).IsAdmin)
+                                    {
+                                        <li ><a href='@Url.Action("List", "Account")'><i class="icon-user"></i> Manejar Usuarios</a></li>
+                                        <li ><a href='@Url.Action("Index", "Device")'><i class="icon-cog"></i> Configuraci&oacute;n de Dispositivos</a></li>
+                                    }
+                                    <li><a href='@Url.Action("Index", "Report")'><i class="icon-book"></i> Reportes</a></li>
+                                    <li><button class="btn btn-danger"onclick="location.href='@Url.Action("Logout", "Account")'; return;"><b><i class="icon-off"></i> Salir</b></button></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
-            @RenderBody()
+                }
+                @RenderBody()
+            </div>
+        </div>
+        <div class="footer">
+            
         </div>
         <script type="text/javascript">
             var base_url = '@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/")';
