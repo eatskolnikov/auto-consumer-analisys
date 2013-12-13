@@ -6,13 +6,19 @@
 <div class="row-fluid">
     <div class="span4"></div>
     <div class="span4 well">
-        <legend>Autenticación de usuario</legend>
-        @using(Html.BeginForm())
-        {
-            @Html.TextBoxFor(m => m.Username, new { placeholder = "Username"})
-            <br/>
-            @Html.PasswordFor(m => m.Password,new { placeholder = "Password" })<br/>
-            <input type="submit" value="Login" class="btn btn-primary"/>
+        <legend style="text-align: center;">Autenticación de usuario</legend>
+        @using(Html.BeginForm()) {
+            <div style="text-align: center">
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Username, new { placeholder = "Nombre de Usuario"})
+                </div>
+                <div class="controls">
+                    @Html.PasswordFor(m => m.Password,new { placeholder = "Contraseña" })
+                </div>
+                <div class="controls">
+                    <input type="submit" value="Login" class="btn btn-primary btn-large"/>
+                </div>
+            </div>
             @Html.ValidationSummary()
         }
     </div>

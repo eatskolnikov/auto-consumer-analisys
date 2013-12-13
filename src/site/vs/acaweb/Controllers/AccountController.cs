@@ -76,7 +76,7 @@ namespace acaweb.Controllers
                     }
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("", "Invalid username or password");
+                ModelState.AddModelError("", "Nombre de Usuario o Contraseña incorrectos");
             }
             return View();
         }

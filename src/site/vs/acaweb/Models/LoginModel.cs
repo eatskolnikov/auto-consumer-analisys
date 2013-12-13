@@ -4,9 +4,10 @@ namespace acaweb.Models
 {
     public class LoginModel
     {
-        [Required]
+        [Required(ErrorMessage="El Nombre de Usuario es requerido")]
         public string Username { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "La Contraseña es requerida")]
         public string Password { get; set; }
     }
 }

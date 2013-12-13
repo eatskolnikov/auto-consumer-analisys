@@ -41,7 +41,7 @@ namespace ACAPackagesListener
             else
             {
                 var diffInSeconds = (DateTime.Now -_lastPackages[nextPackage.Message]).TotalSeconds;
-                if (diffInSeconds < 10)
+                if (diffInSeconds < 5)
                 {
                     Console.WriteLine("Paquete rechazado, solo han pasado {0} segundos desde el ultimo.", diffInSeconds);
                     return;
