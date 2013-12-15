@@ -80,14 +80,15 @@ namespace acaweb.Controllers
             return s;
         }
 
-        public JsonResult ChartData(string startDate="", string endDate="")
+        public JsonResult ChartData(string startDate="", string endDate="", string startTime="", string endTime="")
         {
             IEnumerable<ParsedPackage> packages;
             if (!String.IsNullOrEmpty(startDate))
             {
                 if (String.IsNullOrEmpty(endDate))
                     endDate = DateTime.Today.ToString("yyyyMMdd");
-                packages = _parsedPackagesRepository.FromDateRange(Convert.ToInt32(startDate), Convert.ToInt32(endDate));
+
+                packages = _parsedPackagesRepository.FromDateRange(Convert.ToInt32(startDate), Convert.ToInt32(endDate), Convert.ToInt32(startTime), Convert.ToInt32(endTime));
             }
             else
             {

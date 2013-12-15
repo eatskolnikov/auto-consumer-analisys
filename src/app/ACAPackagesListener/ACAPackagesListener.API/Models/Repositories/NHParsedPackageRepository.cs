@@ -38,16 +38,18 @@ namespace ACAPackagesListener.API.Models.Repositories
             }
         }
 
-        private IEnumerable<ParsedPackage> GetByRange(Int32 start, Int32 finish)
+        private IEnumerable<ParsedPackage> GetByRange(Int32 start, Int32 finish, Int32 startTime = 0, Int32 endTime = 2400)
         {
             using (var session = NHibernateHelper.GetCurrentSession())
             {
-                return
+                return new List<ParsedPackage>();
+                //                  session.CreateSQLQuery("SELECT * FROM  ParsedPackages WHERE (PackageDate > {0} AND startTime > {1}",);
+                /*
                     session.CreateCriteria<ParsedPackage>()
                         .Add(Restrictions.Eq("Activo", true))
-                        .Add(Restrictions.Between("PackageDate", start, finish))
+                        .Add(Restrictions.And(new AndExpression(Restrictions.Gt("PackageDate", start),Restrictions.Gt("PackageTimeOfDay",startTime))))
                         .AddOrder(new Order("PackageTimeOfDay", true))
-                        .List<ParsedPackage>();
+                        .List<ParsedPackage>();*/
             }
         }
         public IEnumerable<ParsedPackage> FromLastWeek()
@@ -64,9 +66,9 @@ namespace ACAPackagesListener.API.Models.Repositories
             return GetByRange(aMonthAgo, today);
         }
 
-        public IEnumerable<ParsedPackage> FromDateRange(Int32 start, Int32 finish)
+        public IEnumerable<ParsedPackage> FromDateRange(Int32 start, Int32 finish, Int32 startTime=0, Int32 endTime=2400)
         {
-            return GetByRange(start, finish);
+            return GetByRange(start, finish, startTime, endTime);
         }
 
         public IEnumerable<ParsedPackage> FromDevices(IEnumerable<Int32> devices)
