@@ -54,14 +54,12 @@ namespace ACAPackagesListener.API.Models.Repositories
         {
             using (var session = NHibernateHelper.GetCurrentSession())
             {
-                return new List<ParsedPackage>();
-                //                  session.CreateSQLQuery("SELECT * FROM  ParsedPackages WHERE (PackageDate > {0} AND startTime > {1}",);
-                /*
+                var startDate = new DateTime(start/10000, (start/100)%100, start%100, startTime/100, startTime%100, 0);
+                var endDate = new DateTime(finish/10000, (finish/100)%100, finish%100, endTime/100, endTime%100, 0);
+
+                return
                     session.CreateCriteria<ParsedPackage>()
-                        .Add(Restrictions.Eq("Activo", true))
-                        .Add(Restrictions.And(new AndExpression(Restrictions.Gt("PackageDate", start),Restrictions.Gt("PackageTimeOfDay",startTime))))
-                        .AddOrder(new Order("PackageTimeOfDay", true))
-                        .List<ParsedPackage>();*/
+                        .Add(Restrictions.Between("Created", startDate, endDate)).List<ParsedPackage>();
             }
         }
         public IEnumerable<ParsedPackage> FromLastWeek()

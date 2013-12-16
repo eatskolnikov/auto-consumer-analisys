@@ -7,7 +7,9 @@ var fillMacComboBox = function (macs) {
 var reloadReport = function (loadFunction, url) {
     var startDate = parseDateField("#startDate");
     var endDate = parseDateField("#endDate");
-    loadFunction(url + '?MAC=' + encodeURIComponent($("#MAC").val()) + '&startDate=' + encodeURIComponent(startDate) + '&endDate=' + endDate);
+    var startTime = $("#startTime").val() == "" ? "0" : $("#startTime").val().replace(":","");
+    var endTime = $("#endTime").val() == "" ? "2400" : $("#endTime").val().replace(":", "");
+    loadFunction(url + '?MAC=' + encodeURIComponent($("#MAC").val()) + '&startDate=' + encodeURIComponent(startDate) + '&endDate=' + endDate + "&startTime="+startTime + "&endTime=" + endTime);
 };
 
 var parseDateField = function (fieldId) {

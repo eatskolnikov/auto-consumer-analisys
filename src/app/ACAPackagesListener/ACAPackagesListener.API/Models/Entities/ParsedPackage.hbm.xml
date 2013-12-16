@@ -10,5 +10,6 @@
     <property name="LatLng"></property>
     <property name="MAC"></property>
     <property name="Activo"></property>
+    <property name="Created"></property>
   </class>
 </hibernate-mapping>

@@ -9,7 +9,7 @@
     document.getElementById("btnClearData").onclick = function () {
         if (confirm("Eliminar los datos de la aplicación es irreversible. ¿Deseas continuar?")) {
             $.getJSON(base_url + "Packages/ClearData", function() {
-                alert("hecho");
+                alert("Los datos han sido eliminados satisfactoriamente.");
             });
         }
     }
