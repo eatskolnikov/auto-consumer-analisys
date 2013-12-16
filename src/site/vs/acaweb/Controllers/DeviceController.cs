@@ -14,6 +14,7 @@ namespace acaweb.Controllers
             _deviceRepository = new NHDeviceRepository();
         }
 
+
         public ActionResult Index()
         {
             ViewBag.HasMap = true;

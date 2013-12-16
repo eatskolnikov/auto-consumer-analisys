@@ -11,6 +11,18 @@ namespace ACAPackagesListener.API.Models.Repositories
 {
     public class NHParsedPackageRepository : NHWritableRepository<ParsedPackage>, IParsedPackageRepository
     {
+        public void DeleteAll()
+        {
+            using (var session = NHibernateHelper.GetCurrentSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.CreateSQLQuery("TRUNCATE TABLE ParsedPackages").ExecuteUpdate();
+                    transaction.Commit();
+                }
+            }
+        }
+
         public IEnumerable<ParsedPackage> FromToday()
         {
             using (var session = NHibernateHelper.GetCurrentSession())

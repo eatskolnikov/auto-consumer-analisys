@@ -18,6 +18,12 @@ namespace acaweb.Controllers
             _parsedPackagesRepository = new NHParsedPackageRepository();
         }
 
+        public JsonResult ClearData()
+        {
+            _parsedPackagesRepository.DeleteAll();
+            return Json(new {success = true}, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Index()
         {
             var packages = _parsedPackagesRepository.GetAll();
