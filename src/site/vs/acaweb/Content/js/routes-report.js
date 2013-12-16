@@ -57,7 +57,7 @@ $(function () {
         for (var marker in currentMarkers) { currentMarkers[marker].setMap(null); }
         for (var path in currentPaths) { currentPaths[path].setMap(null); }
         reloadReport(printRoutes, packagesurl);
-        setTimeout(reloadLoop, 10000);
+        setTimeout(reloadLoop, parseInt($("#refreshingTime").val()) * 1000);
     };
-    setTimeout(reloadLoop, 5000);
+    setTimeout(reloadLoop, parseInt($("#refreshingTime").val())*1000);
 });

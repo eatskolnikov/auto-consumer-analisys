@@ -67,7 +67,6 @@ namespace acaweb.Controllers
 
         private class pie
         {
-
             public string[] labels;
             public string[] colors;
             public piepiece[] data;
