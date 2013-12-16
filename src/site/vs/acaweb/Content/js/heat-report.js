@@ -27,6 +27,7 @@
     printHeat();
 
     var reloadLoop = function () {
+        for (var heatMap in currentHeatmaps) { currentHeatmaps[heatMap].setMap(null); }
         reloadReport(printHeat, heatUrl);
         setTimeout(reloadLoop, 10000);
     };
