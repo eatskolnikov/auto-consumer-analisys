@@ -26,6 +26,11 @@
     };
     printHeat();
 
+    var reloadLoop = function () {
+        reloadReport(printHeat, heatUrl);
+        setTimeout(reloadLoop, 10000);
+    };
+    setTimeout(reloadLoop, 5000);
     $("#btnFilter").bind('click', function () {
         for (var heatMap in currentHeatmaps) { currentHeatmaps[heatMap].setMap(null); }
         reloadReport(printHeat, heatUrl);

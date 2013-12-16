@@ -46,7 +46,7 @@ namespace acaweb.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Get(string MAC = "", string startDate = "", string endDate = "", string startTime = "", string endTime = "")
+        public ActionResult Get(string MAC = "", string startDate = "", string endDate = "", string startTime = "0", string endTime = "2359")
         {
             IEnumerable<ParsedPackage> packages;
             if (!String.IsNullOrEmpty(startDate)) {
