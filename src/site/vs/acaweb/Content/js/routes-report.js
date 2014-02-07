@@ -10,12 +10,14 @@ $(function () {
             method: 'GET',
             dataType: 'json',
             success: function (packages) {
+
+                var lineSymbol = { path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW };
                 var l = packages.length;
                 var routes = {};
                 for (var i = 0; i < l; i++) {
                     var parsedPackage = packages[i];
                     if (typeof (routes[parsedPackage.MAC]) == 'undefined') {
-                        routes[parsedPackage.MAC] = Array();
+                        routes[parsedPackage.MAC] = [];
                         devices[parsedPackage.MAC] = 1;
                     }
                     var latLng = parsedPackage.LatLng.replace('(', '').replace(')', '').replace(' ', '').split(',');
@@ -23,28 +25,31 @@ $(function () {
                     routes[parsedPackage.MAC].push(packageLatLng);
                 }
 
-                var currentColor = 7;
                 for (var route in routes) {
-                    //currentColor = currentColor % 15;
-                    var p = new google.maps.Polyline({
-                        path: routes[route],
-                        strokeColor: '#FF0000',
-                        strokeOpacity: 1.0,
-                        strokeWeight: 3
-                    });
-                    if (Object.keys(routes).length == 1) {
-                        for (var index in routes[route]) {
-                            var marker = new google.maps.Marker({
-                                position: routes[route][index],
-                                title: (parseInt(index) + 1).toString(),
+                    var arr = [];
+                    var prevIdx = -1;
+                    for (var idx in routes[route]) {
+                        arr.push(routes[route][idx]);
+                        if (prevIdx != -1) {
+                            
+                            if (routes[route][prevIdx] == routes[route][idx]) continue;
+                            var lineCoordinates = [
+                                routes[route][prevIdx],
+                                routes[route][idx]
+                            ];
+                            var line = new google.maps.Polyline({
+                                path: lineCoordinates,
+                                icons: [{
+                                    icon: lineSymbol,
+                                    offset: '100%'
+                                }],
                                 map: map
                             });
-                            currentMarkers.push(marker);
+                            currentPaths.push(line);
                         }
+                        prevIdx = idx;
                     }
-                    //currentColor = currentColor + 1;
-                    p.setMap(map);
-                    currentPaths.push(p);
+
                 }
                 if (callback != null) { callback(devices); }
             }
@@ -62,5 +67,5 @@ $(function () {
         reloadReport(printRoutes, packagesurl);
         setTimeout(reloadLoop, parseInt($("#refreshingTime").val()) * 1000);
     };
-    //setTimeout(reloadLoop, parseInt($("#refreshingTime").val())*1000);
+    setTimeout(reloadLoop, parseInt($("#refreshingTime").val())*1000);
 });
