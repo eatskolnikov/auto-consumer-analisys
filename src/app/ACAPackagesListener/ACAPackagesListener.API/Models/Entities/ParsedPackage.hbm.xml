@@ -5,8 +5,7 @@
       <column name="ParsedPackageId" />
       <generator class="native" />
     </id>
-    <property name="PackageDate"></property>
-    <property name="PackageTimeOfDay"></property>
+    <property name="PackageDateTime"></property>
     <property name="LatLng"></property>
     <property name="MAC"></property>
     <property name="Activo"></property>

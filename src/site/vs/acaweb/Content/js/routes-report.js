@@ -22,12 +22,15 @@ $(function () {
                     var packageLatLng = new google.maps.LatLng(latLng[0], latLng[1]);
                     routes[parsedPackage.MAC].push(packageLatLng);
                 }
+
                 var currentColor = 7;
                 for (var route in routes) {
-                    currentColor = currentColor % 15;
-                    var path = new google.maps.Polyline({
-                        path: routes[route], strokeColor: routeColors[currentColor],
-                        strokeOpacity: 1.0, strokeWeight: 2
+                    //currentColor = currentColor % 15;
+                    var p = new google.maps.Polyline({
+                        path: routes[route],
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 1.0,
+                        strokeWeight: 3
                     });
                     if (Object.keys(routes).length == 1) {
                         for (var index in routes[route]) {
@@ -39,9 +42,9 @@ $(function () {
                             currentMarkers.push(marker);
                         }
                     }
-                    currentColor = currentColor + 1;
-                    path.setMap(map);
-                    currentPaths.push(path);
+                    //currentColor = currentColor + 1;
+                    p.setMap(map);
+                    currentPaths.push(p);
                 }
                 if (callback != null) { callback(devices); }
             }
@@ -59,5 +62,5 @@ $(function () {
         reloadReport(printRoutes, packagesurl);
         setTimeout(reloadLoop, parseInt($("#refreshingTime").val()) * 1000);
     };
-    setTimeout(reloadLoop, parseInt($("#refreshingTime").val())*1000);
+    //setTimeout(reloadLoop, parseInt($("#refreshingTime").val())*1000);
 });

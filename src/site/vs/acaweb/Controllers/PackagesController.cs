@@ -59,7 +59,7 @@ namespace acaweb.Controllers
             {
                 packages = packages.Where(x => x.MAC == MAC);
             }
-            return Json(packages.OrderBy(x => x.PackageDate), JsonRequestBehavior.AllowGet);
+            return Json(packages.OrderBy(x => x.PackageDateTime), JsonRequestBehavior.AllowGet);
         }
     }
 }
