@@ -3,20 +3,19 @@
     ViewBag.Title = "Autenticación de usuario";
 }
 
-<div class="row-fluid">
-    <div class="span4"></div>
-    <div class="span4 well">
+<div class="row">
+    <div class="col-sm-offset-4 col-sm-4 well">
         <legend style="text-align: center;">Autenticación de usuario</legend>
         @using(Html.BeginForm()) {
             <div style="text-align: center">
-                <div class="controls">
-                    @Html.TextBoxFor(m => m.Username, new { placeholder = "Nombre de Usuario"})
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Username, new { placeholder = "Nombre de Usuario", @class="form-control"})
                 </div>
-                <div class="controls">
-                    @Html.PasswordFor(m => m.Password,new { placeholder = "Contraseña" })
+                <div class="form-group">
+                    @Html.PasswordFor(m => m.Password,new { placeholder = "Contraseña", @class="form-control"})
                 </div>
-                <div class="controls">
-                    <input type="submit" value="Login" class="btn btn-primary btn-large"/>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary "/>
                 </div>
             </div>
             @Html.ValidationSummary()
