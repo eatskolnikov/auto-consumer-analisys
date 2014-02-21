@@ -55,7 +55,7 @@ $(function () {
             }
         }).fail(function (jqXHR, textStatus) { alert("Error cargando las rutas"); });
     };
-    printRoutes(null,fillMacComboBox);
+    printRoutes(null);
     $("#btnFilter").bind('click', function () {
         for (var marker in currentMarkers) { currentMarkers[marker].setMap(null); }
         for (var path in currentPaths) { currentPaths[path].setMap(null); }

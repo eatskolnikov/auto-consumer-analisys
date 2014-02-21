@@ -191,7 +191,6 @@
     <Content Include="Content\js\main.js" />
     <Content Include="Content\js\mapbasic.js" />
     <Content Include="Content\js\mapsettings.js" />
-    <Content Include="Content\js\Report\reports.js" />
     <Content Include="Content\js\Report\routes-report.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
