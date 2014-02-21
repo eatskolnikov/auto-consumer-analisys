@@ -180,6 +180,7 @@
     <Content Include="Content\img\map\tiles\3\5.png" />
     <Content Include="Content\img\map\tiles\3\6.png" />
     <Content Include="Content\img\map\tiles\3\7.png" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\js\Report\chart-report.js" />
     <Content Include="Scripts\Chart.min.js" />
@@ -224,6 +225,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\moment-2.4.0.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -55,6 +55,7 @@ $(document).ready(function () {
         map.setCenter(mapCenter);
     });
 
+
     var markerDragCallback = function (marker) {
         return function (e) {
             /*defaultBounds = map.getBounds();
@@ -78,4 +79,5 @@ $(document).ready(function () {
         }
         return marker;
     };
+    $('.datetimepickercontroller').datetimepicker();
 });
