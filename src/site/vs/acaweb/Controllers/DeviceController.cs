@@ -18,7 +18,7 @@ namespace acaweb.Controllers
         public ActionResult Index()
         {
             ViewBag.HasMap = true;
-            ViewBag.Scripts = new List<String>{"edit.js"};
+            ViewBag.Scripts = new List<String>{"device/edit.js"};
             return View();
         }
 
