@@ -36,18 +36,17 @@ $(function () {
                         var line = new google.maps.Polyline({
                             path: lineCoordinates,
                             icons: [{icon: lineSymbol, offset: '100%'}],
-                            map: map
+                            map: map, strokeWeight: 2, strokeOpacity: 0.8
                         });
                         google.maps.event.addListener(line, "mouseover", function () {
-                            line.setOptions({ strokeColor: "#FF0000" });
+                            this.setOptions({ strokeColor: "#FF0000" });
                         });
                         google.maps.event.addListener(line, "mouseout", function () {
-                            line.setOptions({ strokeColor: "#000000" });
+                            this.setOptions({ strokeColor: "#000000" });
                         });
                         currentArrows.push(line);
                     }
                 }
-                //if (callback != null) { callback(devices); }
             }
         }).fail(function (jqXHR, textStatus) { alert("Error cargando las rutas"); });
     };
