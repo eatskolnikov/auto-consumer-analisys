@@ -12,7 +12,7 @@ namespace ACAPackagesListener.API.Models.Repositories
         IEnumerable<ParsedPackage> FromYesterday();
         IEnumerable<ParsedPackage> FromLastWeek();
         IEnumerable<ParsedPackage> FromLastMonth();
-        IEnumerable<ParsedPackage> FromDateRange(Int32 startDate, Int32 finishDate, Int32 startTime, Int32 endTime);
+        IEnumerable<ParsedPackage> FromDateRange(DateTime startDate, DateTime finishDate);
         IEnumerable<ParsedPackage> FromDevices(IEnumerable<Int32> devices);
         void DeleteAll();
     }

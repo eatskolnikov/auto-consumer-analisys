@@ -23,6 +23,19 @@ namespace ACAPackagesListener.API.Models.Repositories
             }
         }
 
+        public override IEnumerable<ParsedPackage> GetAll()
+        {
+            using (var session = NHibernateHelper.GetCurrentSession())
+            {
+                return
+                    session.CreateCriteria<ParsedPackage>()
+                           .Add(Restrictions.Eq("Activo", true))
+                           .AddOrder(new Order("MAC",true))
+                           .AddOrder(new Order("PackageDateTime", true))
+                           .List<ParsedPackage>();
+            }
+            
+        }
         public IEnumerable<ParsedPackage> FromToday()
         {
             using (var session = NHibernateHelper.GetCurrentSession())
@@ -31,8 +44,9 @@ namespace ACAPackagesListener.API.Models.Repositories
                 return
                     session.CreateCriteria<ParsedPackage>()
                            .Add(Restrictions.Eq("Activo", true))
-                           .Add(Restrictions.Eq("PackageDate", today))
-                           .AddOrder(new Order("PackageTimeOfDay", true))
+                           .Add(Restrictions.Eq("PackageDateTime", today))
+                           .AddOrder(new Order("MAC", true))
+                           .AddOrder(new Order("PackageDateTime", true))
                            .List<ParsedPackage>();
             }
         }
@@ -44,41 +58,42 @@ namespace ACAPackagesListener.API.Models.Repositories
                 return
                     session.CreateCriteria<ParsedPackage>()
                         .Add(Restrictions.Eq("Activo", true))
-                        .Add(Restrictions.Eq("PackageDate", day))
-                        .AddOrder(new Order("PackageTimeOfDay", true))
+                        .Add(Restrictions.Eq("PackageDateTime", day))
+                        .AddOrder(new Order("MAC", true))
+                        .AddOrder(new Order("PackageDateTime", true))
                         .List<ParsedPackage>();
             }
         }
 
-        private IEnumerable<ParsedPackage> GetByRange(Int32 start, Int32 finish, Int32 startTime = 0, Int32 endTime = 2400)
+        private IEnumerable<ParsedPackage> GetByRange(DateTime start, DateTime finish)
         {
             using (var session = NHibernateHelper.GetCurrentSession())
             {
-                var startDate = new DateTime(start/10000, (start/100)%100, start%100, startTime/100, startTime%100, 0);
-                var endDate = new DateTime(finish/10000, (finish/100)%100, finish%100, endTime/100, endTime%100, 0);
-
                 return
                     session.CreateCriteria<ParsedPackage>()
-                        .Add(Restrictions.Between("Created", startDate, endDate)).List<ParsedPackage>();
+                        .Add(Restrictions.Between("PackageDateTime", start, finish))
+                        .AddOrder(new Order("MAC", true))
+                        .AddOrder(new Order("PackageDateTime", true))
+                        .List<ParsedPackage>();
             }
         }
         public IEnumerable<ParsedPackage> FromLastWeek()
         {
-            var sevenDaysAgo = Convert.ToInt32(DateTime.Today.AddDays(-7).ToString("yyyyMMdd"));
-            var today = Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd"));
+            var sevenDaysAgo = DateTime.Today.AddDays(-7);
+            var today = DateTime.Today;
             return GetByRange(sevenDaysAgo, today);
         }
 
         public IEnumerable<ParsedPackage> FromLastMonth()
         {
-            var aMonthAgo = Convert.ToInt32(DateTime.Today.AddMonths(-1).ToString("yyyyMMdd"));
-            var today = Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd"));
+            var aMonthAgo = DateTime.Today.AddMonths(-1);
+            var today =DateTime.Today;
             return GetByRange(aMonthAgo, today);
         }
 
-        public IEnumerable<ParsedPackage> FromDateRange(Int32 start, Int32 finish, Int32 startTime=0, Int32 endTime=2400)
+        public IEnumerable<ParsedPackage> FromDateRange(DateTime start, DateTime finish)
         {
-            return GetByRange(start, finish, startTime, endTime);
+            return GetByRange(start, finish);
         }
 
         public IEnumerable<ParsedPackage> FromDevices(IEnumerable<Int32> devices)

@@ -27,10 +27,10 @@ namespace acaweb.Controllers
         public ActionResult Index()
         {
             var packages = _parsedPackagesRepository.GetAll();
-            return Json(packages, JsonRequestBehavior.AllowGet);
+            return Json(packages.GroupBy(x=>x.MAC), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetHeat(string MAC = "", string startDate = "", string endDate = "", string startTime = "", string endTime = "")
+        public ActionResult GetHeat(string startDate = "", string endDate = "")
         {
             IEnumerable<ParsedPackage> packages;
 
@@ -38,28 +38,23 @@ namespace acaweb.Controllers
             {
                 if (String.IsNullOrEmpty(endDate))
                     endDate = DateTime.Today.ToString("yyyyMMdd");
-                packages = _parsedPackagesRepository.FromDateRange(Convert.ToInt32(startDate), Convert.ToInt32(endDate), Convert.ToInt32(startTime), Convert.ToInt32(endTime));
+                packages = _parsedPackagesRepository.FromDateRange(DateTime.Parse(startDate), DateTime.Parse(endDate));
             }
             else { packages = _parsedPackagesRepository.GetAll(); }
-            if (!String.IsNullOrEmpty(MAC)){packages = packages.Where(x => x.MAC == MAC);}
             var result = packages.GroupBy(x => x.LatLng);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Get(string MAC = "", string startDate = "", string endDate = "", string startTime = "0", string endTime = "2359")
+        public ActionResult Get(string startDate = "", string endDate = "")
         {
             IEnumerable<ParsedPackage> packages;
             if (!String.IsNullOrEmpty(startDate)) {
                 if(String.IsNullOrEmpty(endDate))
                     endDate = DateTime.Today.ToString("yyyyMMdd");
-                packages = _parsedPackagesRepository.FromDateRange(Convert.ToInt32(startDate), Convert.ToInt32(endDate), Convert.ToInt32(startTime), Convert.ToInt32(endTime));
+                packages = _parsedPackagesRepository.FromDateRange(DateTime.Parse(startDate), DateTime.Parse(endDate));
             }
             else { packages = _parsedPackagesRepository.GetAll(); }
-            if(!String.IsNullOrEmpty(MAC))
-            {
-                packages = packages.Where(x => x.MAC == MAC);
-            }
-            return Json(packages.OrderBy(x => x.PackageDateTime), JsonRequestBehavior.AllowGet);
+            return Json(packages.GroupBy(x => x.MAC), JsonRequestBehavior.AllowGet);
         }
     }
 }
