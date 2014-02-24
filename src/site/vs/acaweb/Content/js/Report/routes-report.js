@@ -67,13 +67,17 @@ $(function () {
         }).fail(function (jqXHR, textStatus) { alert("Error cargando las rutas"); });
     };
     printRoutes(null);
-    $("#btnFilter").bind('click', function () {
-        reloadReport(printRoutes, packagesurl);
-    });
-    var reloadLoop = function () {
+    var cleanVariables = function() {
         for (var arrow in currentArrows) { currentArrows[arrow].setMap(null); }
         for (var label in currentLabels) { currentLabels[label].setMap(null); }
         paths = [];
+    };
+    $("#btnFilter").bind('click', function () {
+        cleanVariables();
+        reloadReport(printRoutes, packagesurl);
+    });
+    var reloadLoop = function () {
+        cleanVariables();
         reloadReport(printRoutes, packagesurl);
         setTimeout(reloadLoop, parseInt($("#refreshingTime").val()) * 1000);
     };
