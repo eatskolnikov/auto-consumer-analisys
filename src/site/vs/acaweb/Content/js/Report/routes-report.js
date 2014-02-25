@@ -63,7 +63,6 @@ $(function() {
                             };
                             currentMarkers[endPoint].marker.infowindow = new google.maps.InfoWindow({ content: currentMarkers[endPoint].markerInfoContent });
                             google.maps.event.addListener(currentMarkers[endPoint].marker, 'click', function () { this.infowindow.open(map, this); });
-
                         }
                         currentArrows.push(line);
                         currentLabels.push(label);
@@ -73,28 +72,20 @@ $(function() {
         }).fail(function(jqXHR, textStatus) { alert("Error cargando las rutas"); });
     };
 
-
     printRoutes(null);
     var cleanVariables = function() {
         for (var arrow in currentArrows) { currentArrows[arrow].setMap(null); }
         for (var label in currentLabels) { currentLabels[label].setMap(null); }
         for (var marker in currentMarkers) { currentMarkers[marker].marker.setMap(null); }
-        paths = [];
-        currentArrows = [];
-        currentLabels = [];
-        currentMarkers = {};
+        paths = []; currentArrows = []; currentLabels = []; currentMarkers = {};
     };
-    $("#btnFilter").bind('click', function() {
-        cleanVariables();
-        reloadReport(printRoutes, packagesurl);
+    $("#btnFilter").bind('click', function() { cleanVariables(); reloadReport(printRoutes, packagesurl);
     });
     var reloadLoop = function() {
-        cleanVariables();
-        reloadReport(printRoutes, packagesurl);
+        cleanVariables(); reloadReport(printRoutes, packagesurl);
         setTimeout(reloadLoop, parseInt($("#refreshingTime").val()) * 1000);
     };
     setTimeout(reloadLoop, parseInt($("#refreshingTime").val()) * 1000);
-
     var getDirectionArrow = function (startLatLng, endLatLng) {
         var direction = "→";
         if(startLatLng.lng() > endLatLng.lng()) {
