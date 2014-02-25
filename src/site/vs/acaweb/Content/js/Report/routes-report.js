@@ -27,19 +27,23 @@ $(function() {
                         lastLatLng = currLatLng;
                     }
                 }
+                var offset = 0.0;
                 for (var startPoint in paths) {
                     var start = startPoint.replace('(', '').replace(')', '').replace(' ', '').split(',');
-                    var startLatLng = new google.maps.LatLng(start[0], start[1]);
                     for (var endPoint in paths[startPoint]) {
+                        if (endPoint == 'outs' || endPoint == 'entries'){ continue; }
+                        console.log(offset);
+                        var startLatLng = new google.maps.LatLng(start[0] + offset, start[1] + offset);
                         var end = endPoint.replace('(', '').replace(')', '').replace(' ', '').split(',');
-                        var endLatLng = new google.maps.LatLng(end[0], end[1]);
+                        var endLatLng = new google.maps.LatLng(end[0] + offset, end[1] + offset);
+
                         var lineCoordinates = [startLatLng, endLatLng];
                         var labelLat = (endLatLng.lat() + startLatLng.lat()) / 2;
                         var labelLng = (endLatLng.lng() + startLatLng.lng()) / 2;
                         var direction = getDirectionArrow(startLatLng, endLatLng);
                         var label = new MapLabel({ map: map,
                             text: paths[startPoint][endPoint] + " personas " + direction,
-                            position: new google.maps.LatLng(labelLat, labelLng)
+                            position: new google.maps.LatLng(labelLat, labelLng )
                         });
                         var line = new google.maps.Polyline({
                             path: lineCoordinates,

@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     var mallMapType = new google.maps.ImageMapType(mallTypeOptions);
     var mapOptions = {
-        center: mapCenter, zoom: 3, disableDefaultUI: true, draggable: false,
+        center: mapCenter, zoom: 3, disableDefaultUI: true, draggable: true,
         mapTypeControlOptions: {
             mapTypeIds: ['mall']
         }
