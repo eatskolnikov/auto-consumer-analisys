@@ -10,14 +10,12 @@
                 <h2>Bienvenido a la aplicación AutoConsumerAnalisys</h2>
             </div>
             <div class="panel-body">
-                <p>
-                    ¿Qué deseas hacer?
-                    <ul class="list-unstyled">
-                        <li><a href="#"><i class="glyphicon glyphicon-book"></i> Ver reportes</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Configurar dispositivos</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> Leer la ayuda del sistema</a></li>
-                    </ul>
-                </p>
+                <h4>¿Qué deseas hacer?</h4>
+                <ul class="list-unstyled">
+                    <li><a href="@Url.Action("Index","Report")"><i class="glyphicon glyphicon-book"></i> Ver reportes</a></li>
+                    <li><a href="@Url.Action("Index","Device")"><i class="glyphicon glyphicon-cog"></i> Configurar dispositivos</a></li>
+                    <li><a href="@Url.Action("Index","Help")"><i class="glyphicon glyphicon-question-sign"></i> Leer la ayuda del sistema</a></li>
+                </ul>
             </div>
         </div>
     </div>

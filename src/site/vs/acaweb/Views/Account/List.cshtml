@@ -3,33 +3,37 @@
 @{
     ViewBag.Title = "List";
 }
-
-<table class="table">
-    <tr>
-        <th>
-            Usuario
-        </th>
-        <th>
-            Administrador
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr id="">
-        <td>
-            @Html.ActionLink(item.Username, "Edit", new { id=item.UserId })
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsAdmin)
-        </td>
-        <td>
-            <a href="@Url.Action("Delete/"+item.UserId,"Account")" onclick ="borrarUsuario(this); return false;"><i class='icon-trash'></i>Borrar</a>
-        </td>
-    </tr>
-}
-</table>
-<p> <i class='icon-plus'></i>@Html.ActionLink("Crear nuevo", "Add") </p>
+<div class="row">
+    <div class="col-sm-offset-2 col-sm-8" style="margin-top:10px">
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Usuario
+                </th>
+                <th>
+                    Administrador
+                </th>
+                <th><i class='glyphicon glyphicon-plus'></i> @Html.ActionLink("Crear nuevo", "Add")</th>
+            </tr>
+            @foreach (var item in Model) {
+                <tr id="">
+                    <td>
+                        @Html.ActionLink(item.Username, "Edit", new { id=item.UserId })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsAdmin)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit/"+item.UserId,"Account")"> <i class='glyphicon glyphicon-edit'></i> Editar</a> 
+                        @if (item.Username != "root"){
+                        <a href="@Url.Action("Delete/"+item.UserId,"Account")" onclick ="borrarUsuario(this); return false;" > <i class='glyphicon glyphicon-trash'></i> Eliminar</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
 <script>
     var borrarUsuario = function (link) {
         $.ajax({

@@ -74,7 +74,7 @@ namespace acaweb.Controllers
                     {
                         return Redirect(Request.Params["ReturnUrl"]);
                     }
-                    return RedirectToAction("Index", "Home");
+                    return user.IsAdmin ? RedirectToAction("List") : RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "Nombre de Usuario o Contraseña incorrectos");
             }
