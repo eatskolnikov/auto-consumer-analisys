@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+                   namespace="ACAPackagesListener.API.Models.Entities"
+                   assembly="ACAPackagesListener.API">
+  <class name="Map" table="MapsFloors" lazy="false">
+    <id name="Id">
+      <column name="Id" />
+      <generator class="native" />
+    </id>
+    <property name="TilesSource"></property>
+    <property name="FloorsCount"></property>
+    <property name="Name"></property>
+    <property name="Description"></property>
+    <property name="Selected"></property>
+    <property name="Activo"></property>
+  </class>
+</hibernate-mapping>

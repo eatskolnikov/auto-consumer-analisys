@@ -1,14 +1,18 @@
 ﻿@{
     ViewBag.Title = "Configuración de Dispositivos";
 }
-<ul class="list-inline">
-    <li><button class="btn btn-danger" id="btnClearData"><i class="glyphicon glyphicon-remove"></i> Limpiar datos de la aplicaci&oacute;n</button></li>
-    <li><button class="btn btn-info" id="btnImportMap"><i class="glyphicon glyphicon-import"></i> Importar Mapa</button></li>
-</ul>
+<div class="row">
+    <ul class="list-inline pull-right">
+        <li><button class="btn btn-danger" id="btnClearData"><i class="glyphicon glyphicon-remove"></i> Borrar todo</button></li>
+        <li><button class="btn btn-info" id="btnImportMap" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-globe"></i> Opciones de mapas</button></li>
+    </ul>
+</div>
 
+<div class="row">
+    <div id="map_canvas"></div>
+</div>
 
-<div id="map_canvas"></div>
-
+@Html.Partial("~/Views/Map/AddDialog.cshtml");
 
 <script>
     document.getElementById("btnClearData").onclick = function () {
