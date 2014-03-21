@@ -1,29 +1,20 @@
 ﻿@model IEnumerable<ACAPackagesListener.API.Models.Entities.Map>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-
-
 @{
-    ViewBag.Title = "Administración de usuarios";
+    ViewBag.Title = "Administración de Mapas";
 }
 <div class="row">
     <div class="col-sm-offset-2 col-sm-8" style="margin-top: 10px">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h2>Administración de usuarios</h2>
+                <h2>Administración de Mapas</h2>
             </div>
 
             <div class="panel-body">
                 <table class="table table-striped">
                     <tr>
-                        <th>Name
-                        </th>
-                        <th>Description
-                        </th>
-                        <th>Seleccionado
-                        </th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Seleccionado</th>
                         <th></th>
                     </tr>
 
@@ -40,9 +31,8 @@
                                 @Html.DisplayFor(modelItem => item.Selected)
                             </td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                <a href="@Url.Action("Edit/"+item.Id,"Account")" data-toggle="modal" data-target="#edit-account-modal"> <i class='glyphicon glyphicon-edit'></i> Editar</a> 
+                                <a href="@Url.Action("Delete/"+item.Id,"Account")" onclick ="borrarMapa(this); return false;" > <i class='glyphicon glyphicon-trash'></i> Eliminar</a>
                             </td>
                         </tr>
                     }

@@ -24,15 +24,15 @@
                     @foreach (var item in Model) {
                         <tr id="">
                             <td>
-                                @Html.ActionLink(item.Username, "Edit", new { id=item.UserId })
+                                @Html.ActionLink(item.Username, "Edit", "Account", new { id=item.UserId },new Dictionary<String,object>{{"data-toggle","modal"},{"data-target","#edit-account-modal"}})
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.IsAdmin)
                             </td>
                             <td>
-                                <a href="@Url.Action("Edit/"+item.UserId,"Account")"> <i class='glyphicon glyphicon-edit'></i> Editar</a> 
+                                <a href="@Url.Action("Edit/"+item.UserId,"Account")" data-toggle="modal" data-target="#edit-account-modal"> <i class='glyphicon glyphicon-edit'></i> Editar</a> 
                                 @if (item.Username != "root"){
-                                    <a href="@Url.Action("Delete/"+item.UserId,"Account")" onclick ="borrarUsuario(this); return false;" > <i class='glyphicon glyphicon-trash'></i> Eliminar</a>
+                                <a href="@Url.Action("Delete/"+item.UserId,"Account")" onclick ="borrarUsuario(this); return false;" > <i class='glyphicon glyphicon-trash'></i> Eliminar</a>
                                 }
                             </td>
                         </tr>
@@ -43,9 +43,8 @@
     </div>
 </div>
     
-<div id="add-account-modal"  class="modal fade " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm"></div>
-</div>
+<div id="add-account-modal"  class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit-account-modal"  class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <script>
     var borrarUsuario = function (link) {
         if(confirm("¿Está seguro que desea eliminar el usuario? Este cambio es irreversible.")){
