@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ACAPackagesListener.API.Models.Entities.Map>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+
+@{
+    ViewBag.Title = "Administración de usuarios";
+}
+<div class="row">
+    <div class="col-sm-offset-2 col-sm-8" style="margin-top: 10px">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Administración de usuarios</h2>
+            </div>
+
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Name
+                        </th>
+                        <th>Description
+                        </th>
+                        <th>Seleccionado
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Selected)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,7 +19,7 @@
                         <th>
                             Administrador
                         </th>
-                        <th><i class='glyphicon glyphicon-plus'></i> @Html.ActionLink("Crear nuevo", "Add")</th>
+                        <th><i class='glyphicon glyphicon-plus'></i> @Html.ActionLink("Agregar usuario", "Add","Account",new RouteValueDictionary(),new Dictionary<String,object>{{"data-toggle","modal"},{"data-target","#add-account-modal"}})</th>
                     </tr>
                     @foreach (var item in Model) {
                         <tr id="">
@@ -42,17 +42,23 @@
         </div>
     </div>
 </div>
+    
+<div id="add-account-modal"  class="modal fade " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm"></div>
+</div>
 <script>
     var borrarUsuario = function (link) {
-        $.ajax({
-            url: link.href, //base_url + "Account/Delete/" + usuarioId,
-            method: 'GET',
-            dataType: 'json',
-            success: function (json) {
-                $("#showAlert").attr('class', 'alert alert-info');
-                $("#showAlert").html('<button type="button" class="close" data-dismiss="alert">×</button>El usuario ha sido eliminado');
-                $(link).parent().parent().remove();
-            }
-        });
+        if(confirm("¿Está seguro que desea eliminar el usuario? Este cambio es irreversible.")){
+            $.ajax({
+                url: link.href,
+                method: 'GET',
+                dataType: 'json',
+                success: function (json) {
+                    $("#showAlert").attr('class', 'alert alert-info');
+                    $("#showAlert").html('<button type="button" class="close" data-dismiss="alert">×</button>El usuario ha sido eliminado');
+                    $(link).parent().parent().remove();
+                }
+            });
+        }
     };
 </script>
