@@ -291,6 +291,7 @@
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <Content Include="Views\Help\Index.cshtml" />
     <Content Include="Views\Map\Index.cshtml" />
+    <Content Include="Views\Map\Add.cshtml" />
     <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.xml" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.dll" />
@@ -318,7 +319,7 @@
     <Folder Include="Content\img\map\tiles\4\" />
     <Folder Include="Content\img\map\tiles\5\" />
     <Folder Include="Content\img\map\tiles\6\" />
-    <Folder Include="Data\" />
+    <Folder Include="Content\maps\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

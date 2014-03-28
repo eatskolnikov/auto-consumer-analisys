@@ -39,8 +39,15 @@
                             <ul class="nav navbar-nav navbar-right" >
                                 @if (Session["UserData"] != null && ((User)Session["UserData"]).IsAdmin)
                                 {
-                                    <li ><a href='@Url.Action("List", "Account")'><i class="glyphicon glyphicon-user"></i> Manejar Usuarios</a></li>
-                                    <li ><a href='@Url.Action("Index", "Device")'><i class="glyphicon glyphicon-cog"></i> Configuraciones</a></li>
+                                    <li><a href='@Url.Action("List", "Account")'><i class="glyphicon glyphicon-user"></i> Manejar Usuarios</a></li>
+                                    
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> Configuraciones <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("Index","Device")"><i class="glyphicon glyphicon-phone"></i> Dispositivos</a></li>
+                                            <li><a href="@Url.Action("Index","Map")"><i class="glyphicon glyphicon-globe"></i> Mapas</a></li>
+                                        </ul>
+                                    </li>
                                 }
                                 <li><a href='@Url.Action("Index", "Report")'><i class="glyphicon glyphicon-book"></i> Reportes</a></li>
                                 <li><button class="btn btn-danger navbar-btn" onclick="location.href='@Url.Action("Logout", "Account")'; return;"><b><i class="glyphicon glyphicon-off"></i> Salir</b></button></li>

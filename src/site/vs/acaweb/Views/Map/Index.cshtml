@@ -15,9 +15,8 @@
                         <th>Nombre</th>
                         <th>Descripción</th>
                         <th>Seleccionado</th>
-                        <th></th>
+                        <th><i class='glyphicon glyphicon-plus'></i> @Html.ActionLink("Agregar mapa", "Add","Map",new RouteValueDictionary(),new Dictionary<String,object>{{"data-toggle","modal"},{"data-target","#add-map-modal"}})</th>
                     </tr>
-
                     @foreach (var item in Model)
                     {
                         <tr>
@@ -31,14 +30,32 @@
                                 @Html.DisplayFor(modelItem => item.Selected)
                             </td>
                             <td>
-                                <a href="@Url.Action("Edit/"+item.Id,"Account")" data-toggle="modal" data-target="#edit-account-modal"> <i class='glyphicon glyphicon-edit'></i> Editar</a> 
-                                <a href="@Url.Action("Delete/"+item.Id,"Account")" onclick ="borrarMapa(this); return false;" > <i class='glyphicon glyphicon-trash'></i> Eliminar</a>
+                                <a href="@Url.Action("Edit/"+item.Id,"Map")" data-toggle="modal" data-target="#edit-map-modal"> <i class='glyphicon glyphicon-edit'></i> Editar</a> 
+                                <a href="@Url.Action("Delete/"+item.Id,"Map")" onclick ="borrarMapa(this); return false;" > <i class='glyphicon glyphicon-trash'></i> Eliminar</a>
                             </td>
                         </tr>
                     }
-
                 </table>
             </div>
         </div>
     </div>
 </div>
+
+<div id="add-map-modal"  class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit-map-modal"  class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<script>
+    var borrarMapa = function (link) {
+        if(confirm("¿Está seguro que desea eliminar el usuario? Este cambio es irreversible.")){
+            $.ajax({
+                url: link.href,
+                method: 'GET',
+                dataType: 'json',
+                success: function (json) {
+                    $("#showAlert").attr('class', 'alert alert-info');
+                    $("#showAlert").html('<button type="button" class="close" data-dismiss="alert">×</button>El usuario ha sido eliminado');
+                    $(link).parent().parent().remove();
+                }
+            });
+        }
+    };
+</script>
