@@ -8,5 +8,7 @@ namespace ACAPackagesListener.API.Models.Repositories
 {
     public interface IMapRepository : IWriteableCommonRepository<Map>
     {
+        Map GetSelected();
+        void ChangeSelected(int mapId);
     }
 }

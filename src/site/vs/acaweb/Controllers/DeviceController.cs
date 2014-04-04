@@ -6,7 +6,7 @@ using ACAPackagesListener.API.Models.Repositories;
 
 namespace acaweb.Controllers
 {
-    public class DeviceController : Controller
+    public class DeviceController : BaseMapController
     {
         private readonly IDeviceRepository _deviceRepository;
         public DeviceController()

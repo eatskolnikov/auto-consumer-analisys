@@ -63,6 +63,7 @@
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript">
             var base_url = '@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/")';
+            var tiles_url = base_url + '@ViewBag.TilesSource';
             $('body').on('hidden.bs.modal', '.modal', function () {
                 $(this).removeData('bs.modal');
             });

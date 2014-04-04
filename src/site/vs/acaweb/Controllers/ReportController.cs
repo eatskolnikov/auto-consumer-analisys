@@ -10,7 +10,7 @@ using log4net.Appender;
 
 namespace acaweb.Controllers
 {
-    public class ReportController : Controller
+    public class ReportController : BaseMapController
     {
         private readonly IParsedPackageRepository _parsedPackagesRepository;
         private readonly IDeviceRepository _devicesRepository;

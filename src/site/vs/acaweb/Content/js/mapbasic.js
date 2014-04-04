@@ -7,7 +7,7 @@ var ShowAlert = function (message, type) {
 $(document).ready(function () {
     var map_cols = 8;
     var map_rows = 4;
-    var tile_dimension = 168;
+    var tile_dimension = 256;
     var mapCenter = new google.maps.LatLng(2, -61);
     var mallTypeOptions = {
         getTileUrl: function (coord, zoom) {
@@ -15,10 +15,10 @@ $(document).ready(function () {
                 var y = coord.y % map_rows;
                 if (x < 0 || y < 0) { return ""; }
                 if (y < 0) y = y * -1;
-                return base_url + "Content/img/map/3/tiles/" + y + "/" + x + ".png";
+                return tiles_url +'1/'+ x + "/" + y + ".png";
             },
         tileSize: new google.maps.Size(tile_dimension, tile_dimension),
-        maxZoom: 3,minZoom: 3, name: 'Mall'
+        maxZoom: 2,minZoom: 2, name: 'Mall'
     };
 
     var mallMapType = new google.maps.ImageMapType(mallTypeOptions);

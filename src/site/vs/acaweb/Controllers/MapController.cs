@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Security.AccessControl;
-using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
@@ -15,8 +9,6 @@ using System.IO.Compression;
 using ACAPackagesListener.API.Models.Entities;
 using ACAPackagesListener.API.Models.Repositories;
 using ACAPackagesListener.API;
-using NHibernate.Hql.Ast.ANTLR;
-
 namespace acaweb.Controllers
 {
     public class MapController : Controller
@@ -68,7 +60,7 @@ namespace acaweb.Controllers
 
                     for (var currentRow = 0; currentRow < 4; ++currentRow)
                     {
-                        for (var currentColumn = 0; currentColumn < 3; ++currentColumn)
+                        for (var currentColumn = 0; currentColumn < 8; ++currentColumn)
                         {
                             var newBmp = new Bitmap(sideSize, sideSize);
                             for (var i = 0; i < 256; ++i)

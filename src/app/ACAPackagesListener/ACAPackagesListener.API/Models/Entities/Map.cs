@@ -2,6 +2,7 @@
 
 namespace ACAPackagesListener.API.Models.Entities
 {
+    [Serializable]
     public class Map
     {
         public virtual Int32 Id { get; set; }
