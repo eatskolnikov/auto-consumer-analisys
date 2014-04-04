@@ -1,0 +1,36 @@
+﻿@model ACAPackagesListener.API.Models.Entities.Map
+@{
+    Layout = null;
+}
+
+<div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-body">
+        @using (Html.BeginForm("Add", "Map", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true)
+            <div class='form-group'>
+                <label for="Name">Nombre del mapa</label>
+                @Html.TextBoxFor(model => model.Name, new { placeholder = "Nombre del mapa", @class="form-control"})
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div class='form-group'>
+                <label for="description">Descripción</label>
+                @Html.TextAreaFor(model => model.Description,new { placeholder = "Descripción", @class="form-control"})
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+            <div class='form-group'>
+                @Html.CheckBoxFor(model => model.Selected, new {@class="chk-selected"})
+                <label for="Selected">Seleccionado</label>
+                @Html.ValidationMessageFor(model => model.Selected)
+            </div>
+            <div class="form-group">
+                <input type="file" name="mapfile"/>
+            </div>
+            <p>
+                <input type="submit" value="Agregar mapa" class="btn btn-primary" />
+            </p>
+        }
+        </div>
+    </div>
+</div>
