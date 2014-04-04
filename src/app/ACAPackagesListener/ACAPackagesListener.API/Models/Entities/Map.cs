@@ -2,7 +2,6 @@
 
 namespace ACAPackagesListener.API.Models.Entities
 {
-    [Serializable]
     public class Map
     {
         public virtual Int32 Id { get; set; }
@@ -11,6 +10,5 @@ namespace ACAPackagesListener.API.Models.Entities
         public virtual String Name { get; set; }
         public virtual String Description { get; set; }
         public virtual bool Selected { get; set; }
-        public virtual bool Activo { get; set; }
     }
 }

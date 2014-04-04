@@ -6,7 +6,9 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.AccessControl;
 using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using System.IO.Compression;
@@ -44,72 +46,54 @@ namespace acaweb.Controllers
                 var filename = Path.GetFileName(mapfile.FileName);
                 var path = Server.MapPath("~/Content/maps/" + newFolderName);
                 var file = Path.Combine(path, filename);
-                Directory.CreateDirectory(path);
-                mapfile.SaveAs(path);
+                var myDirectoryInfo = Directory.CreateDirectory(path);
+                var self = WindowsIdentity.GetCurrent();
+                var ds = myDirectoryInfo.GetAccessControl();
+                ds.AddAccessRule(new FileSystemAccessRule(self.Name, FileSystemRights.FullControl,
+                    InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.None,
+                    AccessControlType.Allow));
+                myDirectoryInfo.SetAccessControl(ds);
+                mapfile.SaveAs(file);
+                ZipFile.ExtractToDirectory(file, path);
+                var fi = new FileInfo(file);
+                fi.Delete();
                 var currentFloor = 1;
-                var sidelength = 256;
-                foreach(var f in Directory.GetFiles(path))
+                var sideSize = 256;
+                var files = Directory.GetFiles(path);
+                foreach (var f in files)
                 {
-                    var imagePath = path + "/" + currentFloor;
+                    var imagePath = path + "\\" + currentFloor + "\\";
                     Directory.CreateDirectory(imagePath);
+                    var bmp = new Bitmap(f);
 
-                    for(var currentRow=0;currentRow < 4;++currentRow)
+                    for (var currentRow = 0; currentRow < 4; ++currentRow)
                     {
-                        for (var currentColumn = 0; currentColumn < 4; ++currentColumn)
+                        for (var currentColumn = 0; currentColumn < 3; ++currentColumn)
                         {
-                            var bmp = new Bitmap(f);
-                            var rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
-                            var rawOriginal = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-
-                            int origByteCount = rawOriginal.Stride * rawOriginal.Height;
-                            byte[] origBytes = new Byte[origByteCount];
-                            Marshal.Copy(rawOriginal.Scan0, origBytes, 0, origByteCount);
-
-                            //I want to crop a 100x100 section starting at 15, 15.
-                            var startX = 0 + (256 * currentColumn);
-                            var startY = 0 + (256 * currentRow);
-                            var width = 256;
-                            var height = 256;
-                            var BPP = 4;        //4 Bpp = 32 bits, 3 = 24, etc.
-
-                            byte[] croppedBytes = new Byte[width * height * BPP];
-
-                            //Iterate the selected area of the original image, and the full area of the new image
-                            for (var i = 0; i < height; i++)
+                            var newBmp = new Bitmap(sideSize, sideSize);
+                            for (var i = 0; i < 256; ++i)
                             {
-                                for (var j = 0; j < width * BPP; j += BPP)
+                                for (var j = 0; j < 256; ++j)
                                 {
-                                    int origIndex = (startX * rawOriginal.Stride) + (i * rawOriginal.Stride) + (startY * BPP) + (j);
-                                    int croppedIndex = (i * width * BPP) + (j);
-
-                                    //copy data: once for each channel
-                                    for (int k = 0; k < BPP; k++)
-                                    {
-                                        croppedBytes[croppedIndex + k] = origBytes[origIndex + k];
-                                    }
+                                    newBmp.SetPixel(i, j,
+                                        bmp.GetPixel((currentRow*sideSize) + i, (currentColumn*sideSize) + j));
                                 }
                             }
-
-                            //copy new data into a bitmap
-                            var croppedBitmap = new Bitmap(width, height);
-                            var croppedData = croppedBitmap.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
-                            Marshal.Copy(croppedBytes, 0, croppedData.Scan0, croppedBytes.Length);
-
-                            bmp.UnlockBits(rawOriginal);
-                            croppedBitmap.UnlockBits(croppedData);
-
-                            croppedBitmap.Save(imagePath + (currentRow+currentColumn));
+                            Directory.CreateDirectory(imagePath + currentRow);
+                            newBmp.Save(imagePath + currentRow + "\\" + currentColumn + ".png");
                         }
                     }
                     ++currentFloor;
                 }
-
+                map.FloorsCount = files.Length;
                 map.TilesSource = Url.Content("~/Content/maps/" + newFolderName);
 
-                ZipFile.ExtractToDirectory(file, path);
- //              _mapRepository.Add(map);
+                _mapRepository.Add(map);
             }
-            catch (Exception ex) { ModelState.AddModelError("", ex.Message); }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
             return RedirectToAction("Index");
         }
     }
