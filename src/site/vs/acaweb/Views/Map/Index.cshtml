@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ACAPackagesListener.API.Models.Entities.Map>
+﻿@model IEnumerable<ACAPackagesListener.API.Models.Entities.MallMap>
 @{
     ViewBag.Title = "Administración de Mapas";
 }
@@ -30,8 +30,8 @@
                                 @Html.DisplayFor(modelItem => item.Selected)
                             </td>
                             <td>
-                                <a href="@Url.Action("Edit/"+item.Id,"Map")" data-toggle="modal" data-target="#edit-map-modal"> <i class='glyphicon glyphicon-edit'></i> Editar</a> 
-                                <a href="@Url.Action("Delete/"+item.Id,"Map")" onclick ="borrarMapa(this); return false;" > <i class='glyphicon glyphicon-trash'></i> Eliminar</a>
+                                <a href="@Url.Action("Edit/"+item.MapId,"Map")" data-toggle="modal" data-target="#edit-map-modal"> <i class='glyphicon glyphicon-edit'></i> Editar</a> 
+                                <a href="@Url.Action("Delete/"+item.MapId,"Map")" onclick ="borrarMapa(this); return false;" > <i class='glyphicon glyphicon-trash'></i> Eliminar</a>
                             </td>
                         </tr>
                     }
@@ -45,7 +45,7 @@
 <div id="edit-map-modal"  class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <script>
     var borrarMapa = function (link) {
-        if(confirm("¿Está seguro que desea eliminar el usuario? Este cambio es irreversible.")){
+        if(confirm("¿Está seguro que desea eliminar el mapa? Este cambio es irreversible.")){
             $.ajax({
                 url: link.href,
                 method: 'GET',

@@ -15,7 +15,7 @@ $(document).ready(function () {
                 var y = coord.y % map_rows;
                 if (x < 0 || y < 0) { return ""; }
                 if (y < 0) y = y * -1;
-                return tiles_url +'1/'+ x + "/" + y + ".png";
+                return tiles_url + '2/' + x + "/" + y+ ".png";
             },
         tileSize: new google.maps.Size(tile_dimension, tile_dimension),
         maxZoom: 2,minZoom: 2, name: 'Mall'
@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     var mallMapType = new google.maps.ImageMapType(mallTypeOptions);
     var mapOptions = {
-        center: mapCenter, zoom: 3, disableDefaultUI: true, draggable: false,
+        center: mapCenter, zoom: 3, disableDefaultUI: true, draggable: true,
         mapTypeControlOptions: {
             mapTypeIds: ['mall']
         }

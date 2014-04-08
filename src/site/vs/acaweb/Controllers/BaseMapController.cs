@@ -13,9 +13,9 @@ namespace acaweb.Controllers
 
         public BaseMapController()
         {
-            //mapRepository = new NHMapRepository();
-            //var selected = mapRepository.GetSelected();
-            ViewBag.TilesSource = "Content/maps/8240df3408ae029b955bcd29743dec98/";// selected.TilesSource;
+            mapRepository = new NHMapRepository();
+            var selected = mapRepository.GetSelected();
+            ViewBag.TilesSource = selected.TilesSource;
         }
     }
 }

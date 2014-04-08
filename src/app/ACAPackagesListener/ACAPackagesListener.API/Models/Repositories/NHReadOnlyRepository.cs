@@ -12,7 +12,8 @@ namespace ACAPackagesListener.API.Models.Repositories
         {
             using(var session = NHibernateHelper.GetCurrentSession())
             {
-                return session.Query<T>().ToList<T>();
+                var q = session.QueryOver<T>();
+                return q.List<T>();
             }
         }
 

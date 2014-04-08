@@ -30,7 +30,7 @@ namespace acaweb.Controllers
         public ActionResult Add() { return View(); }
 
         [HttpPost]
-        public ActionResult Add(Map map, HttpPostedFileBase mapfile)
+        public ActionResult Add(MallMap map, HttpPostedFileBase mapfile)
         {
             try
             {

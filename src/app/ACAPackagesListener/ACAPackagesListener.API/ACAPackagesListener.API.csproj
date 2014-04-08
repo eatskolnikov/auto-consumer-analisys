@@ -67,7 +67,7 @@
     <Compile Include="ISerializeJSON.cs" />
     <Compile Include="JSONSerializer.cs" />
     <Compile Include="Models\Entities\Device.cs" />
-    <Compile Include="Models\Entities\Map.cs" />
+    <Compile Include="Models\Entities\MallMap.cs" />
     <Compile Include="Models\Entities\MapFloor.cs" />
     <Compile Include="Models\Entities\Package.cs" />
     <Compile Include="Models\Entities\ParsedPackage.cs" />
@@ -103,8 +103,8 @@
     <EmbeddedResource Include="Models\Entities\ParsedPackage.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Entities\Map.hbm.xml" />
-    <Content Include="Models\Entities\MapFloor.hbm.xml" />
+    <EmbeddedResource Include="Models\Entities\MallMap.hbm.xml" />
+    <EmbeddedResource Include="Models\Entities\MapFloor.hbm.xml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

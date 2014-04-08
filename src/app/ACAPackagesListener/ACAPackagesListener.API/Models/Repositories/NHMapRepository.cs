@@ -1,14 +1,17 @@
 ﻿
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using ACAPackagesListener.API.Models.Entities;
 using ACAPackagesListener.API.Persistance;
+using NHibernate.Mapping;
 
 namespace ACAPackagesListener.API.Models.Repositories
 {
 
-    public class NHMapRepository : NHWritableRepository<Map>, IMapRepository
+    public class NHMapRepository : NHWritableRepository<MallMap>, IMapRepository
     {
-        public Map GetSelected()
+        public MallMap GetSelected()
         {
             var all = GetAll();
             return all.FirstOrDefault(x => x.Selected);
