@@ -95,7 +95,9 @@
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Models\Entities\User.hbm.xml" />
+    <EmbeddedResource Include="Models\Entities\User.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Models\Entities\Device.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

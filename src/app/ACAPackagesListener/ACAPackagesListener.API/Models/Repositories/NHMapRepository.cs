@@ -16,6 +16,20 @@ namespace ACAPackagesListener.API.Models.Repositories
             var all = GetAll();
             return all.FirstOrDefault(x => x.Selected);
         }
+        public override void Add(MallMap element)
+        {
+            if (element.Selected)
+            {
+                using (var session = NHibernateHelper.GetCurrentSession())
+                using (var transaction = session.BeginTransaction())
+                {
+                    var query = "UPDATE Maps SET Selected=0";
+                    session.CreateSQLQuery(query).ExecuteUpdate();
+                    transaction.Commit();
+                }
+            }
+            base.Add(element);
+        }
         public void ChangeSelected(int mapId)
         {
             using (var session = NHibernateHelper.GetCurrentSession())

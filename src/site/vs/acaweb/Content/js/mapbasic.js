@@ -15,15 +15,15 @@ $(document).ready(function () {
                 var y = coord.y % map_rows;
                 if (x < 0 || y < 0) { return ""; }
                 if (y < 0) y = y * -1;
-                return tiles_url + '2/' + x + "/" + y+ ".png";
+                return tiles_url + '1/' + y + "/" + x+ ".png";
             },
         tileSize: new google.maps.Size(tile_dimension, tile_dimension),
-        maxZoom: 2,minZoom: 2, name: 'Mall'
+        maxZoom: 0,minZoom: 0, name: 'Mall'
     };
 
     var mallMapType = new google.maps.ImageMapType(mallTypeOptions);
     var mapOptions = {
-        center: mapCenter, zoom: 3, disableDefaultUI: true, draggable: true,
+        center: mapCenter, zoom: 0, disableDefaultUI: true, draggable: true,
         mapTypeControlOptions: {
             mapTypeIds: ['mall']
         }

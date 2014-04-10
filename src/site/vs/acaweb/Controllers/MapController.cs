@@ -58,17 +58,17 @@ namespace acaweb.Controllers
                     Directory.CreateDirectory(imagePath);
                     var bmp = new Bitmap(f);
 
-                    for (var currentRow = 0; currentRow < 4; ++currentRow)
+                    for (var currentRow = 0; currentRow < 3; ++currentRow)
                     {
-                        for (var currentColumn = 0; currentColumn < 8; ++currentColumn)
+                        for (var currentColumn = 0; currentColumn < 4; ++currentColumn)
                         {
                             var newBmp = new Bitmap(sideSize, sideSize);
                             for (var i = 0; i < 256; ++i)
                             {
                                 for (var j = 0; j < 256; ++j)
                                 {
-                                    newBmp.SetPixel(i, j,
-                                        bmp.GetPixel((currentRow*sideSize) + i, (currentColumn*sideSize) + j));
+                                    newBmp.SetPixel(j, i,
+                                        bmp.GetPixel((currentColumn * sideSize) + j, (currentRow * sideSize) + i));
                                 }
                             }
                             Directory.CreateDirectory(imagePath + currentRow);
@@ -78,8 +78,7 @@ namespace acaweb.Controllers
                     ++currentFloor;
                 }
                 map.FloorsCount = files.Length;
-                map.TilesSource = Url.Content("~/Content/maps/" + newFolderName);
-
+                map.TilesSource = "Content/maps/" + newFolderName + "/";
                 _mapRepository.Add(map);
             }
             catch (Exception ex)
