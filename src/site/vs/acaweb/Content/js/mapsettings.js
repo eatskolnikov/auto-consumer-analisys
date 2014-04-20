@@ -1,7 +1,7 @@
 $(function () {
-    var map_cols = 8;
+    var map_cols = 4;
     var map_rows = 4;
-    var tile_dimension = 168;
+    var tile_dimension = 256;
     var maptiler = new google.maps.ImageMapType({
         getTileUrl:
 			function (coord, zoom) {

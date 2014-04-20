@@ -26,7 +26,29 @@ namespace acaweb.Controllers
 
             return View(maps);
         }
-        
+
+        public JsonResult Select(int id)
+        {
+            var map = _mapRepository.GetById(id);
+            if (map == null)
+            {
+                return Json(new { success = false, messages = new string[] { "El mapa seleccionado no existe" } }, JsonRequestBehavior.AllowGet);
+            }
+            _mapRepository.ChangeSelected(id);
+            return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Delete(int id)
+        {
+            var map = _mapRepository.GetById(id);
+            if (map.Selected)
+            {
+                return Json(new { success = false, messages=new string[]{"No puedes eliminar el mapa actualmente seleccionado"} }, JsonRequestBehavior.AllowGet);
+            }
+            _mapRepository.Remove(map);
+            return Json(new{success=true}, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Add() { return View(); }
 
         [HttpPost]

@@ -8,12 +8,8 @@ $(document).ready(function () {
     var map_cols = 8;
     var map_rows = 4;
     var tile_dimension = 256;
-    var mapCenter = new google.maps.LatLng(-89.70251022081993, 541.40625);
+    var mapCenter = new google.maps.LatLng(46.241271092100405, 0.22968749999995097);
 
-    //"(-89.63796954793355, 541.40625)
-    //var mapCenter = new google.maps.LatLng(-89.70251022081993,18000000);
-    //-89.70251022081993, A: 549.3125
-    //var mapCenter = new google.maps.LatLng(-89.70251022081993, 167.3125);
     var mallTypeOptions = {
         getTileUrl: function (coord, zoom) {
                 var x = coord.x % map_cols;
@@ -23,12 +19,12 @@ $(document).ready(function () {
                 return tiles_url + '1/' + y + "/" + x+ ".png";
             },
         tileSize: new google.maps.Size(tile_dimension, tile_dimension),
-        maxZoom: 0,minZoom: 0, name: 'Mall'
+        maxZoom: 2,minZoom: 2, name: 'Mall'
     };
 
     var mallMapType = new google.maps.ImageMapType(mallTypeOptions);
     var mapOptions = {
-        center: mapCenter, zoom: 0, disableDefaultUI: true, draggable: true,
+        center: mapCenter, zoom: 2, disableDefaultUI: true, draggable: false,
         mapTypeControlOptions: {
             mapTypeIds: ['mall']
         }

@@ -27,7 +27,7 @@
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Selected)
+                                @Html.RadioButtonFor(modelItem => item.Selected, item.Selected)
                             </td>
                             <td>
                                 <a href="@Url.Action("Edit/"+item.MapId,"Map")" data-toggle="modal" data-target="#edit-map-modal"> <i class='glyphicon glyphicon-edit'></i> Editar</a> 
@@ -51,9 +51,18 @@
                 method: 'GET',
                 dataType: 'json',
                 success: function (json) {
-                    $("#showAlert").attr('class', 'alert alert-info');
-                    $("#showAlert").html('<button type="button" class="close" data-dismiss="alert">×</button>El usuario ha sido eliminado');
-                    $(link).parent().parent().remove();
+                    if (json.success) {
+                        $("#showAlert").attr('class', 'alert alert-info');
+                        $("#showAlert").html('<button type="button" class="close" data-dismiss="alert">×</button>El mapa ha sido eliminado');
+                        $(link).parent().parent().remove();
+                    } else {
+                        $("#showAlert").attr('class', 'alert alert-danger');
+                        if (typeof (json.messages) != 'undefined') {
+                            $("#showAlert").html('<button type="button" class="close" data-dismiss="alert">×</button>'+json.messages[0]);
+                        }else{
+                            $("#showAlert").html('<button type="button" class="close" data-dismiss="alert">×</button>Ocurrió un error. Intentalo de nuevo.');
+                        }
+                    }
                 }
             });
         }
