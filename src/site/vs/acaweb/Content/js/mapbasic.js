@@ -8,7 +8,12 @@ $(document).ready(function () {
     var map_cols = 8;
     var map_rows = 4;
     var tile_dimension = 256;
-    var mapCenter = new google.maps.LatLng(2, -61);
+    var mapCenter = new google.maps.LatLng(-89.70251022081993, 541.40625);
+
+    //"(-89.63796954793355, 541.40625)
+    //var mapCenter = new google.maps.LatLng(-89.70251022081993,18000000);
+    //-89.70251022081993, A: 549.3125
+    //var mapCenter = new google.maps.LatLng(-89.70251022081993, 167.3125);
     var mallTypeOptions = {
         getTileUrl: function (coord, zoom) {
                 var x = coord.x % map_cols;
