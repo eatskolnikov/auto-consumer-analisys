@@ -36,9 +36,9 @@ namespace ACAPackagesListener.API.Models.Repositories
             using (var transaction = session.BeginTransaction())
             {
                 var query = "UPDATE Maps SET Selected=0";
-                session.CreateQuery(query).ExecuteUpdate();
-                query = "UPDATE Maps SET Selected=1 WHERE Id=" + mapId;
-                session.CreateQuery(query).ExecuteUpdate(); 
+                session.CreateSQLQuery(query).ExecuteUpdate();
+                query = "UPDATE Maps SET Selected=1 WHERE MapId=" + mapId;
+                session.CreateSQLQuery(query).ExecuteUpdate(); 
                 transaction.Commit();
             }
         }

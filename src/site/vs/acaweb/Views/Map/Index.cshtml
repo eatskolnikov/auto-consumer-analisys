@@ -27,7 +27,7 @@
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
                             <td>
-                                @Html.RadioButtonFor(modelItem => item.Selected, item.Selected)
+                                @(item.Selected ? Html.RadioButtonFor(modelItem => item.Selected, item.Selected, new {@checked = "checked", onchange = "setMap($(this)," + item.MapId + ")"}) : Html.RadioButtonFor(modelItem => item.Selected, item.Selected, new {onchange = "setMap($(this)," + item.MapId + ")"}))
                             </td>
                             <td>
                                 <a href="@Url.Action("Edit/"+item.MapId,"Map")" data-toggle="modal" data-target="#edit-map-modal"> <i class='glyphicon glyphicon-edit'></i> Editar</a> 
@@ -63,6 +63,19 @@
                             $("#showAlert").html('<button type="button" class="close" data-dismiss="alert">×</button>Ocurrió un error. Intentalo de nuevo.');
                         }
                     }
+                }
+            });
+        }
+    };
+    var setMap = function (sender, id) {
+        console.log(sender[0].checked);
+        if (sender[0].checked) {
+            $.getJSON(base_url + 'Map/Select/' + id, function (data) {
+                if (data.success) {
+                    $("#showAlert").html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>El mapa fue cambiado</div>');
+                } else {
+
+                    $("#showAlert").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>Ocurrió un error. Intentalo de nuevo.</div>');
                 }
             });
         }

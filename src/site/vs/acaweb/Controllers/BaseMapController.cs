@@ -16,6 +16,7 @@ namespace acaweb.Controllers
             mapRepository = new NHMapRepository();
             var selected = mapRepository.GetSelected();
             ViewBag.TilesSource = selected.TilesSource;
+            ViewBag.FloorsCount = selected.FloorsCount;
         }
     }
 }

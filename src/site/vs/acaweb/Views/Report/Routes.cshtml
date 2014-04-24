@@ -3,31 +3,78 @@
 }
 <div class="row" style="margin-bottom:5px">
     <form class="form-inline">
-        <div class="form-group col-sm-3" >
-            <label for="startDate">Desde</label>
-            <div class='input-group date datetimepickercontroller' id='startDate'>
-                <input type='text' class="form-control"  />
-                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-            </div>
-            <span id="startDateError" class="label label-danger"></span>
-        </div>
-        <div class="form-group col-sm-3" >
-            <label for="endDate">Hasta</label>
-            <div class='input-group date datetimepickercontroller' id='endDate'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-            </div>
-            <span id="endDateError" class="label label-danger"></span>
-        </div>
-        <div class="form-group col-sm-3" >
-            <button type="button" value="Filtrar" id="btnFilter" class="btn btn-lg btn-primary" style="margin-top:11px">Filtrar</button>
-        </div>
-        <div class="form-group col-sm-3" >
-            <label for="refreshingTime">Tiempo de actualización(segs)</label>
-            <input type="text" id="refreshingTime" name="refreshingTime" class="form-control" value="10"/>
-        </div>
+        <table class="table-responsive">
+            <tr>
+                <td><label for="startDate">Desde</label></td>
+                <td><label for="endDate">Hasta</label></td>
+                <td rowspan="2" style="padding-left:5px">
+                    <button type="button" value="Filtrar" id="btnFilter" class="btn btn-lg btn-primary" style="margin-top:11px">Filtrar</button>
+                </td>
+                <td rowspan="2">
+                    <ul class="list-inline pull-right">
+                        <li><label for="refreshingTime">Tiempo de actualización (segs)</label></li>
+                        <li><input type="text" id="refreshingTime" name="refreshingTime" class="form-control" value="10" style="width: 50px"/></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class='input-group date datetimepickercontroller' id='startDate'>
+                        <input type='text' class="form-control"  />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <span id="startDateError" class="label label-danger"></span>
+                </td>
+                <td>
+                    <div class='input-group date datetimepickercontroller' id='endDate'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </form>
 </div>
 <div class="row">
+    <ul class="nav nav-pills">
+    @for(var i=0;i<ViewBag.FloorsCount;++i){
+        <li id="piso-@(i+1)" class="floor-indicator" ><a href="#" onclick="switchSpaces(@(i+1));" style="border-radius:0; -moz-border-radius:0;">Piso @(i+1)</a></li>
+    }
+    </ul>
+</div>
+                @*            <div class="form-group col-sm-3" >*@
+                @*                <label for="startDate">Desde</label>*@
+                @*                <div class='input-group date datetimepickercontroller' id='startDate'>*@
+                @*                    <input type='text' class="form-control"  />*@
+                @*                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>*@
+                @*                </div>*@
+                @*                <span id="startDateError" class="label label-danger"></span>*@
+                @*            </div>*@
+
+                @*            <div class="form-group col-sm-3" >*@
+                @*                <label for="endDate">Hasta</label>*@
+                @*                <div class='input-group date datetimepickercontroller' id='endDate'>*@
+                @*                    <input type='text' class="form-control" />*@
+                @*                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>*@
+                @*                </div>*@
+                @*                <span id="endDateError" class="label label-danger"></span>*@
+                @*            </div>*@
+                @*            <div class="form-group col-sm-2" >*@
+                @*                <button type="button" value="Filtrar" id="btnFilter" class="btn btn-lg btn-primary" style="margin-top:11px">Filtrar</button>*@
+                @*            </div>*@
+                @*                <div class="form-group col-sm-4" >*@
+                @*                    <label for="refreshingTime">Tiempo de actualización (segs)</label>*@
+                @*                    <input type="text" id="refreshingTime" name="refreshingTime" class="form-control" value="10" style="width: 50px"/>*@
+                @*                </div>*@
+
+<div class="row">
     <div id="map_canvas" class="col-sm-12"></div>
 </div>
+<script>
+    var switchSpaces = function(floor) {
+        changeFloor(floor);
+        $(".floor-indicator").removeClass("active");
+        $("#piso-" + floor).addClass("active");
+        return false;
+    }
+</script>
