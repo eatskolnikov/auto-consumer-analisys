@@ -9,16 +9,29 @@
 </div>
 
 <div class="row">
+    <ul class="nav nav-pills">
+    @for(var i=0;i<ViewBag.FloorsCount;++i){
+        <li id="piso-@(i+1)" class="floor-indicator @(i==0?"active":"")" ><a href="#" onclick="switchSpaces(@(i+1));" style="border-radius:0; -moz-border-radius:0;">Piso @(i+1)</a></li>
+    }
+    </ul>
+</div>
+<div class="row">
     <div id="map_canvas"></div>
 </div>
 
 
 <script>
-    document.getElementById("btnClearData").onclick = function () {
+    document.getElementById("btnClearData").onclick = function() {
         if (confirm("Eliminar los datos de la aplicación es irreversible. ¿Deseas continuar?")) {
             $.getJSON(base_url + "Packages/ClearData", function() {
                 alert("Los datos han sido eliminados satisfactoriamente.");
             });
         }
+    };
+    var switchSpaces = function (floor) {
+        changeFloor(floor);
+        $(".floor-indicator").removeClass("active");
+        $("#piso-" + floor).addClass("active");
+        return false;
     }
 </script>

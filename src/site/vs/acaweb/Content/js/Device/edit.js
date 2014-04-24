@@ -18,7 +18,7 @@ $(document).ready(function () {
     };
     var getInfowindow = function (latlng) {
         var infoWindow = new google.maps.InfoWindow({
-            content: "<style> iframe{ border: none; } </style><iframe src='" + infoUrl + '?LatLng=' + latlng + "'></iframe>",
+            content: "<style> iframe{ border: none; } </style><iframe src='" + infoUrl+ '?LatLng=' + latlng + "&floor="+current_floor+"&mapid="+mapid+"'></iframe>",
             size: new google.maps.Size(700, 800),
             disableAutoPan: true
         });

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using ACAPackagesListener.API.Models.Entities;
 using ACAPackagesListener.API.Models.Repositories;
@@ -13,24 +14,21 @@ namespace acaweb.Controllers
         {
             _deviceRepository = new NHDeviceRepository();
         }
-
-
         public ActionResult Index()
         {
             ViewBag.HasMap = true;
             ViewBag.Scripts = new List<String>{"device/edit.js"};
             return View();
         }
-
         public ActionResult Success()
         {
             ViewBag.HideNav = true;
             return View();
         }
 
-        public ActionResult Get()
+        public ActionResult Get(Int32 floor=1)
         {
-            var devices = _deviceRepository.GetAll();
+            var devices = _deviceRepository.GetAll().Where(x => x.Floor == floor);
             return Json(devices, JsonRequestBehavior.AllowGet);
         }
         public ActionResult Update(String DeviceId, String LatLng)
@@ -40,10 +38,10 @@ namespace acaweb.Controllers
             _deviceRepository.Update(device);
             return Json(device, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Add(String LatLng)
+        public ActionResult Add(Int32 mapid, Int32 floor, String LatLng)
         {
             ViewBag.HideNav = true;
-            return View("Add", new Device { LatLng = LatLng });
+            return View("Add", new Device { LatLng = LatLng, Floor = floor, MapId = mapid });
         }
         [HttpPost]
         public ActionResult Add(Device device)

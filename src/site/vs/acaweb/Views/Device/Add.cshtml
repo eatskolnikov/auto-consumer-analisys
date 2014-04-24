@@ -18,6 +18,8 @@
 </style>
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
+        @Html.HiddenFor(model=>model.MapId)
+        @Html.HiddenFor(model=>model.Floor)
         <div class="editor-label">
             @Html.LabelFor(model => model.Ip)
         </div>

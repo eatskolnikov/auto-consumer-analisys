@@ -7,6 +7,8 @@
       <column name="DeviceId" />
       <generator class="native" />
     </id>
+    <property name="MapId"></property>
+    <property name="Floor"></property>
     <property name="Ip"></property>
     <property name="LatLng"></property>
     <property name="Description"></property>

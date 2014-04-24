@@ -65,6 +65,7 @@
             var base_url = '@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)@Url.Content("~/")';
             var tiles_url = base_url + '@ViewBag.TilesSource';
             var floors_count = @ViewBag.FloorsCount +0;
+            var mapid = @ViewBag.MapId + 0;
             var current_floor = 1;
             $('body').on('hidden.bs.modal', '.modal', function () {
                 $(this).removeData('bs.modal');

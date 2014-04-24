@@ -17,6 +17,7 @@ namespace acaweb.Controllers
             var selected = mapRepository.GetSelected();
             ViewBag.TilesSource = selected.TilesSource;
             ViewBag.FloorsCount = selected.FloorsCount;
+            ViewBag.MapId = selected.MapId;
         }
     }
 }

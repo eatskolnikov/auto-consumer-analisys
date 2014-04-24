@@ -38,7 +38,7 @@
 <div class="row">
     <ul class="nav nav-pills">
     @for(var i=0;i<ViewBag.FloorsCount;++i){
-        <li id="piso-@(i+1)" class="floor-indicator" ><a href="#" onclick="switchSpaces(@(i+1));" style="border-radius:0; -moz-border-radius:0;">Piso @(i+1)</a></li>
+        <li id="piso-@(i+1)" class="floor-indicator @(i==0?"active":"")" ><a href="#" onclick="switchSpaces(@(i+1));" style="border-radius:0; -moz-border-radius:0;">Piso @(i+1)</a></li>
     }
     </ul>
 </div>
