@@ -66,4 +66,7 @@ html { height: 100% }
     .container {
         width: 1280px !important;
     }
+    #map_canvas {
+        margin-left: 85px;
+    }
 }
