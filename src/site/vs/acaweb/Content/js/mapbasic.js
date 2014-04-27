@@ -34,6 +34,7 @@ var changeFloor = function(floor) {
     map.mapTypes.set('mall', mallMapType);
     map.setMapTypeId('mall');
 };
+
 $(document).ready(function () {
     var map_cols = 8;
     var map_rows = 4;
