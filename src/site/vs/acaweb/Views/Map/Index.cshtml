@@ -27,7 +27,14 @@
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
                             <td>
-                                @(item.Selected ? Html.RadioButtonFor(modelItem => item.Selected, item.Selected, new {@checked = "checked", onchange = "setMap($(this)," + item.MapId + ")"}) : Html.RadioButtonFor(modelItem => item.Selected, item.Selected, new {onchange = "setMap($(this)," + item.MapId + ")"}))
+                                @if (item.Selected)
+                                {
+                                    <input type="radio" name="selected" onchange="setMap($(this), @item.MapId)" checked="checked"/>
+                                }
+                                else
+                                {
+                                    <input type="radio" name="selected" onchange="setMap($(this), @item.MapId)"/>
+                                }
                             </td>
                             <td>
                                 <a href="@Url.Action("Edit/"+item.MapId,"Map")" data-toggle="modal" data-target="#edit-map-modal"> <i class='glyphicon glyphicon-edit'></i> Editar</a> 
