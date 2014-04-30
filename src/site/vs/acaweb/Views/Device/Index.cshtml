@@ -1,13 +1,17 @@
 ﻿@{
     ViewBag.Title = "Configuración de Dispositivos";
 }
+
+
+@if (Session["UserData"] != null && ((ACAPackagesListener.API.Models.Entities.User)Session["UserData"]).IsAdmin)
+{
 <div class="row">
     <ul class="list-inline pull-right">
         <li><button class="btn btn-danger" id="btnClearData"><i class="glyphicon glyphicon-remove"></i> Borrar todo</button></li>
 @*        <li><a class="btn btn-info" id="btnImportMap" href="@Url.Action("Index","Map")"><i class="glyphicon glyphicon-globe"></i> Opciones de mapas</a></li>*@
     </ul>
 </div>
-
+}
 <div class="row">
     <ul class="nav nav-pills nav-tabs">
     @for(var i=0;i<ViewBag.FloorsCount;++i){

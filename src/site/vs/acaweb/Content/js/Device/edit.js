@@ -1,5 +1,12 @@
 ﻿var hasDblCick = false;
 var currentDevices = [];
+var infoUrl = base_url + "Device/Add";
+var editUrl = base_url + "Device/Edit";
+var delUrl = base_url + "Device/Delete";
+var infoWindowOpen = false;
+var currentInfoWindow = null;
+var currentMarker = null;
+
 var switchSpaces = function (floor) {
     changeFloor(floor);
     $(".floor-indicator").removeClass("active");
@@ -63,12 +70,6 @@ var getDevices = function() {
     });
 }
 $(document).ready(function () {
-    var infoUrl = base_url + "Device/Add";
-    var editUrl = base_url + "Device/Edit";
-    var delUrl = base_url + "Device/Delete";
-    var infoWindowOpen = false;
-    var currentInfoWindow = null;
-    var currentMarker = null;
     var deleteDevice = function (deviceId, marker) {
         if (confirm("¿Está seguro que desea borrar el dispositivo? Los paquetes recibidos por este permanecerán en la base de datos")) {
             $.getJSON(delUrl + '?DeviceId=' + deviceId,

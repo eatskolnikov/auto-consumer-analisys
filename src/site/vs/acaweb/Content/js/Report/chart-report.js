@@ -33,8 +33,10 @@ var pieCtx = document.getElementById("pie").getContext("2d");
 var getData = function(startDate, endDate) {
     $.get(base_url + "Report/ChartData?startDate=" + startDate + "&endDate=" + endDate,
         function (json) {
+            
             var c1 = new Chart(barCtx).Bar(json.bar);
             var c2 = new Chart(pieCtx).Pie(json.pie.data);
+            console.log(c1);
             for (var idx in json.pie.labels) {
                 $("#piePiecesNames").append("<li style='color:" + json.pie.colors[idx] + "'>" + json.pie.labels[idx] + "</li>");
             }

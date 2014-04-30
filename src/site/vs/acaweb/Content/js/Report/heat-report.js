@@ -1,6 +1,6 @@
-﻿$(function () {
+﻿var currentHeatmaps = [];
+$(function () {
     var radius = 3;
-    var currentHeatmaps = Array();
     var heatUrl = base_url + 'Packages/GetHeat/';
     var printHeat = function (newUrl) {
         $.ajax({

@@ -1,11 +1,12 @@
 ﻿
+var currentArrows = [];
+var currentLabels = [];
+var currentMarkers = {};
+var paths = {};
+var packagesurl = base_url + 'Packages/Get/';
+var lineSymbol = { path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW };
+
 $(function() {
-    var currentArrows = [];
-    var currentLabels = [];
-    var currentMarkers = {};
-    var paths = {};
-    var packagesurl = base_url + 'Packages/Get/';
-    var lineSymbol = { path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW };
     var printRoutes = function(newUrl, callback) {
         $.ajax({
             url: newUrl == null ? packagesurl : newUrl, method: 'GET', dataType: 'json',

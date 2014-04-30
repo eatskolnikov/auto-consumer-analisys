@@ -75,6 +75,11 @@
         changeFloor(floor);
         $(".floor-indicator").removeClass("active");
         $("#piso-" + floor).addClass("active");
+
+        for (var arrow in currentArrows) { currentArrows[arrow].setMap(null); }
+        for (var label in currentLabels) { currentLabels[label].setMap(null); }
+        for (var marker in currentMarkers) { currentMarkers[marker].marker.setMap(null); }
+        paths = []; currentArrows = []; currentLabels = []; currentMarkers = {};
         return false;
     }
 </script>

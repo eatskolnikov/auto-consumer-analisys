@@ -38,9 +38,9 @@ namespace acaweb.Controllers
             {
                 if (String.IsNullOrEmpty(endDate))
                     endDate = DateTime.Today.ToString("yyyyMMdd");
-                packages = _parsedPackagesRepository.FromDateRange(DateTime.Parse(startDate), DateTime.Parse(endDate));
+                packages = _parsedPackagesRepository.FromDateRange(DateTime.Parse(startDate), DateTime.Parse(endDate)).Where(x => x.Floor == floor);
             }
-            else { packages = _parsedPackagesRepository.GetAll(); }
+            else { packages = _parsedPackagesRepository.GetAll().Where(x => x.Floor == floor); }
             var result = packages.GroupBy(x => x.LatLng);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
@@ -51,9 +51,9 @@ namespace acaweb.Controllers
             if (!String.IsNullOrEmpty(startDate)) {
                 if(String.IsNullOrEmpty(endDate))
                     endDate = DateTime.Today.ToString("yyyyMMdd");
-                packages = _parsedPackagesRepository.FromDateRange(DateTime.Parse(startDate), DateTime.Parse(endDate));
+                packages = _parsedPackagesRepository.FromDateRange(DateTime.Parse(startDate), DateTime.Parse(endDate)).Where(x => x.Floor == floor);
             }
-            else { packages = _parsedPackagesRepository.GetAll(); }
+            else { packages = _parsedPackagesRepository.GetAll().Where(x=>x.Floor == floor); }
             return Json(packages.GroupBy(x => x.MAC), JsonRequestBehavior.AllowGet);
         }
     }

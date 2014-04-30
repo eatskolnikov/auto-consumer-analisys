@@ -50,6 +50,7 @@
         changeFloor(floor);
         $(".floor-indicator").removeClass("active");
         $("#piso-" + floor).addClass("active");
+        for (var heatMap in currentHeatmaps) { currentHeatmaps[heatMap].setMap(null); }
         return false;
     }
 </script>
