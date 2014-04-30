@@ -28,7 +28,7 @@ namespace acaweb.Controllers
         public ActionResult Heat()
         {
             ViewBag.HasMap = true;
-            ViewBag.Scripts = new List<string>{"heat-report.js", "filter-report.js"} ;
+            ViewBag.Scripts = new List<string> { "Report/heat-report.js", "Report/filter-report.js" };
             return View();
         }
 
@@ -42,7 +42,7 @@ namespace acaweb.Controllers
         public ActionResult Charts()
         {
             ViewBag.HasMap = true;
-            ViewBag.Scripts = new List<string> { "Chart.min.js", "chart-report.js", "filter-report.js" };
+            ViewBag.Scripts = new List<string> { "Chart.min.js", "Report/chart-report.js", "Report/filter-report.js" };
             return View();
         }
 

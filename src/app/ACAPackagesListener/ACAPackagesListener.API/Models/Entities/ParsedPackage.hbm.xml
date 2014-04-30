@@ -7,6 +7,7 @@
     </id>
     <property name="PackageDateTime"></property>
     <property name="LatLng"></property>
+    <property name="Floor"></property>
     <property name="MAC"></property>
     <property name="Activo"></property>
     <property name="Created"></property>

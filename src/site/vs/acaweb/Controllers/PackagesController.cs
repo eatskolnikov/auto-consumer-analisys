@@ -30,7 +30,7 @@ namespace acaweb.Controllers
             return Json(packages.GroupBy(x=>x.MAC), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetHeat(string startDate = "", string endDate = "")
+        public ActionResult GetHeat(string startDate = "", string endDate = "", int floor=1)
         {
             IEnumerable<ParsedPackage> packages;
 
@@ -45,7 +45,7 @@ namespace acaweb.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Get(string startDate = "", string endDate = "")
+        public ActionResult Get(string startDate = "", string endDate = "", int floor=1)
         {
             IEnumerable<ParsedPackage> packages;
             if (!String.IsNullOrEmpty(startDate)) {
