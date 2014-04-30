@@ -2,37 +2,51 @@
     ViewBag.Title = "Gráficas de datos";
 }
 
-<div class="row-fluid">
+<div class="row" style="margin-bottom:5px">
     <form class="form-inline">
-        <fieldset>
-            <table>
-                <tr>
-                    <td>Desde <input type="text" id="startDate" placeholder="dd/mm/yyyy" class="input-small"/></td>
-                    <td><input type="time" id="startTime" class="input-small"/></td>
-                    <td>Hasta <input type="text" id="endDate" placeholder="dd/mm/yyyy" class="input-small"/></td>
-                    <td><input type="time" id="endTime" class="input-small"/></td>
-                    <td><button type="button" value="Filtrar" id="btnFilter" class="btn btn-primary">Filtrar</button></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><span id="startDateError" class="error"></span></td>
-                    <td colspan="2"><span id="endDateError" class="error"></span></td>
-                    <td></td>
-                </tr>
-            </table>
-        </fieldset>
+        <table class="table-responsive">
+            <tr>
+                <td><label for="startDate">Desde</label></td>
+                <td><label for="endDate">Hasta</label></td>
+                <td rowspan="2" style="padding-left:5px">
+                    <button type="button" value="Filtrar" id="btnFilter" class="btn btn-lg btn-primary" style="margin-top:11px">Filtrar</button>
+                </td>
+                <td rowspan="2">
+                    <ul class="list-inline pull-right">
+                        <li><label for="refreshingTime">Tiempo de actualización (segs)</label></li>
+                        <li><input type="text" id="refreshingTime" name="refreshingTime" class="form-control" value="10" style="width: 50px"/></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class='input-group date datetimepickercontroller' id='startDate'>
+                        <input type='text' class="form-control"  />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <span id="startDateError" class="label label-danger"></span>
+                </td>
+                <td>
+                    <div class='input-group date datetimepickercontroller' id='endDate'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </form>
 </div>
-<div class="row-fluid">
+<div class="row">
     <p id="report-range"></p>
 </div>
-<div class="row-fluid">
-    <div class="span6">
+<div class="row">
+    <div class="col-sm-6">
         <canvas id="bars" height="500" width="500"></canvas>
     </div>
-    <div class="span4">
+    <div class="col-sm-4">
         <canvas id="pie" width="400" height="400"></canvas>
     </div>
-    <div class="span2">
+    <div class="col-sm-2">
         <ul id="piePiecesNames"></ul>
     </div>
 </div>

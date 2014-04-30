@@ -1,5 +1,5 @@
 ﻿var reloadReport = function (loadFunction, url) {
     var startDate = $("#startDate input").val();
     var endDate = $("#endDate input").val();
-    loadFunction(url + '?startDate=' + encodeURIComponent(startDate) + '&endDate=' + endDate);
+    loadFunction(url + '?startDate=' + encodeURIComponent(startDate) + '&endDate=' + endDate+'&floor='+current_floor);
 };
