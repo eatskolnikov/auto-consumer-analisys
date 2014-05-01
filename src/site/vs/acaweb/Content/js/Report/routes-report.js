@@ -39,8 +39,9 @@ $(function() {
                         var endLatLng = new google.maps.LatLng(end[0] + offset, end[1] + offset);
 
                         var lineCoordinates = [startLatLng, endLatLng];
-                        var labelLat = (endLatLng.lat() + startLatLng.lat()) / 2;
-                        var labelLng = (endLatLng.lng() + startLatLng.lng()) / 2;
+                        var labelLat = ((startLatLng.lat()/4) + (endLatLng.lat() + startLatLng.lat())) / 2;
+                        var labelLng = ((startLatLng.lng()/4) + (endLatLng.lng() + startLatLng.lng())) / 2;
+
                         var direction = getDirectionArrow(startLatLng, endLatLng);
                         var label = new MapLabel({ map: map,
                             text: paths[startPoint][endPoint] + " personas " + direction,

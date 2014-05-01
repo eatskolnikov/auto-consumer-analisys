@@ -56,5 +56,36 @@ namespace acaweb.Controllers
             else { packages = _parsedPackagesRepository.GetAll().Where(x=>x.Floor == floor); }
             return Json(packages.GroupBy(x => x.MAC), JsonRequestBehavior.AllowGet);
         }
+
+        private class ReportTable
+        {
+            public String Descripcion { get; set; }
+            public Int32 Piso { get; set; }
+            public Int32 Personas { get; set; }
+        }
+
+        public ActionResult GetTable(string startDate = "", string endDate = "")
+        {
+            IEnumerable<ParsedPackage> packages;
+            var deviceRepository = new NHDeviceRepository();
+            if (!String.IsNullOrEmpty(startDate))
+            {
+                if (String.IsNullOrEmpty(endDate))
+                    endDate = DateTime.Today.ToString("yyyyMMdd");
+                packages = _parsedPackagesRepository.FromDateRange(DateTime.Parse(startDate), DateTime.Parse(endDate));
+            }
+            else { packages = _parsedPackagesRepository.GetAll(); }
+            var tabla = new List<ReportTable>();
+            foreach (var floor in packages.GroupBy(x=>x.Floor))
+            {
+                foreach(var item in floor.GroupBy(x=>x.LatLng))
+                {
+                    var device = deviceRepository.GetAll().FirstOrDefault(x => x.LatLng == item.Key);
+                    tabla.Add(new ReportTable { Descripcion = device.Description, Piso = floor.Key, Personas = item.Count() });
+                }
+            }
+
+            return Json(tabla, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace acaweb.Controllers
         public ActionResult RoutesTable()
         {
             ViewBag.HasMap = true;
-            ViewBag.Scripts = new List<string> { "Report/filter-report.js" };
+            ViewBag.Scripts = new List<string> { "Report/routes-table-report.js", "Report/filter-report.js" };
             return View();
         }
 
